@@ -1,108 +1,105 @@
 
 
-<div class="container">
-<nav>
-		<ul class="mcd-menu" style="background-color: #f7f7f7;">
+<div class="container" style="background-color: white;">
+<nav style="font-size: 1rem">
+		<ul class="mcd-menu" style="background-color: #f7f7f7; border-radius:10px;">
 			<li>
-				<a href="">
-					<i class="fa fa-home"></i>
-					<strong>Users</strong>
-					<small>sweet home</small>
-				</a>
-  			<ul>
-        <li><%= link_to t('general.confirm_reject_user'), :action=>'admin_dashboard', :controller=>'welcome'%></li>
-        <li><%= link_to t('general.examiner'), :action=>'index', :controller=>'users', :create_id => 2%></li>
-        <li><%= link_to t('welcome.q_setter'), :action=>'index', :controller=>'users', :create_id => 3%></li>
-         <li><%= link_to t('welcome.examinee'), :action=>'index', :controller=>'users', :create_id => 4%></li>
-        <li><%= link_to t('general.group_user'), :action=>'groupUser', :controller=>'users'%></li>
-        <li><%= link_to t('general.activate'), :action=>'activate_inactivate', :controller=>'users'%></li>
-        </ul>
-			</li>
-			<li>
-				<a href="">
-					<i class="fa fa-edit"></i>
-					<strong>Subject</strong>
-					<small>sweet home</small>
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<i class="fa fa-gift"></i>
-					<strong>Questions</strong>
-					<small>sweet home</small>
-				</a>
-			</li>
-			<li>
-				<a href="">
-					<i class="fa fa-globe"></i>
-					<strong>Exams</strong>
-					<small>sweet home</small>
-				</a>
-        <ul>
-        <li><%= link_to t('general.create_exam'),:action=>"scheduleExam", :controller=>"exams" %></li>
-        <li><%= link_to t('general.examtype'),:action=>"listExamtypes", :controller=>"exams" %></li>
-        <li><%= link_to t('general.assignexam'),:action=>"assignExam",:controller=>'exams'%></li>
-        <li><%= link_to t('general.selectquestions'),:action=>"selectQuestion", :controller=>"exams" %></li>
-        <li><%= link_to t('general.assignexaminees'),:action=>"selectExaminee", :controller=>"exams" %></li>
-        <li><%= link_to t('evaluate.evaluate_exam'),:action=>"evaluate", :controller=>"exams" %></li>
-        <li><%= link_to t('evaluate.evaluators'),:action=>"evaluator", :controller=>"exams" %></li>
-        <li><%= link_to t('evaluate.assign_evaluator'),:action=>"getEvaluator", :controller=>"exams" %></li>
-        </ul>
-			</li>
-			<li>
-				<a href="">
-					<i class="fa fa-comments-o"></i>
-					<strong>Result</strong>
-					<small>what they say</small>
-				</a>
+				<strong><%=link_to(content_tag('span',t('general.users')), :action=>'user_management', :controller=>'welcome') %></strong>
 				<ul>
-        <li><%= link_to t('result.examinees_result'), :action=>"usersResult", :controller=>"results"%></li>
-        <li><%= link_to t('result.exams_result'), :action=>"examsResult", :controller=>"results"%></li>
-        <li><%= link_to t('result.department_result'), :action=>"departmentResult", :controller=>"results"%></li>
-
+					<li><%= link_to t('general.confirm_reject_user'), :action=>'admin_dashboard', :controller=>'welcome'%></li>
+					<li><%= link_to t('general.examiner'), :action=>'index', :controller=>'users', :create_id => 2%></li>
+					<li><%= link_to t('welcome.q_setter'), :action=>'index', :controller=>'users', :create_id => 3%></li>
+					 <li><%= link_to t('welcome.examinee'), :action=>'index', :controller=>'users', :create_id => 4%></li>
+					<li><%= link_to t('general.group_user'), :action=>'groupUser', :controller=>'users'%></li>
+					<li><%= link_to t('general.activate'), :action=>'activate_inactivate', :controller=>'users'%></li>
 				</ul>
 			</li>
 			<li>
-				<a href="">
-					<i class="fa fa-picture-o"></i>
-					<strong>Organization levels</strong>
-					<small>sweet home</small>
-				</a>
+                <strong><%=link_to(content_tag('span',t('general.subjects')),:action=>'index', :controller=>'subjects') %></strong>
 			</li>
 			<li>
-				<a href="">
-					<i class="fa fa-envelope-o"></i>
-					<strong>Category</strong>
-					<small>drop a line</small>
-				</a>
-
-
+			<strong><%=link_to(content_tag('span',t('general.questions')),:action=>'index', :controller=>'questions') %></strong>
 			</li>
-
-
-      <li>
-      <a href="">
-        <i class="fa fa-envelope-o"></i>
-        <strong>Category</strong>
-        <small>drop a line</small>
-      </a>
-    </li>
-    <li>
-    <a href="">
-      <i class="fa fa-envelope-o"></i>
-      <strong>Category</strong>
-      <small>drop a line</small>
-    </a>
-  </li>
-  <li>
-  <a href="">
-    <i class="fa fa-envelope-o"></i>
-    <strong>Category</strong>
-    <small>drop a line</small>
-  </a>
-  
-</li>
-		
+			<li>
+				<strong><%=link_to(content_tag('span',t('general.exams')), :action=>'index', :controller=>'exams') %></strong>
+				<ul>
+				<li><%= link_to t('general.create_exam'),:action=>"scheduleExam", :controller=>"exams" %></li>
+				<li><%= link_to t('general.examtype'),:action=>"listExamtypes", :controller=>"exams" %></li>
+				<li><%= link_to t('general.assignexam'),:action=>"assignExam",:controller=>'exams'%></li>
+				<li><%= link_to t('general.selectquestions'),:action=>"selectQuestion", :controller=>"exams" %></li>
+				<li><%= link_to t('general.assignexaminees'),:action=>"selectExaminee", :controller=>"exams" %></li>
+				<li><%= link_to t('evaluate.evaluate_exam'),:action=>"evaluate", :controller=>"exams" %></li>
+				<li><%= link_to t('evaluate.evaluators'),:action=>"evaluator", :controller=>"exams" %></li>
+				<li><%= link_to t('evaluate.assign_evaluator'),:action=>"getEvaluator", :controller=>"exams" %></li>
+				</ul>
+			</li>
+			<li>
+				<strong><%=link_to(content_tag('span',t('general.result')), :action=>'index', :controller=>'results') %></strong>
+				<ul>
+					<li><%= link_to t('result.examinees_result'), :action=>"usersResult", :controller=>"results"%></li>
+					<li><%= link_to t('result.exams_result'), :action=>"examsResult", :controller=>"results"%></li>
+					<li><%= link_to t('result.department_result'), :action=>"departmentResult", :controller=>"results"%></li>
+				</ul>
+			</li>
+			<li>
+				<strong><%=link_to(content_tag('span',t('general.org_levels')), :action=>'index', :controller=>'category_titles') %></strong>
+				<%unless @organization_id == nil && @category_types.blank?%>
+					<ul>
+						<% @category_types.each do |category_type| %>
+						<%if category_type.id == 1%>  
+						<li><%=link_to t('org.class'), :action=>'index', :controller=>"category_titles", :type=>category_type.id%></li>
+						<%elsif category_type.id == 3%>   
+						<li><%=link_to t('general.course'), :action=>'index', :controller=>"category_titles", :type=>category_type.id%></li>
+						<%elsif category_type.title == "academic_year"%>  
+						<li><%=link_to t('general.academic_year'), :action=>'index', :controller=>"category_titles", :type=>category_type.id%></li>
+						<%elsif category_type.title == "department"%> 
+						<li><%=link_to t('general.department'), :action=>'index', :controller=>"category_titles", :type=>category_type.id%></li>
+						<%elsif category_type.title == "domain"%> 
+						<li><%=link_to "Domain", :action=>'index', :controller=>"category_titles", :type=>category_type.id%></li>
+						<%elsif category_type.title == "semester"%>   
+						<li><%=link_to t('general.semester'), :action=>'index', :controller=>"category_titles", :type=>category_type.id%></li>
+						<%elsif category_type.title == "section"%>    
+						<li><%=link_to t('general.section'), :action=>'index', :controller=>"category_titles", :type=>category_type.id%></li>
+						<%end%>     
+					<% end %>
+					</ul>
+				<%end%>
+			</li>
+			<li>
+                <strong><%=link_to(content_tag('span',t('general.category')), :action=>'listCategories', :controller=>'categories') %></strong>
+                    <ul>
+                      <li><%= link_to t('general.config_category'), :action=>'index', :controller=>'categories', :create_id => 3%></li>
+                    </ul>
+			</li>
+			<li>
+				<strong><%=link_to(content_tag('span',t('general.reports')), :action=>'index', :controller=>'reports') %></strong>
+				<ul>
+					<li><%= link_to t('general.examinees_report'), :action=>"userReport", :controller=>"reports"%></li>
+					<li><%= link_to t('general.exams_report'), :action=>"examReport", :controller=>"reports"%></li>
+					<li><%= link_to t('reports.overall'), :action=>"departmentReport", :controller=>"reports"%></li>
+					<li><%= link_to t('general.org_overview'), :action=>"overall", :controller=>"reports"%></li>
+					<li><%= link_to t('general.pass_fail'), :action=>"pass_fail", :controller=>"reports"%></li>
+				</ul>
+			</li>
+			<%if current_user.role_id == 1 %>
+			<li>
+				<strong><%=link_to(content_tag('span',t('general.settings')), :action=>'index', :controller=>'settings') %></strong>
+				<ul>
+				<li><%= link_to t('general.client_image'), :action=>"clientImage", :controller=>"images"%></li>
+				<li><%= link_to t('about.aboutus'), :action=>"index", :controller=>"aboutus"%></li>
+				<li><%= link_to t('client.client_info'), :action=>"index", :controller=>"clientinfo"%></li>
+				</ul>
+			</li>
+			<li>
+				<strong><%=link_to(content_tag('span',t('general.email')), :action=>'index', :controller=>'emails') %></strong>
+			</li>
+			<%end%>
+			<li>
+				<strong><%=link_to(content_tag('span',t('general.feedback')), :action=>'index', :controller=>'feedback') %></strong>
+				<ul>
+					<li><%= link_to t('general.feedback_res'), :action=>"feedbackResponse", :controller=>"feedback"%></li>
+				</ul>
+			</li>	
 		</ul>
 	</nav>
 </div>

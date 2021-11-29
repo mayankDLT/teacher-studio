@@ -10,8 +10,11 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
   <head>
 	<title>VirtualX - Online Examination System</title>
-	<link href='https://fonts.googleapis.com/css?family=Poppins' rel='stylesheet'>
-
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,100&display=swap" rel="stylesheet">
+  
+  
 	<%= favicon_link_tag 'favicon.ico' %>
 	
     <%= stylesheet_link_tag "application" %>
@@ -43,10 +46,8 @@
 	    
  <%= render :partial => 'layouts/header' %>
 
- <div>
+ <div class="clear"></div>
 
-
-</div>
 </div>
 </div>
 
@@ -57,11 +58,7 @@
 <%= render :partial => 'shared/navigation' %>
 <div class="contentWrapper">
 
-<%if current_user%>
-  <%if current_user.role_id == 1 or current_user.role_id == 2%>
-  <%=link_to t('general.back_to_workflow'), {:action=>"workflow", :controller=>"welcome"},:class=>"workflow"%>
-  <%end%>
-<%end%>
+
 
 <div class="midCol">
  <% flash.each do |name, msg| %>
@@ -84,26 +81,11 @@
 
 
 
+
 <div id="footer">
-  <div class="footerContent">
-  	
-	<div class="footerNav">
-      <ul>
-        <li class="first"><%= link_to t('about.aboutus'), :action=>"view_aboutus", :controller=>"home"%></li>
-        <li><%= link_to t('about.clients'), :action=>"view_clients", :controller=>"home"%></li>
-        <li><%= link_to t('about.features'), :action=>"view_features", :controller=>"home"%></li>
-        <li><%= link_to t('about.modules'), :action=>"view_modules", :controller=>"home"%></li>
-        <li><%= link_to t('about.contactus'), :action=>"view_contactus", :controller=>"home"%></li>
-      </ul>
-    </div>
 	
-		<div class="copytxt">
-		<p class="copytxt">&copy; PITSolutions Pvt. Ltd., All rights reserved.</p>
-		</div>
-  </div>
-
-
- </div>
+&copy; Tekmonks Pvt. Ltd., All rights reserved.
+</div>
 
 
 

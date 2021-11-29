@@ -1,7 +1,6 @@
 body { 
-	background: #EEE; 
+	background: white; 
 	overflow-x:hidden;
-    color: #f26f29
 }
 .clearfix:before,
 .clearfix:after {
@@ -63,7 +62,7 @@ body {
   padding: 0;
   margin: 0;
   background: #FFF;
-  /*height: 100px;*/
+  height: 710px;
   border-radius: 2px;
   -moz-border-radius: 2px;
   -webkit-border-radius: 2px;
@@ -77,10 +76,12 @@ body {
   /*float:left;*/
 }
 .mcd-menu li a {
-  display: block;
+  display: flex;
+  align-items: center;
+
   text-decoration: none;
   padding: 12px 20px;
-  color: #777;
+  color: #f26f29;
   /*text-align: center;
   border-right: 1px solid #E7E7E7;*/
   

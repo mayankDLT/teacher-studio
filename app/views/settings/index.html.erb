@@ -43,7 +43,7 @@
               <tr>
                 <td style="width:115px; text-align:right; padding-right:10px;"><%=t('settings.org_type')%></td>
                 <td style="width:115px;">
-                <%= select_tag 'orgnization_type', options_for_select(@organization_types.to_a, :selected=>@organizationName), :style=>"width:175px; height:19px; border:#d1d1d1 1px solid;" %>
+                <%= select_tag 'orgnization_type', options_for_select(@organization_types.to_a, :selected=>@organizationName), :style=>"width:175px; border:#d1d1d1 1px solid;" %>
 			    </td>
 				<td style="font-style: italic; color: rgb(0, 0, 0); padding-left: 8px;"></td>
 				</tr>
@@ -55,7 +55,7 @@
               <tr>
                 <td style="width:115px; text-align:right; padding-right:10px;"><%=t('settings.language')%></td>
                 <td style="width:115px;">
-                <%= select_tag 'locale', options_for_select(@Locale_type.to_a, :selected=>@locale), :style=>"width:115px; height:19px; border:#d1d1d1 1px solid;" %>
+                <%= select_tag 'locale', options_for_select(@Locale_type.to_a, :selected=>@locale), :style=>"width:115px; border:#d1d1d1 1px solid;" %>
 								</td>
 				<td style="font-style: italic; color: rgb(0, 0, 0); padding-left: 8px;"></td>
 				</tr>	
@@ -83,7 +83,7 @@
               <tr>
                 <td style="width:115px; text-align:right; padding-right:10px;"><%=t('settings.approve_examinee')%></td>
                 <td style="width:115px;">
-                <%= select_tag 'approve_examinee', options_for_select(@approve_examinee.to_a, :selected=>@approveExaminee), :style=>"width:115px; height:19px; border:#d1d1d1 1px solid;" %>
+                <%= select_tag 'approve_examinee', options_for_select(@approve_examinee.to_a, :selected=>@approveExaminee), :style=>"width:115px; border:#d1d1d1 1px solid;" %>
 			    </td>
 				<td style="font-style: italic; color: rgb(0, 0, 0); padding-left: 8px;"></td>
 				</tr>

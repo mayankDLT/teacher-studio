@@ -2,7 +2,7 @@
 <div style="float:left; padding:0px; margin:0px; width:100%;", class="showExamname">
 <div style="float:left; padding:0px; margin:0 20px 5px 0;">
 	<label style="float:left; padding-right:10px; width:95px;"><%=t('exam.select_exam')%>:</label>
-   <%=  select_tag "examName", options_for_select([[t('general.select') , "" ]] + @examNames.collect{|e| [e.name[0..30],e.id,{:title=>e.name}]}, :selected=>@selectedExamname), {:style=>"width:200px; height:19px; border:#d1d1d1 1px solid;",:class=>"validate[required]"}%>
+   <%=  select_tag "examName", options_for_select([[t('general.select') , "" ]] + @examNames.collect{|e| [e.name[0..30],e.id,{:title=>e.name}]}, :selected=>@selectedExamname), {:style=>"width:200px; border:#d1d1d1 1px solid;",:class=>"validate[required]"}%>
 	</div>
 
 <span style="float:right;">
