@@ -1,0 +1,13 @@
+<% @articles.each do |article|%>
+<h2><%=article.title%></h2>
+Created at:<strong><%= article.created_at.strftime("%B %d %Y") %></strong> by <%=article.username(article.user_id)%> - 
+<%unless current_user%>Login to <%end%>
+<%if current_user%>
+	<%=link_to "Leave a comment", {:action=>"index", :controller=>"article",:articles=>article.title}%>
+<%else%>
+	<%=link_to "Leave a comment", "#"%>
+<%end%>
+<br><br>
+<%=article.body_part.html_safe%><br><br>
+<%= link_to "Read More", {:controller=>"article", :action => "index", :articles => article.title}%><br><br>
+<%end%>

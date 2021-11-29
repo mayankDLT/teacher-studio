@@ -1,0 +1,98 @@
+
+<h2>Assets</h2>
+
+<!-- ******************** -->
+<% unless current_user %>  
+   <h1>Welcome to ShareBox</h1>  
+   <p>File sharing web application you can't ignore.</p>  
+     
+<% else %>  
+<div class="main_wrapper">
+<div class="main_inner">
+    
+	<div class="top_con">
+       <ul id= "top_menu">      
+           <%= link_to image_tag("docSharing/upload.jpg"), new_asset_path%> 
+       </ul>  
+    </div>
+
+    <div class="file_wrapper">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td valign="top">
+        <%unless @assets.empty?%>
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">	
+
+		   <tr>
+              <td width="35%" height="35" valign="top"><h1>Filename</h1></td>
+              <td width="14%" valign="top"><h1>Size</h1></td>
+              <td width="28%" valign="top"><h1>Modified</h1></td>
+              <td valign="top"><h1>&nbsp;</h1></td>
+            </tr>
+			<% @assets.each do |asset| %>  
+			       
+            <tr>
+              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <%ext = File.extname(asset.file_name)%>
+				<%if ext == ".txt"%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/1326269424_document_pencil.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>
+				<%elsif ext == ".pdf"%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/1326269487_page_white_acrobat.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>	
+				<%elsif ext == ".docx"%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/1326269460_page_white_word.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>
+				<%elsif ext == ".jpg" or ext == ".png" or ext == ".gif" or ext == ".tif" or ext == ".bmp"%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/image.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>	
+				<%else%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/document.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>														
+				<%end%>
+              </table></td>
+              <td valign="top"><h3><%= number_to_human_size(asset.file_size, :precision => 2) %></h3></td>
+              <td valign="top"><h3><%= asset.uploaded_file_updated_at.strftime('%m/%d/%Y %I:%M %p') %></h3></td>
+              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="43" valign="top">
+                  	<%= link_to image_tag("docSharing/download.jpg"), download_url(asset)%>
+				  </td>                	
+                  <td width="5" valign="top">&nbsp;</td>
+                  <td valign="top">
+                    <%= link_to image_tag ("docSharing/doc_edit.jpg"),edit_asset_path(asset) unless @is_this_folder_being_shared%>			        
+				  </td>
+
+                </tr>
+              </table></td>
+            </tr>
+				   
+			   
+			<% end %> 
+
+		
+		</table>
+		<%else%>
+		<div class="clear"></div>
+		<b>No Documents found</b>
+		<%end%>
+		</td>
+		</tr>
+	  </table>
+	  <div class="clear"></div><br>
+	  <%=link_to "Back to folders", folders_path%>
+	</div>
+	
+</div>
+</div>
+<% end %> 

@@ -1,0 +1,38 @@
+<fieldset class="formContainer w241 dlog_popup">
+<legend><%=t('question.select_qsetter')%></legend>	
+<%= form_tag({:action => "share"}, {:id => "class_form"}) do -%>
+<%=hidden_field_tag "question_id", @shared_question%>
+
+
+            <table>
+              <tr>
+         
+                <td><%=t('user.q_setters')%>:</td>
+		        <td>
+<%= select_tag "user_id", options_for_select([[t('general.select') , "0" ]] + @users.collect{ |u| [u.name, u.id,{:title=>u.name}] }), :class=>"validate[required]"%>
+			
+	      </tr> 
+		  <tr>
+		  	<td class="dlog"><%= submit_tag t('general.assign'), :id=>"assign", :class=>'btnBg', :disabled => true, :style => "opacity:0.5;" %></td>
+		  </tr>
+            </table>
+
+
+
+<% end %>
+</fieldset>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#user_id').on('change', function() {
+	  		if (this.value != 0){
+	  			$('#assign').removeAttr('disabled');
+	  			$('#assign').css('opacity', '1');
+  			}
+ 			else{
+ 				$('#assign').attr('disabled', 'disabled');
+  				$('#assign').css('opacity', '0.5');
+ 			}
+		});
+	});
+</script>

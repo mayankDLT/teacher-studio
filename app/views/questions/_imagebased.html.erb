@@ -1,0 +1,15 @@
+<table class="answer_name" style="float:left; width:100%; padding:0; margin:0;" >
+	<tr>
+		<th style='float:left; margin-left:22px;'><%=t('question.enter_opt')%></th>
+	</tr>
+	
+	<% 1.upto(2) do |i| %>
+		<tr>
+			<td>
+		  		<%= check_box_tag "fields[#{i}][is_answer]", '1', false, :class=>"validate[maxCheckbox[1]] checkbox", :style=>"margin-right: 5px; margin-top:3px;", :class=>"mtie7" %>
+			  	<%= text_field_tag "fields[#{i}][name]",'', :class=>"validate[required,funcCall[checkHELLO]] text-input blankCount", :style=>"width:115px; height:19px; border:#d1d1d1 1px solid; margin-right:10px; " %>
+			  	<br>
+		  	</td>
+	  	</tr>
+	<% end %>
+</table>

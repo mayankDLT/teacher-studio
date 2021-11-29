@@ -1,0 +1,11 @@
+
+<%unless @question.question_hint == "" || @question.question_hint.nil?%>
+	<div style="padding:5px 5px;">
+		<b><%=t('question.ques_hint')%>:</b><br>
+		
+		<div style="background:#efefef; padding:5px 5px; margin-top: 5px;">
+			<%=@question.question_hint.gsub(/\n/, '<br>').html_safe%>
+		</div>
+		
+	</div><br>
+<%end%>

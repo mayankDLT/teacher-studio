@@ -1,0 +1,49 @@
+
+<h2>Edit file</h2>
+
+  <div class="main_inner">
+  	
+    <%= render :partial => "folders/breadcrumbs" %> 
+  	
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">&nbsp;</td>
+      </tr>
+
+   <%= form_for @asset, :html => {:multipart => true} do |f| %>  
+	 <%= f.error_messages %> 
+	      <tr>
+	        <td valign="top"><table width="42%" border="0" cellspacing="0" cellpadding="0">
+	          <tr>
+	            <td width="105" valign="middle"><h1 style="width:90px;">Upload File:</h1></td>
+	            <td align="right" valign="top">
+	              <%= f.file_field :uploaded_file %>  
+				  <%= f.hidden_field :folder_id %> 
+	            </td>
+	          </tr>
+	          <tr>
+	            <td valign="top">&nbsp;</td>
+	            <td height="40" align="right" valign="bottom">
+				<%= f.submit "Upload", :class=>'btnBg ' %>
+				</td>
+	          </tr>
+	        </table></td>
+	      </tr>
+	<% end %> 
+
+          <tr>
+          	<% if @asset.folder %>  
+
+            <td valign="top">
+            	<div style="float:left;"><%= link_to "Back to '#{@asset.folder.name}' Folder", browse_path(@asset.folder) %></div>
+				<div style="float:left; margin:0 10px 0 10px;"> | </div>
+				<div style="float:left;"><%= link_to t('general.back'), browse_path(@asset.folder) %> </div>				
+            </td>			
+			<%else%>
+            <% end %> 
+		  </tr>
+      <tr>
+        <td valign="top">&nbsp;</td>
+      </tr>
+    </table>
+  </div>

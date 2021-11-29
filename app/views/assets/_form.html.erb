@@ -1,0 +1,26 @@
+<%= form_for @asset, :html => {:multipart => true, :id => "class_form"} do |f| %>  
+ <%= f.error_messages %> 
+      <tr>
+        <td valign="top"><table width="42%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="105" valign="middle"><h1 style="width:90px;">Upload File:</h1></td>
+            <td align="right" valign="top">
+              <%= f.file_field :uploaded_file, :class=>"validate[required,funcCall[checkHELLO]] text-input" %>
+			  <%= f.hidden_field :folder_id %> 
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+            <td height="40" align="right" valign="bottom">
+			<%= f.submit "Upload", :class=>'btnBg ' %> 
+			</td>
+          </tr>
+        </table></td>
+      </tr>
+<% end %> 
+
+<script type="text/javascript">
+$(document).ready(function() {
+$("#class_form").validationEngine();
+});
+</script>

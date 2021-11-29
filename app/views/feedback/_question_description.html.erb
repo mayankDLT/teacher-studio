@@ -1,0 +1,13 @@
+<div class="question_desc_feedback">
+	<table>
+  		<% qustionType = QuestionType.find_by_id(@question.question_type_id)%>
+	  	
+	  	<tr>
+			<td class="container_desc">
+        		<span class="toggle" id="<%= @question.id %>"></span>
+        		<div class="decsription"><%= @question.description.html_safe %></div>
+    		</td>
+                
+	  	</tr>
+    </table>
+</div>

@@ -1,0 +1,302 @@
+<%if current_user%>
+<%if current_user.role_id == Admin%>
+<b>
+<%= link_to t('blog.new_article'), :controller=>"article", :action=>"new"%> | <%= link_to t('blog.all_article'), :controller=>"article", :action=>"list"%> <br><br>
+<%=link_to t('blog.new_category'), :controller=>"blog_category", :action=>"new"%> | <%= link_to t('blog.all_category'), :controller=>"blog_category", :action=>"list"%> <br><br>
+<%=link_to t('blog.new_sub'), :controller=>"subcategory", :action=>"new"%> | <%= link_to t('blog.all_sub'), :controller=>"subcategory", :action=>"list"%>
+</b>
+<%else%>
+<b><%= link_to t('blog.new_article'), :controller=>"article", :action=>"new"%> | <%= link_to t('blog.all_article'), :controller=>"article", :action=>"list"%>
+
+</b>
+<%end%>
+<%end%><br><br>
+
+
+<script>
+	$(document).ready(function(){ $("#navmenu-h li,#navmenu-v li").hover( function() { $(this).addClass("iehover"); }, function() { $(this).removeClass("iehover"); } ); });
+</script>
+
+
+
+
+
+<div id="wrap">
+<!--
+<div id="header">
+	<div class="wrap"><div id="title-area"><a href="#"><img src="images/blog/logo.png" width="235" height="60" alt="" /></a></div><div class="widget-area">
+		<div id="text-600853132" class="widget widget_text"><div class="widget-wrap">	
+
+<div class="textwidget"><img src="images/blog/virtualx_logo.jpg" width="236" height="60" alt="" /></div>
+		</div></div>
+
+</div></div></div>-->
+
+<div id="navHead">
+<div class="wrap">
+  <h1 style="padding-left:10px;"><%=t('blog.heading')%></h1>
+</div><!-- end .wrap --></div>
+
+<div id="inner">	<div id="content-sidebar-wrap">
+				<div id="content" class="hfeed">
+			<div class="breadcrumb"><%=t('blog.you_are_here')%>: <a href="#" title="View Home"><%=t('blog.heading')%></a> - VirtualX</div>	<div class="post-691 post type-post status-publish format-standard hentry category-general genesis-feature genesis-feature-1 genesis-feature-odd">
+<p class="titles" style="color:#db3939; font-style:italic;  text-align:center; font-size:14px;"></p>
+
+<%unless @article == nil%>
+		<h1 class="entry-title"><%=link_to @article.title, :action=>:show, :controller=>:article,:id=>@article.id%></h1>
+		
+		<div class="post-info">
+	<%=t('blog.created_at')%>:<strong><%= @article.created_at.strftime("%B %d %Y") %></strong> <%=t('blog.by')%> <%=@article.username(@article.user_id)%> - 
+	<%unless current_user%><%=t('blog.login_to')%> <%end%>
+	<%if current_user%>
+		<%=link_to t('blog.leave_comment'), {:action=>"index", :controller=>"article",:articles=>@article.title}%>
+	<%else%>
+		<%=link_to t('blog.leave_comment'), "#"%>
+	<%end%>			 
+			 </div>		
+			 
+<!--	<div class="like_tmp mb15">
+	<div style="float:left; padding:0px; margin:0px 10px 0 0;">
+		<span class="average"><%#=@article.getPercentage(@article.id)%>%</span>          
+        <span class="recommended">recommended</span>
+							
+	</div>
+		
+		 <div class="rec_rate_up"><span class="large_tu"></span></div>
+		<span class="like_number"><%#=@article.getCount_tp(@article.id)%></span><span class="like_text">Recommendations</span>
+		
+	</div>		-->
+
+<div class="like_tmp">
+ <div class="rate_up">
+<%=link_to '', "#nogo",:class=>'large_tu',:id=>@article.id,:value=>@article.id%>
+</div>	
+
+ <div class="rate_down">
+
+<%=link_to '', "#nogo",:class=>'large_td',:id=>@article.id,:value=>@article.id%>
+</div>
+<%=hidden_field_tag "large", "0"%>
+
+
+	<div class="like_tmp01 mb15">
+	<div style="float:left; padding:0px; margin:0px 10px 0 0;">
+		<span class="average"><%=@article.getPercentage(@article.id)%>%</span>          
+        <span class="recommended"><%=t('blog.recommended')%></span>
+							
+	</div>
+		
+		 <div class="rec_rate_up"><span class="large_t"></span></div>
+		<span class="like_number"><%=@article.getCount_tp(@article.id)%></span><span class="like_text"><%=t('blog.recommendations')%></span>
+		
+	</div>	
+
+</div>
+	
+		 
+			 <div class="entry-content">
+			<div class="article_bg"><%=@article.body_part.html_safe%></div>
+		</div><!-- end .entry-content -->
+<%end%>		
+
+	</div><!-- end .postclass -->
+
+<%@last_five_articles.each do|article|%>
+<div class="<%= cycle("odd", "even") %>">
+		<h2 class="entry-title">
+		    <%=link_to article.title, :action=>:show, :controller=>:article,:id=>article.id%></h2>
+		
+		<div class="post-info">	<%=t('blog.created_at')%>:<strong><%= article.created_at.strftime("%B %d %Y") %></strong> <%=t('blog.by')%> <%=article.username(article.user_id)%> - 
+	<%unless current_user%>Login to <%end%>
+	<%if current_user%>
+		<%=link_to t('blog.leave_comment'), {:action=>"index", :controller=>"article",:articles=>article.title}%>
+	<%else%>
+		<%=link_to t('blog.leave_comment'), "#"%>
+	<%end%>
+		 </div>
+		<div class="entry-content h250">
+			<div class="like_tmp mb15">
+	<div style="float:left; padding:0px; margin:0px 10px 0 0;">
+		<span class="average"><%=article.getPercentage(article.id)%>%</span>          
+        <span class="recommended"><%=t('blog.recommended')%></span>
+							
+	</div>
+		
+		 <div class="rec_rate_up"><span class="large_t"></span></div>
+		<span class="like_number"><%=article.getCount_tp(article.id)%></span><span class="like_text"><%=t('blog.recommendations')%></span>
+		
+	</div>			 
+	
+			
+		<div class="content_repeat"><p><%=strip_tags(article.body_part.html_safe[0..370])%></p></div>		
+				
+</div><!-- end .entry-content 
+<a href="#" class="more-link">[Continue reading…]</a>	-->
+<%=link_to t('blog.continue_reading'), :action=>:show, :controller=>:article,:id=>article.id%>
+</div>	
+<%end%>	
+	
+
+
+<!--<div class="navigation"><div class="alignleft"><a href="#">« Older Posts</a></div></div> end .navigation -->
+</div><!-- end #content -->
+		<div id="sidebar" class="sidebar widget-area">
+
+		<div id="recent-posts-3" class="widget widget_recent_entries">
+		<div class="widget-wrap">	<h4 class="widgettitle"><%=t('blog.recent_articles')%></h4>
+		    <ul>
+		    	<%@last_five_articles.each do|article|%>
+				<li><%=link_to article.title, :action=>:index, :controller=>:article,:articles=>article.title%></li>
+	            <%end%>		
+			</ul>
+		</div>
+		</div>
+		
+<!--<div id="global-translator" class="widget widget_global_translator">
+	<div class="widget-wrap">
+	<h4 class="widgettitle">Translator</h4>
+
+<div class="translation_bar" >
+<%#=link_to '', url_for(:locale => 'en'),:class=>'one'%> <%#=link_to '', url_for(:locale => 'de'),:class=>'two'%>
+</div></div>
+</div>-->
+
+<div id="categories-418436592" class="widget widget_categories"><div class="widget-wrap"><h4 class="widgettitle"><%=t('blog.categories')%></h4>
+<ul id="" class="pb7 fleft">
+		<%@categories.each do|category|%>
+
+        <li>
+            <%if category.articles.length>0%>
+            <%=link_to category.name, :action=>:categoryArticle, :controller=>:blog_category,:category=>category.id%>
+            <%else%>
+		    <%=link_to category.name, "#nogo"%>
+		    <%end%>
+          <ul>
+          	<% @subcategories = category.getSubcategories(category)%>
+			<%@subcategories.each do|subcategory|%>
+            <li>
+            <%if subcategory.articles.length>0%>
+            <%=link_to subcategory.name, :action=>:subcategory_article, :controller=>:blog_category,:subcategory_id=>subcategory.id%>
+            <%else%>
+                <%=link_to subcategory.name, "#nogo"%>
+            <%end%>
+              <ul>
+              	<% @subcategory_articles = subcategory.getSubcategoryArticle(subcategory)%>
+				<%@subcategory_articles.each do|article|%>
+                <li><%=link_to article.title, :action=>:index, :controller=>:article,:articles=>article.title%></li>
+                <%end%> 
+              </ul>
+            </li>
+            <%end%>
+          </ul>
+        </li>
+
+<%end%>
+</ul>
+</div>
+</div>
+
+
+
+<div id="recent-comments-3" class="widget widget_recent_comments">
+	<div class="widget-wrap"><h4 class="widgettitle"><%=t('blog.recent_comments')%></h4>
+<ul id="recentcomments">
+	<%@comments.each do|comment|%>
+	<li class="recentcomments"><%=comment.comment%></li>
+    <%end%>
+	</ul>
+	</div>
+</div>
+
+
+</div>	</div><!-- end #content-sidebar-wrap -->
+	</div><!-- end #inner -->
+</div><!-- end #wrap -->
+
+
+
+
+
+</body>
+
+
+
+<script type="text/javascript">	
+
+$(document).ready(function() {
+
+	
+   	 $(".large_tu").click(function() {
+   if ($('.large_tu').hasClass("onprocess")) {return false;}
+   $('.large_tu').addClass("onprocess");
+   
+	  var url = "<%= url_for(thumbsUp_path)%>";
+	  var data = {article_id:this.id, user_id:$("#user_id").val()};
+	  if ($("#user_id").val()!= ''){
+
+	  			$.get(url, data, function(resp_data){
+
+				 	  if (resp_data == true) {
+					  	
+							$.getScript(this.href);
+        					 $(".titles").append("Thanks for Rating.");							 
+			                 setTimeout(function() {
+			                 $('.large_tu').removeClass("onprocess");    
+						     $(".titles").empty();
+						     }, 2000);
+
+					    } else {
+							
+							$.getScript(this.href);
+							$(".titles").append("You have already given your Rating.");
+						     setTimeout(function() {
+						     $('.large_tu').removeClass("onprocess");    
+						     $(".titles").empty();
+						     }, 2000);
+					    }
+
+		    }, 'json')
+	  } else {alert("Please login to recommend!"); }
+     });	
+		
+   	 $(".large_td").click(function() {
+   if ($('.large_td').hasClass("onprocess")) {return false;}
+   $('.large_td').addClass("onprocess");  
+	  var url = "<%= url_for(thumbsDown_path)%>";
+	  
+      var data = {article_id:this.id, user_id:$("#user_id").val()};
+       if ($("#user_id").val()!= ''){
+	  			$.get(url, data, function(resp_data){
+                 
+				 	  if (resp_data == true) {
+					  	
+							$.getScript(this.href);
+        					 $(".titles").append("Thanks for Rating.");							 
+			                 setTimeout(function() {
+			                 $('.large_td').removeClass("onprocess");     
+						     $(".titles").empty();						     
+						     }, 2000);
+
+					    } else {
+							
+							$.getScript(this.href);
+							$(".titles").append("You have already given your Rating.");
+						     setTimeout(function() {
+						     $('.large_td').removeClass("onprocess");     
+						     $(".titles").empty();
+						     }, 2000);
+					    }
+				 
+		    }, 'json')
+		    }
+      else  {alert("Please login to unrecommend the article!"); }    
+	  
+     });		
+
+  });
+  
+
+  </script>
+
+
+

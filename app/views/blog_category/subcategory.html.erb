@@ -1,0 +1,12 @@
+<h1><%=t('article_new.subcategories')%>: <%= @category.name %></h1>
+<%unless @subcategories.empty?%>
+<% @subcategories.each do |subcategory| %>
+    <strong><%= subcategory.created_at.try(:strftime,"%B %d %Y %H:%M %p") %></strong>
+    <div style="margin-left:100px">
+      <h2 class="entry-title"><%= link_to subcategory.name, :action=>"subcategory_article",:controller => "blog_category", :subcategory_id => subcategory.id %></h2>
+    </div><br/>
+<% end %>
+<%else%>
+<%=t('article_list.subcategories_not_found')%>
+
+<%end%>

@@ -1,0 +1,426 @@
+<div class="titles_success" style="color:#db3939; font-style:italic;  text-align:center; font-size:14px; padding-top: 10px;"></div>
+
+
+<h2><%=t('document.folder')%></h2>
+<div class="main_wrapper">
+<div class="main_inner">
+
+
+
+	<div class="top_con">
+		
+		<% unless @is_this_folder_being_shared %>        
+	        <% if @current_folder %>  
+				<%= link_to image_tag("docSharing/upload.jpg"), new_sub_file_path(@current_folder)%>
+				<%#=  button_to "Upload", new_sub_file_path(@current_folder)%>			
+				<%= link_to image_tag("docSharing/new_folder.jpg"), new_sub_folder_path(@current_folder)%>			
+	        <% else %>  
+				<%#= link_to image_tag("docSharing/upload.jpg"), new_asset_path%>
+				<%= link_to image_tag("docSharing/new_folder.jpg"), new_folder_path%>
+				 
+	        <% end %>  
+		<% else %>  
+	    <b>This folder is being shared to you by <%= @current_folder.user.name %></b>
+		<% end %>
+	
+	</div>
+
+
+    <div class="breadcrumb">
+      <%= render :partial => "breadcrumbs" %>
+	</div> 
+
+<% unless @folders.empty? and @being_shared_folders.empty? and @assets.empty?%>
+    <div class="file_wrapper">
+      <table width="100%" border="0" cellspacing="0" cellpadding="0">
+        <tr>
+        <td valign="top">
+        <table width="100%" border="0" cellspacing="0" cellpadding="0">	
+		   <tr>
+              <td width="35%" height="35" valign="top"><h1><%=t('document.file_name')%></h1></td>
+              <td width="14%" align="center" valign="top"><h1><%=t('document.size')%></h1></td>
+              <td width="28%" valign="top"><h1><%=t('document.modified')%></h1></td>
+              <td valign="top"><h1>&nbsp;</h1></td>
+            </tr>	
+            
+			<% @folders.each do |folder| %>  
+            <td valign="top" width="35%">
+              		<table width="100%" border="0" cellspacing="0" cellpadding="0">
+	                	<tr>
+	                  		<td width="16" valign="top">
+	                  			<%=image_tag("docSharing/1326269148_folder_horizontal.png")%>
+					  		</td>
+	                  		<td valign="top"><h2><%= link_to folder.name, browse_path(folder) %></h2></td>
+	                	</tr>
+              		</table>
+          		</td>
+              <td valign="top" width="14%" align="center"><span id="folder_<%=folder.id%>"></span><h3 style="float:none;">-</h3></td>
+              <td valign="top"><h3>-</h3></td>
+              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="43" valign="top" class="share">
+			        <%= link_to image_tag("docSharing/share.jpg"), "#", :folder_id => folder.id, :folder_name => folder.name unless @is_this_folder_being_shared%>		
+				  </td>
+                  <td width="5" valign="top">&nbsp;</td>
+                  <td width="43" valign="top">
+			        <%= link_to image_tag("docSharing/Unshare.jpg"), "#", :class => "unshare", :id => folder.id, :folder_id => folder.id, :folder_name => folder.name unless @is_this_folder_being_shared%>		
+				  </td>
+                  <td width="5" valign="top">&nbsp;</td>
+                  <td width="53" valign="top">
+			        <%= link_to image_tag("docSharing/rename.jpg"), rename_folder_path(folder) unless @is_this_folder_being_shared%>		
+				  </td>
+                  <td width="5" valign="top">&nbsp;</td>
+                  <td valign="top">
+			        <%= link_to image_tag("docSharing/delete.jpg"),folder,:confirm => 'Are you sure to delete the folder and all of its contents?', :method => :delete unless @is_this_folder_being_shared%>						  
+				  </td>
+                </tr>
+              </table></td>
+            </tr>
+
+			<div id="invitation_form" class="invitation_form" title="Invite others to share" style="display:none; width:96%!important">  
+		    <div class="titles" style="color:#db3939; font-style:italic;  text-align:center; font-size:14px; padding-top: 10px;"></div>
+		    <% form_tag '/assets/share' do -%>  
+		            <label for="email_addresses"  class="float-left" style="margin:6% 0">Enter recipient email addresses here</label><br />  
+		            <%= text_area_tag 'email_addresses', "", :class => 'text ui-widget-content ui-corner-all emails', :id=>folder.id, :style=>"height:50px; width:300px; float:right"%>  
+		            <br /><br /> 
+					<div class="clear"></div> 
+		            <!--<label for="message" class="float-left" style="margin:10% 0">Optional message</label><br />  -->
+		            <%#= text_area_tag 'message',"",  :class => 'text ui-widget-content ui-corner-all', :style=>"height:100px; width:300px; float:right"%>  
+		            <%= hidden_field_tag "folder_id" %>  
+		    <% end -%>                   
+		   
+		   </div> 
+			
+           <%end%>
+					   
+		<!-- Listing Shared Folders (the folders shared by others) -->  
+			<%unless @being_shared_folders == nil%>
+			<% @being_shared_folders.each do |folder| %>  
+			    
+            <tr>
+              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="16" valign="top"><img src="images/docSharing/1326269148_folder_horizontal.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= link_to folder.name, browse_path(folder) %></h2></td>
+                </tr>
+              </table></td>
+              <td valign="top"><h3></h3></td>
+              <td valign="top"><h3></h3></td>
+              <td valign="top">
+              <%user = User.find_by_id(folder.user_id)%>	
+			  Shared by <b><%=user.name%></b>
+			  <table width="100%" border="0" cellspacing="0" cellpadding="0">
+
+              </table></td>
+            </tr>				
+
+			<% end %>  
+			<% end %>  
+		<!-- Listing Folders -->  	
+			
+			
+		<!-- Listing Files -->  
+			<% @assets.each do |asset| %>  
+			       
+            <tr>
+              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <%ext = File.extname(asset.file_name)%>
+				<%if ext == ".txt"%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/1326269424_document_pencil.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>
+				<%elsif ext == ".pdf"%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/1326269487_page_white_acrobat.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>	
+				<%elsif ext == ".docx"%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/1326269460_page_white_word.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>	
+				<%elsif ext == ".jpg" or ext == ".png" or ext == ".gif" or ext == ".tif" or ext == ".bmp"%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/image.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>	
+				<%else%>
+				<tr>
+                  <td width="16" valign="top"><img src="images/docSharing/document.png" width="16" height="16" alt="" /></td>
+                  <td valign="top"><h2><%= asset.file_name%></h2></td>
+                </tr>													
+				<%end%>
+              </table></td>
+              <td valign="top" align="center" width="14%"><h3 style="float:none;"><%= number_to_human_size(asset.file_size, :precision => 2) %></h3></td>
+              <td valign="top"><h3><%= asset.uploaded_file_updated_at.strftime('%m/%d/%Y %I:%M %p') %></h3></td>
+              <td valign="top"><table width="100%" border="0" cellspacing="0" cellpadding="0">
+                <tr>
+                  <td width="79" valign="top">
+			        	
+			           <div class="download">  
+					       <%if asset.lock == 0%>
+			               <%= link_to image_tag("docSharing/download.jpg"), download_url(asset), :style=>"float:right;"%>	  
+						   <%elsif asset.user_id == current_user.id%>
+						   <%= link_to image_tag("docSharing/download.jpg"), download_url(asset), :style=>"float:right;"%>	 
+						   <%else%>
+						    <%=image_tag "docSharing/lock.gif", :style=>"float:left;"%>
+						   <%=image_tag "docSharing/download_faded.jpg"%>	
+						   <%end%>
+			           </div> 				  
+				  </td>
+                  <td width="5" valign="top">&nbsp;</td>
+                  <td width="53" valign="top">
+			        <%= link_to image_tag("docSharing/delete.jpg"),asset,:confirm => 'Are you sure to delete?', :method => :delete unless @is_this_folder_being_shared%>						  
+				  
+				  </td>
+                  <td width="5" valign="top">&nbsp;</td>
+                  <td valign="top">
+			        <%= link_to image_tag ("docSharing/doc_edit.jpg"),edit_asset_path(asset) unless @is_this_folder_being_shared%>						  
+				  </td>
+				  <%if !asset.locked?%>
+				  <td width="5" valign="top">&nbsp;</td>
+                  <td valign="top" colspan="2">
+			        <%= link_to image_tag ("docSharing/lock.jpg"),"#nogo",:class=>'lock_asset',:id=>asset.id unless @is_this_folder_being_shared%>						  
+				  </td>
+				  <%else%>
+				  <td width="5" valign="top">&nbsp;</td>
+                  <td valign="top">
+			        <%= link_to image_tag ("docSharing/unlock.jpg"),"#nogo",:class=>'unlock_asset',:id=>asset.id unless @is_this_folder_being_shared%>						  
+				  </td>
+				  <%end%>
+                </tr>
+              </table></td>
+            </tr>
+				   
+			   
+			<% end %> 			
+		<!-- end --> 
+			
+		</table>
+		</td>	
+        </tr>
+		<tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+        <tr>
+          <td valign="top">&nbsp;</td>
+        </tr>
+	  </table>
+  
+	</div>
+<%else%>
+
+<div class="clear"></div><br><br>
+ <b><%=t('document.no_documents')%></b>
+<%end%>	
+</div>
+</div>
+
+<script>
+	
+	$(document).ready(function() {
+		$(".titles").hide();
+		
+		$('.unshare').bind('click', function (e){
+			e.preventDefault();
+			var thischeck = $(this);
+			var target = '<%= url_for(unshareFolder_path)%>';
+			
+			var shared_target = target + "?unshare=" + this.id
+			var dialog = "folder_" + this.id
+			$("#"+dialog).attr("title", "<%=t("document.unshare")%> '" + $(this).attr("folder_name") + "' <%=t("document.below_user")%>" );
+			$("#"+dialog).dialog({
+				width: 500, 
+				minHeight: 500, 
+				autoOpen: false, 
+				modal: true
+			});
+			$("#"+dialog).dialog('open');
+            $("#"+dialog).load(shared_target);			
+		});
+
+		$( ".share a" ).click(function() { 
+			$('.success').remove();
+				$('.emails').val(''); 
+                //assign this specific Share link element into a variable called "a"  
+                var a = this;  
+                  
+                //First, set the title of the Dialog box to display the folder name  
+                $("#invitation_form").attr("title", "Share '" + $(a).attr("folder_name") + "' with others" );  
+                  
+                //a hack to display the different folder names correctly  
+                $("#ui-dialog-title-invitation_form").text("Share '" + $(a).attr("folder_name") + "' with others");   
+                  
+                //then put the folder_id of the Share link into the hidden field "folder_id" of the invite form  
+                $("#folder_id").val($(a).attr("folder_id"));  
+                  
+                    //the dialog box customization  
+		    $( "#invitation_form" ).dialog({  
+		        height: 300,  
+		        width: 600,
+		        modal: true,  
+		        buttons: {  
+		            //First button  
+		            "Share": function() {  
+		                //get the url to post the form data to  
+		                var post_url = $("#invitation_form form").attr("action");  
+		                  
+		                //serialize the form data and post it the url with ajax  
+		               // $.post(post_url,$("#invitation_form form").serialize(), null, "script");  
+					   $.post(post_url,$("#invitation_form form").serialize(),function(data){
+							if (data.text == true) {
+								$(".titles").empty();
+								$(".titles").show();
+								$(".titles").append("Documents will be shared with users.");
+								setTimeout(function(){
+									$(".titles").hide();
+								$(".invitation_form").dialog("close");
+								}, 3000);	
+						}
+						else if (data.text == false) {
+								$(".titles").empty();
+								$(".titles").show();
+								$(".titles").append("Please add email address to share Documents");
+								setTimeout(function(){
+									$(".titles").hide();
+								}, 2000);							
+								}
+								
+						   	else if (data.duplicate == true) {
+								$(".titles").empty();
+								$(".titles").show();
+								$(".titles").append("You have already shared this folder with the user");
+								setTimeout(function(){
+									$(".titles").hide();
+								}, 2000);	
+							}	
+			   		});
+					return false;  			   	
+                   
+		            },  
+		            //Second button  
+		            Cancel: function() {  
+		                $( this ).dialog( "close" );
+		            }  
+		        },  
+		        close: function() {  
+		      		location.reload();
+		        }  
+		    });
+		    return false;  
+		  }); 
+		  
+		  
+   // Article Lock and Unlock
+      $(".lock_asset").click(function() {
+
+	  var url = "<%= url_for(lock_path)%>";
+	  var data = {asset_id:this.id};
+	  			$.get(url, data, function(resp_data){
+                
+				 	  if (resp_data == true) {
+					  	
+							$.getScript(this.href);
+							$(".titles").empty();
+							$(".titles").show();							
+        					 $(".titles").append("File has been locked from others to download.");	
+        					 location.reload();						 
+                           /*  setTimeout(function() {
+                             $(".titles").hide();                            
+                             }, 2000);*/
+                     
+					    } 
+		    }, 'json')
+	  
+     }); 
+	 
+	  $(".unlock_asset").click(function() {
+
+	  var url = "<%= url_for(unlock_path)%>";
+	  var data = {asset_id:this.id};
+	  
+	  			$.get(url, data, function(resp_data){
+
+				 	  if (resp_data == true) {
+					  	
+							$.getScript(this.href);
+							$(".titles").empty();
+							$(".titles").show();							
+        					 $(".titles").append("File has been Unlocked, Other users can download.");	
+        					 location.reload();						 
+			               /*  setTimeout(function() {
+						     $(".titles").hide();						     
+						     }, 2000);*/
+
+					    } 
+		    }, 'json')
+	  
+     }); 
+
+
+		function split( val ) {
+			return val.split( /,\s*/ );
+		}
+		function extractLast( term ) {
+			return split( term ).pop();
+		}
+
+		$( ".emails" )
+			// don't navigate away from the field on tab when selecting an item
+			.bind( "keydown", function( event ) {
+				if ( event.keyCode === $.ui.keyCode.TAB &&
+						$( this ).data( "autocomplete" ).menu.active ) {
+					event.preventDefault();
+				}
+			})
+			.autocomplete({
+				source: function( request, response ) {
+					$.getJSON( "getName", {
+						term: extractLast( request.term )
+					}, response );
+				},
+				search: function() {
+					// custom minLength
+					var term = extractLast( this.value );
+					if ( term.length < 2 ) {
+						return false;
+					}
+				},
+				focus: function() {
+					// prevent value inserted on focus
+					return false;
+				},
+				select: function( event, ui ) {
+					var terms = split( this.value );
+					// remove the current input
+					terms.pop();
+					// add the selected item
+					terms.push( ui.item.user.email );
+					// add placeholder to get the comma-and-space at the end
+					terms.push( "" );
+					this.value = terms.join( ", " );
+					return false;
+				}
+			})
+
+		       .data( "autocomplete" )._renderItem = function( ul, item ) {
+           return $( "<li></li>" )
+                .data( "item.autocomplete", item )
+                .append( "<a>" + item.user.name + " " +"(" + item.user.email + ")" + "</a>" )
+                .appendTo( ul );
+           };
+		   
+	});	
+</script>
+
+
+<style>
+				.ui-dialog-titlebar.ui-widget-header.ui-corner-all.ui-helper-clearfix{ height:20px}
+				span.ui-dialog-title{  margin:0; padding:0; position:absolute; left:5px; top:5px}
+				.ui-dialog-content.ui-widget-content{ width:96%!important}
+				.ui-dialog-content.ui-widget-content label{ float:left;}
+				
+				.ui-autocomplete.ui-menu.ui-widget.ui-widget-content.ui-corner-all{ width:320px!important; position:absolute;}
+				li.ui-menu-item{ text-align:left; margin:0; padding:0}
+</style>

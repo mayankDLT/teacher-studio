@@ -1,0 +1,58 @@
+<!-- 
+  _header.html.erb
+  Description: Partial Layout for the header portion of the application
+  Created on: October 11, 2010
+  Last modified on: March 18, 2013
+  Copyright 2013 PIT Solutions Pvt. Ltd. All Rights Reserved.
+-->
+
+  <div class="headerCol">
+    
+    <div class="welMsg">
+      <%if current_user%>
+          <%if current_user.is_temp_examinee == 1%>
+          <p><%=t('general.welcome')%> <strong><%="#{current_user.login} "%></strong></p>
+          <%else%>
+          <p><%=t('general.welcome')%> <strong><%="#{current_user.name} "%></strong></p>
+          <%end%>
+      <%end%>
+    </div>
+    <div class="lan_sign_Col" style="color:#f26f29;">
+      <div class="signOut">
+        <%unless current_user%>
+        <p><%= link_to t('general.signin'), new_user_session_path, :id=>"login"%></p>
+        <%else%>
+        <p><%= link_to t('general.signout'), logout_path%></p>
+        <p style="text-align:center; margin:0; padding:0 0 0 10px; width:1px;float:left">
+            <%unless current_user.is_temp_examinee == 1%>
+            	<span>|</span></p>
+            	<p><%=link_to t('home.edit_profile'), edit_user_path(current_user)%></p>
+            
+            <%end%>
+        
+        
+        <%end%>
+      </div>
+      <%unless current_user%>
+      		<div class="lanSwitch">
+        		<div class="lanHead">
+        			<p><%=t('general.language')%>:</p>
+    			</div>
+        		<div class="lanFlags">
+        			<%=link_to '', url_for(:locale => 'en'),:title => t('locale.english'), :class=>'one'%> <%=link_to '', url_for(:locale => 'de'), :title=>t('locale.german'), :class=>'two'%> <%=link_to '', url_for(:locale => 'ar'), :title=>t('locale.arabic'), :class=>'three'%> <%=link_to '', url_for(:locale => 'zh'), :title=>t('locale.chinese'), :class=>'four'%>
+    			</div> 
+      		</div>
+      	<%end%>
+
+      </div>
+  </div>
+  <div class="logoHolder">
+    <div class="clientLogo">
+        <%clientImage = ClientImage.find(:first)%>
+        <%unless clientImage == nil%>
+        <%= image_tag clientImage.image.url(:thumb)%>
+        <%else%>
+        <%= image_tag "clientLogo.png", :size => "236x60", :alt=>'img' %>
+        <%end%></div>
+    <div class="virtualxLogo"><%= image_tag "virtualx_logo.jpg", :size => "236x60", :alt=>'img' %></div>
+  </div>

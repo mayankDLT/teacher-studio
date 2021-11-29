@@ -1,0 +1,106 @@
+<!-- 
+  documentSharing.html.erb
+  Description: Layout for the inteface of Document Sharing feature
+  Created on: June 12, 2012
+  Last modified on: March 18, 2013
+  Copyright 2013 PIT Solutions Pvt. Ltd. All Rights Reserved.
+-->
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+	<title>VirtualX - Online Examination System</title>
+	<%= favicon_link_tag 'favicon.ico' %>
+	
+	<%= stylesheet_link_tag "application" %>
+	<%= stylesheet_link_tag "styles", "dropdown.linear", "validationEngine.jquery.css", "thickbox" %>
+	<%= stylesheet_link_tag "jquery-ui", "jquery.ui.theme"%>
+    <%= javascript_include_tag :defaults %>
+    
+
+	<%@setting = Setting.find(:first)%>
+	
+	<%if t('language.lang') == "en"%>
+	<%= javascript_include_tag 'jquery.validationEngine-en', 'jquery.validationEngine'%>
+	<%elsif t('language.lang') == "de"%>
+	<%= javascript_include_tag 'jquery.validationEngine-de', 'jquery.validationEngine'%>
+	<%elsif t('language.lang') == "ar"%>
+	<%= javascript_include_tag 'jquery.validationEngine-ar', 'jquery.validationEngine'%>
+	<%elsif t('language.lang') == "zh"%>
+	<%= javascript_include_tag 'jquery.validationEngine-zh', 'jquery.validationEngine'%>
+	<%end%>
+	
+	<%=javascript_include_tag "jquery-ui.min.js"%>
+	<%= javascript_include_tag  "jquery-ui-timepicker.js","thickbox" %>
+	<%= javascript_include_tag  "autocomplete-rails.js" %>
+	<%= csrf_meta_tag %>
+	<%= yield(:head) %>
+	
+  </head>
+<body class="bgimg">
+<div id="mainWrapper">
+<div class="wrapperContent">
+
+     <%= render :partial => 'layouts/header' %>
+    <%= render :partial => 'shared/navigation' %>
+  
+  <div class="contentWrapper">
+
+  	<%if current_user%>
+	    <%if current_user.role_id == 1 or current_user.role_id == 2%>
+	    <%=link_to t('workflow.link'), {:action=>"workflow", :controller=>"welcome"},:class=>"workflow"%>
+		<%end%>
+	<%end%>
+    <div class="midCol">
+       <% flash.each do |name, msg| %>
+	   <%if name.to_s == "notice"%>
+        <%= content_tag :div, msg, :class => "notice" %>
+	   <%elsif name.to_s == "success"%>
+	   <%= content_tag :div, msg, :class => "success" %>
+	   <%elsif name.to_s == "error"%>
+	   <%= content_tag :div, msg, :class => "error" %>
+	   <%end%>
+      <% end %>
+      <%= yield %>
+	  <div class="clear"></div>
+    </div>
+	<div class="clear"></div>
+  </div>
+<div class="clear"></div>
+</div>
+<div class="clear"></div>
+
+</div>
+
+
+<div id="footer">
+  <div class="footerContent">
+  	
+	<div class="footerNav">
+      <ul>
+        <li class="first"><%= link_to t('about.aboutus'), :action=>"view_aboutus", :controller=>"home"%></li>
+        <li><%= link_to t('about.clients'), :action=>"view_clients", :controller=>"home"%></li>
+        <li><%= link_to t('about.features'), :action=>"view_features", :controller=>"home"%></li>
+        <li><%= link_to t('about.modules'), :action=>"view_modules", :controller=>"home"%></li>
+        <li><%= link_to t('about.contactus'), :action=>"view_contactus", :controller=>"home"%></li>
+      </ul>
+    </div>
+	
+		<div class="copytxt">
+		<p class="copytxt">&copy; PITSolutions Pvt. Ltd., All rights reserved.</p>
+		</div>
+  </div>
+
+
+ </div>
+ <div class="blogleft_button"><%=link_to image_tag ("docSharing/blog_bar.jpg"), blog_path%></div>
+ 
+ <div class="sharingleft_button"><%=link_to image_tag("docSharing/doc_bar.jpg"),:action=>"index",:controller=>"folders"%></div>
+
+
+
+
+  </body>
+</html>
+
+

@@ -1,0 +1,20 @@
+<h1 style="font-size:24px; margin:0 0 10px 0;"><%=@subcategory.blog_category.name%> >> <%= @subcategory.name %></h1><br><br>
+<%unless @articles.empty?%>
+	<% @articles.each do |article|%>
+	<h2 style="font-size:18px; margin:0 0 10px 0;"><%=article.title%></h2>
+	<%=t('blog.created_at')%>:<strong><%= article.created_at.try(:strftime,"%B %d %Y %H:%M %p") %></strong> <%=t('blog.by')%> <%=article.username(article.user_id)%> - 
+	<%unless current_user%><%=t('blog.login_to')%> <%end%>
+	<%if current_user%>
+		<%=link_to t('blog.leave_comment'), {:action=>"index", :controller=>"article",:articles=>article.title}%>
+	<%else%>
+		<%=link_to t('blog.leave_comment'), "#"%>
+	<%end%>
+	<br><br>
+	<div class="art_block">
+	<%=article.body_part.html_safe[0..800]%>
+	</div>
+	<div><%= link_to t('article_new.read_more'), {:controller=>"article", :action => "index", :articles => article.title}%></div><br><br>
+	<%end%>
+<%else%>
+<%=t('article_list.article_not_found')%>
+<%end%>

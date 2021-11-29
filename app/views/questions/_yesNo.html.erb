@@ -1,0 +1,20 @@
+<table class="answer_name">
+	<tr>
+		<th style='float:left; margin-left:22px;'><%=t('question.enter_opt')%></th>
+	</tr>
+	
+	<tr>
+		<td>
+  			<%= check_box_tag "fields[1][is_answer]", '1', false, :class=>"validate[maxCheckbox[1]] checkbox", :style=>"margin-right: 5px;" %>
+	  		<%= text_field_tag "fields[1][name]",'Yes',:readonly=>true, :class=>"validate[required,funcCall[checkHELLO]] text-input",:style=>"width:115px; height:19px; border:#d1d1d1 1px solid;" %>
+		</td>
+		
+	</tr>
+ 				
+	<tr>
+		<td>
+			<%= check_box_tag "fields[2][is_answer]", '1', false, :class=>"validate[maxCheckbox[1]] checkbox", :style=>"margin-right: 5px;" %>
+	  		<%= text_field_tag "fields[2][name]",'No',:readonly=>true, :class=>"validate[required,funcCall[checkHELLO]] text-input",:style=>"width:115px; height:19px; border:#d1d1d1 1px solid;" %>
+		</td>
+	</tr>
+</table>

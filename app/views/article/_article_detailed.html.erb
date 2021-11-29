@@ -1,0 +1,116 @@
+<p class="titles" style="color:#db3939; font-style:italic;  text-align:center; font-size:14px;"></p>
+<h2 style="font-size:24px; margin:0 0 10px 0;"><%= @article.title %></h2> 
+<strong><%=t('blog.created_at')%>: </strong><%= @article.created_at.try(:strftime,"%B %d %Y %H:%M %p") %><br><br>
+
+<div class="like_tmp">
+ <div class="rate_up">
+<%=link_to '', "#nogo",:class=>'large_tu',:id=>@article.id,:value=>@article.id%>
+</div>  
+
+ <div class="rate_down">
+
+<%=link_to '', "#nogo",:class=>'large_td',:id=>@article.id,:value=>@article.id%>
+</div>
+<%=hidden_field_tag "large", "0"%>
+
+
+    <div class="like_tmp01 mb15">
+    <div style="float:left; padding:0px; margin:0px 10px 0 0;">
+        <span class="average"><%=@article.getPercentage(@article.id)%>%</span>          
+        <span class="recommended"><%=t('blog.recommended')%></span>
+                            
+    </div>
+        
+         <div class="rec_rate_up"><span class="large_t"></span></div>
+        <span class="like_number"><%=@article.getCount_tp(@article.id)%></span><span class="like_text"><%=t('blog.recommendations')%></span>
+        
+    </div>  
+
+</div>
+
+
+
+<p class="text_art"><%= @article.body_part.html_safe %></p><br/>
+
+
+<div id="comment"><%=render :partial=>"comment"%></div><br>
+
+<%if current_user%>
+<% if @article.enable_comment %>
+    <div class="clear"></div>
+    <h3 style="font-size:18px; margin:0 0 10px 0;"><b><%=t('blog.leave_comment')%></b> </h3>
+    <div id="comment_form"><%=render :partial=>"comment_form"%></div>
+<% end %>
+<%end%>
+
+<script type="text/javascript"> 
+
+$(document).ready(function() {
+
+    
+     $(".large_tu").click(function() {
+   if ($('.large_tu').hasClass("onprocess")) {return false;}
+   $('.large_tu').addClass("onprocess");
+      var url = "<%= url_for(thumbsUp_path)%>";
+      var data = {article_id:this.id, user_id:$("#user_id").val()};
+      
+                $.get(url, data, function(resp_data){
+
+                      if (resp_data == true) {
+                        
+                            $.getScript(this.href);
+                             $(".titles").append("Thanks for Rating.");                          
+                             setTimeout(function() {                
+                            $('.large_tu').removeClass("onprocess");
+                            $(".titles").empty();
+                             }, 2000);
+
+                        } else {
+                            
+                            $.getScript(this.href);
+                            $(".titles").append("You have already given your Rating.");
+                             setTimeout(function() {
+                             $('.large_tu').removeClass("onprocess");    
+                             $(".titles").empty();
+                             }, 2000);
+                        }
+
+            }, 'json')
+      
+     });    
+        
+     $(".large_td").click(function() {
+   if ($('.large_td').hasClass("onprocess")) {return false;}
+   $('.large_td').addClass("onprocess");
+      var url = "<%= url_for(thumbsDown_path)%>";
+      
+      var data = {article_id:this.id, user_id:$("#user_id").val()};
+                $.get(url, data, function(resp_data){
+                 
+                      if (resp_data == true) {
+                        
+                            $.getScript(this.href);
+                             $(".titles").append("Thanks for Rating.");                          
+                             setTimeout(function() {
+                             $('.large_td').removeClass("onprocess");    
+                             $(".titles").empty();
+                             }, 2000);
+
+                        } else {
+                            
+                            $.getScript(this.href);
+                            $(".titles").append("You have already given your Rating.");
+                             setTimeout(function() {
+                              $('.large_td').removeClass("onprocess");   
+                             $(".titles").empty();
+                             }, 2000);
+                        }
+                 
+            }, 'json')
+      
+     });        
+
+  });
+  
+
+  </script>

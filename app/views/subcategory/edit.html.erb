@@ -1,0 +1,12 @@
+<%= form_for @subcategory, :url => {:controller => "subcategory", :action => "update", :id => @subcategory.id}, :html=>{:method => "POST"} do |f| %>
+	<%= f.error_messages %>
+	<div id="form_header">
+	  <h2> <%=t('article_new.edit_subcategory')%> </h2>
+	  <div class="form">
+	    <span class="label"><%=t('article_new.title')%></span>
+	    <%= f.text_field :name, :value => @subcategory.name,:style=>"border:#d1d1d1 1px solid; height:19px; width:160px;"  %>
+	  </div>
+
+	</div>
+	<%= f.submit t('article_new.update'), :id => "article_new_update", :class=>'btnBg' %>
+<%end%>

@@ -1,0 +1,14 @@
+
+
+<div id="form_header">
+       <%= form_for @category, :url => {:controller=>"blog_category", :action => "save" } do |f| %>  
+    <%= f.error_messages %> 
+	  <h2 style="font-size:24px; margin:0 0 10px 0;"> <%=t('blog.new_category')%> </h2>
+	  <div class="form">
+	    <span class="label" style="width:75px; float:left;"><%=t('article_new.title')%></span>
+	    <%= f.text_field :name ,:style=>"border:#d1d1d1 1px solid; height:19px; width:160px;" %>
+	  </div>
+
+	<%= f.submit t('article_new.save'), :class=>'btnBg' %>
+	<%end%>
+</div>

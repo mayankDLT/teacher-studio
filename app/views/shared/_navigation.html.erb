@@ -1,0 +1,108 @@
+
+
+<div class="container">
+<nav>
+		<ul class="mcd-menu" style="background-color: #f7f7f7;">
+			<li>
+				<a href="">
+					<i class="fa fa-home"></i>
+					<strong>Users</strong>
+					<small>sweet home</small>
+				</a>
+  			<ul>
+        <li><%= link_to t('general.confirm_reject_user'), :action=>'admin_dashboard', :controller=>'welcome'%></li>
+        <li><%= link_to t('general.examiner'), :action=>'index', :controller=>'users', :create_id => 2%></li>
+        <li><%= link_to t('welcome.q_setter'), :action=>'index', :controller=>'users', :create_id => 3%></li>
+         <li><%= link_to t('welcome.examinee'), :action=>'index', :controller=>'users', :create_id => 4%></li>
+        <li><%= link_to t('general.group_user'), :action=>'groupUser', :controller=>'users'%></li>
+        <li><%= link_to t('general.activate'), :action=>'activate_inactivate', :controller=>'users'%></li>
+        </ul>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-edit"></i>
+					<strong>Subject</strong>
+					<small>sweet home</small>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-gift"></i>
+					<strong>Questions</strong>
+					<small>sweet home</small>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-globe"></i>
+					<strong>Exams</strong>
+					<small>sweet home</small>
+				</a>
+        <ul>
+        <li><%= link_to t('general.create_exam'),:action=>"scheduleExam", :controller=>"exams" %></li>
+        <li><%= link_to t('general.examtype'),:action=>"listExamtypes", :controller=>"exams" %></li>
+        <li><%= link_to t('general.assignexam'),:action=>"assignExam",:controller=>'exams'%></li>
+        <li><%= link_to t('general.selectquestions'),:action=>"selectQuestion", :controller=>"exams" %></li>
+        <li><%= link_to t('general.assignexaminees'),:action=>"selectExaminee", :controller=>"exams" %></li>
+        <li><%= link_to t('evaluate.evaluate_exam'),:action=>"evaluate", :controller=>"exams" %></li>
+        <li><%= link_to t('evaluate.evaluators'),:action=>"evaluator", :controller=>"exams" %></li>
+        <li><%= link_to t('evaluate.assign_evaluator'),:action=>"getEvaluator", :controller=>"exams" %></li>
+        </ul>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-comments-o"></i>
+					<strong>Result</strong>
+					<small>what they say</small>
+				</a>
+				<ul>
+        <li><%= link_to t('result.examinees_result'), :action=>"usersResult", :controller=>"results"%></li>
+        <li><%= link_to t('result.exams_result'), :action=>"examsResult", :controller=>"results"%></li>
+        <li><%= link_to t('result.department_result'), :action=>"departmentResult", :controller=>"results"%></li>
+
+				</ul>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-picture-o"></i>
+					<strong>Organization levels</strong>
+					<small>sweet home</small>
+				</a>
+			</li>
+			<li>
+				<a href="">
+					<i class="fa fa-envelope-o"></i>
+					<strong>Category</strong>
+					<small>drop a line</small>
+				</a>
+
+
+			</li>
+
+
+      <li>
+      <a href="">
+        <i class="fa fa-envelope-o"></i>
+        <strong>Category</strong>
+        <small>drop a line</small>
+      </a>
+    </li>
+    <li>
+    <a href="">
+      <i class="fa fa-envelope-o"></i>
+      <strong>Category</strong>
+      <small>drop a line</small>
+    </a>
+  </li>
+  <li>
+  <a href="">
+    <i class="fa fa-envelope-o"></i>
+    <strong>Category</strong>
+    <small>drop a line</small>
+  </a>
+  
+</li>
+		
+		</ul>
+	</nav>
+</div>

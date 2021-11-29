@@ -1,0 +1,399 @@
+      <div class="contentLeft">
+        <div class="con_inner">
+          <div class="w100pc floatL mb25">
+            <div class="box_One_wrapp">
+              <div class="boxsmalltop">&nbsp;</div>
+              <div class="boxsmallbottom">
+                <ul class="icons_list">
+                  <li>
+				  
+				  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<% if current_user.role_id == 1%>
+					<%=link_to t('general.settings'),{ :action=>"index", :controller=>"settings"}%>
+					<span class="custom info"><em></em><%=t('workflow.settings_desc')%></span>
+					<%elsif current_user.role_id == 2%>
+					<%=link_to t('general.settings'),"#nogo"%>
+					<span class="custom info"><em></em><%=t('workflow.settings_desc_2')%></span>
+					<%end%>					  
+					</p>
+				  
+				  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w100pc floatL mb25">
+            <div class="box_One_wrapp">
+              <div class="boxsmalltop">&nbsp;</div>
+              <div class="boxsmallbottom">
+                <ul class="icons_list">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.org_levels'),{ :action=>'index', :controller=>'category_titles'}%>
+					<span class="custom info"><em></em><%=t('workflow.org_level_desc')%></span>  
+					</p>
+				  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w100pc floatL mb25">
+            <div class="box_Four_wrapp">
+              <div class="boxbigtop">&nbsp;</div>
+              <div class="boxbigbottom">
+                <ul class="icons_list group_four">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.users'),{ :action=>'user_management', :controller=>'welcome'}%>
+					<span class="custom info"><em></em><%=t('workflow.users_desc')%></span>  
+					</p>                  	
+                  </li>
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.subjects'),{ :action=>'index', :controller=>'subjects'}%>
+					<span class="custom info"><em></em><%=t('workflow.subjects_desc')%></span>  
+					</p>
+                  </li>
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.questions'),{ :action=>'index', :controller=>'questions'}%>
+					<span class="custom info"><em></em><%=t('workflow.questions_desc')%></span>  
+					</p>                  	
+                  </li>
+                  <li class="nobrdr">
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.exams'),{ :action=>'index', :controller=>'exams'}%>
+					<span class="custom info"><em></em><%=t('workflow.exams_desc')%></span>  
+					</p>                  	
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w100pc floatL mb25">
+            <div class="box_Two_wrapp floatL mr24">
+              <div class="boxonetop">&nbsp;</div>
+              <div class="boxonecon">
+                <ul class="icons_list group_two">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('welcome.examinee'),{ :action=>'index', :controller=>'users', :create_id => 4}%>
+					<span class="custom info"><em></em><%=t('workflow.examinee_desc')%></span>  
+					</p>                   	
+				<span>(<%= t('workflow.examinee') %>)</span></li>
+                  <li class="nobrdr">
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.group_user'),{ :action=>'groupUser', :controller=>'users'}%>
+					<span class="custom info"><em></em><%=t('workflow.grp_user_desc')%></span>  
+					</p>                   	
+                  <span>(<%= t('workflow.examinee') %>)</span></li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_Two_wrapp floatL mr24">
+              <div class="boxonetop">&nbsp;</div>
+              <div class="boxonecon">
+                <ul class="icons_list group_two">
+                  <li><p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+                      <%=link_to t('subject.create_sub'),{:action=>'new', :controller=>'subjects'}%>
+                      <span class="custom info"><em></em><%=t('workflow.create_subject_desc')%></span> 
+                      </p>
+                  </li>
+                  <li class="nobrdr"><p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+                      <%=link_to t('subject.add_sub_to_cat'),{:action=>'add_subject_category', :controller=>'subjects'}%>
+                      <span class="custom info"><em></em><%=t('workflow.add_sub_to_cat_desc')%></span> 
+                      </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_One_wrapp floatL mr24">
+              <div class="boxsmalltop">&nbsp;</div>
+              <div class="boxsmallbottom">
+                <ul class="icons_list">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('question.create_questions_under_category'),{ :action=>"question_type_listing", :controller=>"questions"}%>
+					<span class="custom info"><em></em><%=t('workflow.CQUC_desc')%></span>  
+					</p>                   	
+				  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="box_One_wrapp floatL">
+              <div class="boxsmalltop">&nbsp;</div>
+              <div class="boxsmallbottom">
+                <ul class="icons_list">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.create_exam'),{ :action=>"scheduleExam", :controller=>"exams"}%>
+					<span class="custom info"><em></em><%=t('workflow.COSE_desc')%></span>  
+					</p>                   	
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w100pc floatL mb25">
+            <div class="box_Two_wrapp floatR mr110">
+              <div class="boxonetop">&nbsp;</div>
+              <div class="boxonecon">
+                <ul class="icons_list group_two">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.org_levels'),{ :action=>'index', :controller=>'category_titles'}%>
+					<span class="custom info"><em></em><%=t('workflow.org_levels_desc')%></span>  
+					</p>                  	
+                  </li>
+                  <li class="nobrdr">
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.examtype'),{ :action=>'listExamtypes', :controller=>'exams'}%>
+					<span class="custom info"><em></em><%=t('workflow.exam_type_desc')%></span>  
+					</p>                 	
+				  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w100pc floatL mb25">
+            <div class="box_One_wrapp floatR mr155">
+              <div class="boxsmalltop">&nbsp;</div>
+              <div class="boxsmallbottom">
+                <ul class="icons_list">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.assignexam'),{ :action=>'assignExam', :controller=>'exams'}%>
+					<span class="custom info"><em></em><%=t('workflow.assign_exam_desc')%></span>  
+					</p>                   	
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          <div class="w100pc floatL mb25">
+            <div class="box_Two_wrapp floatR mr110">
+              <div class="boxonetop">&nbsp;</div>
+              <div class="boxonecon">
+                <ul class="icons_list group_two">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('exam.add_questions'),{ :action=>'selectQuestion', :controller=>'exams'}%>
+					<span class="custom info"><em></em><%=t('workflow.add_ques_desc')%></span>  
+					</p>                   	
+                  </li>
+                  <li class="nobrdr">
+                   	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('exam.add_examinees'),{ :action=>'selectExaminee', :controller=>'exams'}%>
+					<span class="custom info"><em></em><%=t('workflow.add_examinee_desc')%></span>  
+					</p>                  	
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+		  
+		  
+          <div class="w100pc floatL mb25">
+            <div class="box_One_wrapp floatL ml100">
+              <div class="boxsmalltop">&nbsp;</div>
+              <div class="boxsmallbottom">
+                <ul class="icons_list">
+                  <li>
+				  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<% if current_user.role_id == 1%>
+					<%=link_to t('general.settings'),{ :action=>"index", :controller=>"settings"}%>
+					<span class="custom info"><em></em><%=t('workflow.settings_desc')%></span>
+					<%elsif current_user.role_id == 2%>
+					<%=link_to t('general.settings'),"#nogo"%>
+					<span class="custom info"><em></em><%=t('workflow.settings_desc_2')%></span>
+					<%end%>					  
+					</p>
+				  </li>
+                </ul>
+              </div>
+            </div>
+            
+             <div class="box_One_wrapp floatR mr100">
+              <div class="boxsmalltop">&nbsp;</div>
+              <div class="boxsmallbottom">
+                <ul class="icons_list">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<%=link_to t('general.exams'),{ :action=>'index', :controller=>'exams'}%>
+					<span class="custom info"><em></em><%=t('workflow.exams_desc')%></span>  
+					</p> 
+				  </li>
+                </ul>
+              </div>
+            </div>
+            
+            
+            
+            
+            
+          </div>
+          
+          
+          
+           <div class="w100pc floatL mb25">
+          <div class="box_three_wrapp floatL">
+              <div class="box_three_top">&nbsp;</div>
+              <div class="box_three_bottom">
+                <ul class="icons_list group_two w377">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<% if current_user.role_id == 1%>
+					<%=link_to t('general.client_image'),{ :action=>"clientImage", :controller=>"images"}%>
+					<span class="custom info"><em></em><%=t('workflow.CIU_desc')%></span>  
+					<%else%>
+					<%=link_to t('general.client_image'),"#nogo"%>
+					<span class="custom info"><em></em><%=t('workflow.CIU_desc_2')%></span>
+					<%end%>
+					</p>
+				  </li>
+                   <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<% if current_user.role_id == 1%>
+					<%=link_to t('about.aboutus'),{ :action=>"index", :controller=>"aboutus"}%>
+					<span class="custom info"><em></em><%=t('workflow.about_us_desc')%></span>  
+					<%else%>
+					<%=link_to t('about.aboutus'),"#nogo"%>
+					<span class="custom info"><em></em><%=t('workflow.about_us_desc_2')%></span>  
+					<%end%>
+					</p>
+				   </li>
+                  <li class="nobrdr">
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<% if current_user.role_id == 1%>
+					<%=link_to t('client.client_info'),{ :action=>"index", :controller=>"clientinfo"}%>
+					<span class="custom info"><em></em><%=t('workflow.client_info_desc')%></span>  
+					<%else%>
+					<%=link_to t('client.client_info'),"#nogo"%>
+					<span class="custom info"><em></em><%=t('workflow.client_info_desc_2')%></span>  
+					<%end%>
+					</p>
+				  </li>
+                </ul>
+              </div>
+            </div>
+            
+            <div class="box_three_wrapp floatR ">
+              <div class="box_three_top">&nbsp;</div>
+              <div class="box_three_bottom">
+                <ul class="icons_list group_two w377">
+                  <li><p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >               	
+					<%= link_to t('evaluate.evaluate_exam'),:action=>"evaluate", :controller=>"exams" %>
+					<span class="custom info"><em></em><%=t('workflow.eval_exam_desc')%></span> 
+					</p>
+				  </li>
+                   <li><p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+                   	<%= link_to t('evaluate.evaluators'),:action=>"evaluator", :controller=>"exams" %>
+                    <span class="custom info"><em></em><%=t('workflow.evaluators_desc')%></span> 
+                    </p>
+				   </li>
+                  <li class="nobrdr"><p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+                  	<%= link_to t('evaluate.assign_evaluator'),:action=>"getEvaluator", :controller=>"exams" %>
+                    <span class="custom info"><em></em><%=t('workflow.assign_evealuators_desc')%></span> 
+                    </p>
+				  </li>
+                </ul>
+              </div>
+            </div>
+            
+            
+          </div>
+          
+        
+        <div class="w100pc floatL mb25">
+            <div class="box_One_wrapp">
+              <div class="boxsmalltop">&nbsp;</div>
+              <div class="boxsmallbottom">
+                <ul class="icons_list">
+                  <li>
+                    <p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+                    <%=link_to t('general.users'),{ :action=>'user_management', :controller=>'welcome'}%>
+                    <span class="custom info"><em></em><%=t('workflow.users_desc')%></span>  
+                    </p>
+				  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+          
+          
+          
+          <div class="w100pc floatL mb25">
+            <div class="box_Four_wrapp">
+              <div class="boxbigtop">&nbsp;</div>
+              <div class="boxbigbottom">
+                <ul class="icons_list group_four">
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+                  	<% if current_user.role_id == 1%>
+					<%= link_to t('general.examiner'), :action=>'index', :controller=>'users', :create_id => 2%>
+					<span class="custom info"><em></em><%=t('workflow.examiner_desc')%></span>  
+					<%else%>
+					<%= link_to t('general.examiner'),"#nogo"%>		
+					<span class="custom info"><em></em><%=t('workflow.examiner_desc_2')%></span>  			
+					<%end%>
+					</p>                  	
+				  </li>
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+                  	<%= link_to t('welcome.q_setter'), :action=>'index', :controller=>'users', :create_id => 3%>
+					<span class="custom info"><em></em><%=t('workflow.QS_desc')%></span>  
+					</p>                  	
+				  </li>
+                  <li>
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+                  	<% if current_user.role_id == 1%>
+					<%= link_to t('general.activate'), :action=>'activate_inactivate', :controller=>'users'%>
+					<span class="custom info"><em></em><%=t('workflow.act_inact_desc')%></span>  
+					<%else%>
+					<%= link_to t('general.activate'),"#nogo"%>			
+					<span class="custom info"><em></em><%=t('workflow.act_inact_desc_2')%></span>  		
+					<%end%>					
+					</p>                   	
+				  </li>
+                  <li class="nobrdr">
+                  	<p class="tooltip" style="border:0; display:inline-block; margin:0 0 0 5px" >
+					<% if current_user.role_id == 1%>
+					<%= link_to t('general.confirm_reject_user'), :action=>'admin_dashboard', :controller=>'welcome'%>
+					<span class="custom info"><em></em><%=t('workflow.CORE_desc')%></span>  
+					<%else%>
+					<%= link_to t('general.confirm_reject_user'),"#nogo"%>	
+					<span class="custom info"><em></em><%=t('workflow.CORE_desc_2')%></span>  				
+					<%end%>						
+					</p>                  	
+				  </li>
+                </ul>
+              </div>
+            </div>
+          </div>		  
+		  
+          <div class="clear"></div>
+        </div>
+        <div class="clear"></div>
+        <div class="arrows_down b_1">&nbsp;</div>
+        <div class="arrows_down b_2">&nbsp;</div>
+        <div class="arrows_down_four b_41">&nbsp;</div>
+        <div class="arrows_down b_3">&nbsp;</div>
+        <div class="arrows_down_two b_21">&nbsp;</div>
+        <div class="arrows_down_curve b_c_1">&nbsp;</div>
+        <div class="arrows_down_two b_22">&nbsp;</div>
+        <div class="arrows_down_curve b_c_2">&nbsp;</div>
+        <div class="arrows_down_curve b_c_3">&nbsp;</div>
+        <div class="arrows_down_left_curve b_c_l_1">&nbsp;</div>
+        <div class="arrows_down_two b_23">&nbsp;</div>
+        <div class="up_box u_11">&nbsp;</div>
+        <div class="arrows_down b_4">&nbsp;</div>
+        <div class="arrows_down b_5">&nbsp;</div>
+        <div class="arrows_down_two b_24">&nbsp;</div>
+		
+		<div class="arrows_down b_0_1">&nbsp;</div>
+        <div class="arrows_down b_0_11">&nbsp;</div>
+        
+         <div class="arrows_down b_1_1">&nbsp;</div>
+        <div class="arrows_down_four b_4_1">&nbsp;</div>
+      </div>
+      <div class="clear"></div>

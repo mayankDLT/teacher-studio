@@ -1,0 +1,50 @@
+ <div style="float:left; width:100%; position:relative;">
+    <div id="matrix_example_header"><b><%=t('question.sample_match_header')%>:</b></div>
+    <div id="matrix_example_image"><%= image_tag "matrixQ.jpg", :size => "220x111", :alt=>'img' %></div>
+
+		<table cellpadding="0" cellspacing="0" border="0" class="tblRepeter" >
+            <tr>
+            	<td valign="top"><strong><%=t('question.matrix_col')%></strong></td>
+                <td valign="top"><strong><%=t('question.matrix_row')%></strong></td>
+            </tr>
+		
+			 <tr>
+		
+
+                	<td valign="top">
+                    <div class="tblCols rowValue">
+                    	<% 1.upto(2) do |i| %>
+                        <div class="tblRepeaterRow cnone">
+                            <%= text_field_tag "fields[#{i}][name]",'', :class=>"validate[required,funcCall[checkHELLO]] text-input tblInputtxt" %>
+                        </div>
+                        <% end %>
+                    </div>
+                    </td>
+					
+                    <td valign="top">
+                    <div class="tblCols columnValue">
+                    	<% 1.upto(2) do |i| %>
+                        <div class="tblRepeaterRow cnone">
+                            <%= text_field_tag "fields[#{i}][match]",'', :class=>"validate[required,funcCall[checkHELLO]] text-input tblInputtxt" %>
+                        </div>
+                        <% end %>
+                    </div>
+                    </td>
+                
+                
+			  
+		     
+			</tr>	
+			    <tr>
+                	<td valign="top">
+					<%=link_to image_tag("plus.jpg", :alt=>"Add Row Option"),"#", :id=>"add_new_rowOption", :style=>"float:left;"%>
+					</td>
+                    <td valign="top">
+					<%=link_to image_tag("plus.jpg", :alt=>"Add Column option"),"#", :id=>"add_new_columnOption", :style=>"float:left;"%>
+					</td>
+                </tr>
+        </table> 
+</div>
+		
+		
+		

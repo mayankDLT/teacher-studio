@@ -1,0 +1,18 @@
+<% unless @article.comments.blank? %>
+    <h1 style="font-size:18px; margin:0 0 10px 0;"><%=t('article_comment.comments')%></h1>
+<% end %>
+<% @article.comments.each do |comment| %>
+    <strong><%= comment.name %></strong> <%=t('article_comment.commented')%> on <%= comment.created_at.try(:strftime,"%B %d %Y %H:%M %p") %> <br/>
+    <p style="margin-left:100px; width:60%"><%= comment.comment %>
+	<%if current_user%>
+	<%if current_user.role_id == 1 or current_user.id == comment.user_id%>
+	<%=link_to image_tag("cross.jpg", :alt=>"delete comment"), {:action=>"delete_comment",:controller=>"article",:id=>comment.id,:article_id=>@article.id}, :remote => true, :confirm => t('json_message.are_you_sure')%>
+	<%else%>
+	<%=image_tag("cross.jpg", :alt=>"delete comment")%>
+	<%end%>
+	<%end%>
+	</p>
+	
+	<br/>
+<% end %>
+

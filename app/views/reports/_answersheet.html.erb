@@ -1,0 +1,213 @@
+<%@options = []%>
+<%@ans = []%>
+<%@actual = []%>
+<%@tot = []%>
+<%@optionA = []%>
+<%@matchOption = []%>
+         
+<div style="width:100%;">
+	
+	<table cellspacing="0" border="1" style="margin-top: 5px; width: 100%; text-align:center; font-size: 12px;" >
+		<tr>
+			<th><%=t('reports.result_status')%></th>
+			<th><%=t('reports.pass_percent')%></th>
+			<th><%=t('reports.percentage_acquired')%></th>
+			<th><%=t('exam.exam_mark')%></th>
+			<th><%=t('exam.mark_scored')%></th>
+		</tr>
+		<tr>
+			<td><%=@status.to_s%></td>
+			<td><%=@findExam.pass_mark.to_f.round(2)%>%</td>
+			<td><%=@percent_acquired.to_f.round(2)%>%</td>
+			<td><%= @findExam.total_mark%></td>
+			<td><%= @grandTotal%></td>
+		</tr>
+	</table>
+	<div style="width: 100%;">
+		<h4>Questions & Answers</h4>
+		<hr style="margin-top: -15px;">
+	</div>
+	<table cellspacing="0" width="100%" style=" text-align:left; font-size: 12px; margin-top: 12px;" >
+	
+		<%@evaluationContent.each do |evalu|%> 
+			<%evaluationContent = Evaluation.where(["categoryexam_id = ? and categoryuser_id = ? and question_id = ? and attempt = ?", @categoryexamId,@categoryuserId,evalu, @attempt])%>           
+	
+			<%allOptions = Answer.where(['question_id = ?',evalu])%>            
+	            
+			<%allOptions.each do|option|%>          
+			<%@options << option.name.html_safe unless option.name == nil%>              
+			<%end%>            
+	            
+			<%evaluationContent.each do|e|%>            
+				<%@question = Question.find_by_id(e.question_id)%>
+				<%@descriptive_answer = e.descriptive_answer unless e.descriptive_answer == nil%> 
+				<%answer = Answer.find_by_id(e.answer_id)%>            
+				<%if @question.question_type_id == 3 or @question.question_type_id == 10%>            
+					<%@ans << e.answer_name unless e.answer_name == nil%>              
+				<%elsif @question.question_type_id == 11%>            
+					<%@ans << answer.match_answer unless answer.match_answer == nil%>              
+				<%else%>            
+					<% @ans << answer.name unless answer == nil%>             
+				<%end%>            
+	              
+				<% @tot << e.answer_mark unless e.answer_mark == nil%>           
+				<%@totalMark = e.question_mark%>
+			<%end%>            
+	      
+	  		<%@total = @tot.inject(:+)%>                  
+	            
+			<%if @question.question_type_id == 3 %>          
+				<%@actualAnswer = Answer.where(['question_id = ?',evalu])%>            
+			<%elsif @question.question_type_id == 10%>          
+				<%@actualAnswer = Question.where(['parent_id = ?',evalu])%>            
+			<%elsif @question.question_type_id == 11%>          
+				<%@actualAnswer = Question.where(['parent_id = ?',evalu])%>            
+				<%@actualAnswer.each do|a|%>            
+					<%@optionA << a.name.html_safe unless a.name == nil%>              
+				<%end%>            
+				<%@actualAnswer.each do|a|%>            
+					<%matchOpt = Answer.find_by_question_id(a.id)%>              
+					<%@matchOption << matchOpt.match_answer.html_safe unless matchOpt.match_answer == nil%>              
+				<%end%>
+			<%else%>
+				<%@actualAnswer = Answer.where(['question_id = ? and is_answer = ?',evalu,1])%>            
+			<%end%>
+	            
+			<%@actualAnswer.each do|a|%>         
+			<%@actual << a.name.html_safe unless a.name == nil%>            
+			<%end%>
+			
+			<%unless @question.question_type_id.nil?%>
+				<%if @question.question_type_id == 1%>
+					<%@question_type = t("question_types.qt1")%>
+				<%elsif @question.question_type_id == 2%>
+					<%@question_type = t("question_types.qt2")%>
+				<%elsif @question.question_type_id == 3%>
+					<%@question_type = t("question_types.qt3")%>
+				<%elsif @question.question_type_id == 4%>
+					<%@question_type = t("question_types.qt4")%>
+				<%elsif @question.question_type_id == 5%>
+					<%@question_type = t("question_types.qt5")%>
+				<%elsif @question.question_type_id == 6%>
+					<%@question_type = t("question_types.qt6")%>
+				<%elsif @question.question_type_id == 9%>
+					<%@question_type = t("question_types.qt9")%>
+				<%elsif @question.question_type_id == 10%>
+					<%@question_type = t("question_types.qt10")%>
+				<%elsif @question.question_type_id == 11%>
+					<%@question_type = t("question_types.qt11")%>
+				<%end%>
+			<%end%>
+	
+			<%unless @question.question_type_id == 12%>  
+		
+				<tr>
+					<th width="132px" valign="top" style="padding-bottom: 5px;">Q.No <%=@login_count%></th><td valign="top" width="12px"></td><td width="650px" valign="top"></td>
+				</tr>
+				<tr>
+					<td valign="top" width="132px">Question Type</td><td valign="top" width="12px">:</td><td width="650px" valign="top"><%=raw(@question_type)%></td>
+				</tr>
+				<tr>
+					<td valign="top" width="132px">Question</td><td valign="top" width="12px">:</td><td width="650px" valign="top"><%=raw(@question.description.strip.sub('<p>','').chomp('</p>').html_safe)%></td>
+				</tr>
+				<%unless @setting.show_hint_to_examinee == nil%>
+					<%unless @question.question_hint == "" || @question.question_hint.nil?%>
+					<tr>
+						<td valign="top" width="132px">Hint</td><td valign="top" width="12px">:</td><td width="650px" valign="top"><%=raw(@question.question_hint.gsub(/\n/, '<br>').html_safe)%></td>
+					</tr>
+					<%end%>
+				<%end%>
+				<%unless @options.empty? || @optionA.empty?%>
+					<tr>
+						<td valign="top" width="132px">Options</td><td valign="top" width="12px">:</td>
+				        <%if @question.question_type_id == 11%>
+							<td width="650px" valign="top"><%=raw @optionA.join(",")%></td>
+				        <%else%>
+				        	<td width="650px" valign="top"><%=raw @options.join(",")%></td>
+				        <%end%>
+				    </tr>
+			    <%end%>
+			    
+			    <%unless @matchOption.empty?%>
+				    <tr>
+						<td valign="top" width="132px">Match Options</td><td valign="top" width="12px">:</td>
+				        <td width="650px" valign="top"><%=raw @matchOption.join(",")%></td>
+				    </tr>
+			    <%end%>
+			    
+			    <%unless @ans.empty? || @ans[0] == nil%>
+				    <tr>
+				    	<td valign="top" width="132px">Your Answer</td><td valign="top" width="12px">:</td>
+				        <td width="650px" valign="top"><%=raw @ans.join(",")%></td>
+				    </tr>
+			    <%end%>
+			    
+			    <%unless @actual.empty?%>
+				    <tr>
+				    	<td valign="top" width="132px">Actual Answer</td><td valign="top" width="12px">:</td>
+			        	<td width="650px" valign="top"><%=raw @actual.join(",")%></td>
+				    </tr>
+			    <%end%>
+			    
+			    <%unless @totalMark.nil?%>
+				    <tr>
+				    	<td valign="top" width="132px">Question Mark</td><td valign="top" width="12px">:</td>
+				        <td width="650px" valign="top"><%=@totalMark%></td>
+				    </tr>
+			    <%end%>
+			    <%unless @total.nil?%>
+			    <tr>
+			    	<td valign="top" width="132px">Mark Scored</td><td valign="top" width="12px">:</td>
+			        <td width="650px" valign="top"><%=@total.round(2)%></td>
+				</tr>
+				<%end%>
+			    <tr><td colspan="3" width="100%"><hr></td></tr>
+			<%else%>
+		  
+				<tr>
+					<th width="132px" valign="top" style="padding-bottom: 5px;">Q.No <%=@login_count%></th><td valign="top" width="12px"></td><td width="650px" valign="top"></td>
+				</tr>
+				<tr>
+					<td valign="top" width="132px">Question Type</td><td valign="top" width="12px">:</td><td width="650px" valign="top">Descriptive</td>
+				</tr>
+				<tr>
+					<td width="132px" valign="top">Question</td><td valign="top" width="12px">:</td><td width="650px" valign="top"><%=raw(@question.description.strip.sub('<p>','').chomp('</p>').html_safe)%></td>
+				</tr>
+				<%unless @setting.show_hint_to_examinee == nil%>
+					<%unless @question.question_hint == "" || @question.question_hint.nil?%>
+					<tr>
+						<td width="132px" valign="top">Hint</td><td valign="top" width="12px">:</td><td width="650px" valign="top"><%=raw(@question.question_hint.gsub(/\n/, '<br>').html_safe)%></td>
+					</tr>
+					<%end%>
+				<%end%>
+				
+			    <tr>
+			    	<td width="132px" valign="top">Your Answer</td><td valign="top" width="12px">:</td>
+			        <td width="650px" valign="top"><%=raw (@descriptive_answer.strip.sub('<p>','').chomp('</p>').html_safe)%></td>
+			    </tr>
+			    <tr>
+			    	<td width="132px" valign="top">Question Mark</td><td valign="top" width="12px">:</td>
+			        <td width="650px" valign="top"><%=@totalMark%></td>
+			    </tr>
+			    <tr>
+			    	<td width="132px" valign="top">Mark Scored</td><td valign="top" width="12px">:</td>
+			        <td width="650px" valign="top"><%=@total.round(2)%></td>
+				</tr>
+			    <tr><td colspan="3" width="100%"><hr></td></tr>
+		
+			<%end%>
+	
+	 
+	 
+			<%@ans.clear%>
+			<%@actual.clear%>
+			<%@tot.clear%>
+			<%@optionA.clear%>
+			<%@matchOption.clear%>
+			<%@options.clear%>
+			      
+			<%@login_count +=1%>
+	      
+		<%end%>       
+	</table>
+</div>

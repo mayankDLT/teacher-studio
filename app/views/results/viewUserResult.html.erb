@@ -1,0 +1,62 @@
+<div class="updateStatus">
+<h3><%=t('result.res')%></h3><hr>
+
+<%unless @combine_results.blank?%>
+	<table border="0" cellspacing="0">
+	<tr class="updateHeader">
+	<th><%=t('exam.name')%></th>
+	<th><%=t('exam.attempt')%></th>
+	<th><%=t('exam.total_mark')%></th>
+	<th><%=t('exam.mark_scored')%></th>
+	<th><%=t('exam.percent')%></th>
+	<th><%=t('general.status')%></th>
+	</tr>
+	
+	<%@sort_exam_IDs.each do |value|%>
+		<%for i in 0..@combine_results.rows-1%>
+			<tr class="updateAltrRow">
+			<%if @combine_results[i][0] == value%>
+			<td>
+				<%=@combine_results[i][1]%>
+			</td>
+			<td>
+				<%=@combine_results[i][5]%>
+		
+			</td>
+			<td>
+				<%=@combine_results[i][6].to_f.round(2)%>
+			</td>
+			<td>
+				<%if @combine_results[i][7] != "-"%>
+					<%=@combine_results[i][7].to_f.round(2)%>
+				<%else%>
+					<%=@combine_results[i][7]%>
+				<%end%>
+		
+			</td>
+			<td>
+				<%if @combine_results[i][8] != "-"%>
+					<%=@combine_results[i][8].to_f.round(2)%>
+				<%else%>
+					<%=@combine_results[i][8]%>
+				<%end%>
+		
+			</td>
+			<td>
+				<%if @combine_results[i][10] == 0%>
+					<%=@combine_results[i][9] == 'p' ? t('reports.pass') : t('reports.fail')%>
+				<%elsif @combine_results[i][10] == "-"%>
+					<%=@combine_results[i][9]%>
+				<%elsif @combine_results[i][10] == 1%>
+					Pending
+				<%end%>		
+			</td>
+			
+			<%end%>
+			</tr>
+		<%end%>
+	<%end%>
+	</table>
+
+ <%end%>
+</div>

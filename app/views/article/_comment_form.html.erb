@@ -1,0 +1,26 @@
+<%= form_for @comment, :url => {:controller=>"article", :action => "comment" },:remote=>true,:id=>'comment_form' do |f| %>  
+    <%= f.error_messages %> 
+     
+    <div class="form">
+      <span class="label" style="width:125px; float:left;"><label><%=t('article_comment.your_name')%></label></span>
+      <%= f.text_field :name,:style=>"border:#d1d1d1 1px solid; height:19px; width:160px;" %>
+    </div>
+
+    <div class="form">
+      <span class="label" style="width:125px; float:left;"><label><%=t('article_comment.email')%></label></span>
+      <%= f.text_field :email,:style=>"border:#d1d1d1 1px solid; height:19px; width:160px;" %>
+    </div>
+    <div class="form">
+      <span class="label" style="width:125px; float:left;"><label><%=t('article_comment.comment')%></label></span><div class="clear" ></div>
+	  <%= f.text_area :comment, :rows=>"10", :cols=>"50" %>
+    </div>
+    <%= hidden_field :comments, :article_id, :value => @article.id %>
+	<%= hidden_field :comments,:user_id, :value=>current_user ? current_user.id : nil%>
+    <%= f.submit t('article_comment.submit'), :id=>'submit_comment', :class=>'btnBg' %>
+<%end%>
+
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('#comment_form').trigger("reset");
+	});
+</script>

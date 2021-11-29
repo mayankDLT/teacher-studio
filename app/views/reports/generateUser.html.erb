@@ -1,0 +1,115 @@
+<% if @organization_id == 1 %>
+	<table cellspacing="0" width="100%" style="text-align:left;font-size: 12px;" >
+		<tr>
+			<th width="113px" align="left"><%=t('user.examinee')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@username%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left">Class</th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findCourse.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left">Section</th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findSection.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('general.acedemic_yr')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findCategoryuser.currentyear%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('exam.exam_type')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findExamtype.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('exam.name')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findExam.name%></td>
+		</tr>
+	</table>
+	
+	<%= render :partial=>"answersheet"%>
+
+<% elsif @organization_id == 2 %>
+	<table cellspacing="0" width="100%" style="text-align:left;font-size: 12px;" >
+		<tr>
+			<th width="113px" align="left"><%=t('user.examinee')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@username%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('org.dept')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findDepartment.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('org.course')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findCourse.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('org.year')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findyear.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('org.semester')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findSemester.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('general.acedemic_yr')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findCategoryuser.currentyear%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('exam.exam_type')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findExamtype.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('exam.name')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findExam.name%></td>
+		</tr>
+	</table>
+	
+	<%= render :partial=>"answersheet"%>
+
+<% elsif @organization_id == 3 or @organization_id == 4 %>
+
+	<table cellspacing="0" width="100%" style="text-align:left;font-size: 12px;" >
+		<tr>
+			<th width="113px" align="left"><%=t('user.examinee')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@username%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('org.dept')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findDepartment.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('general.acedemic_yr')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findCategoryuser.currentyear%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('exam.exam_type')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findExamtype.name%></td>
+		</tr>
+		<tr>
+			<th width="113px" align="left"><%=t('exam.name')%></th>
+			<td width="8px">:</td>
+			<td width="673px" align="left"><%=@findExam.name%></td>
+		</tr>
+	</table>
+	
+	<%= render :partial=>"answersheet"%>
+
+<%end%>

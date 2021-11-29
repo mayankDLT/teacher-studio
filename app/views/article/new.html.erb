@@ -1,0 +1,80 @@
+<%= form_for @article, :url => {:controller=>"article", :action => "save" } do |f| %>  
+    <%= f.error_messages %> 
+  	<div id="form_header">
+		<h2 style="font-size:24px; margin:0 0 10px 0;"> <%=t('article_new.new_article')%> </h2>
+    	<div class="form">
+      		<span class="label"><%=t('article_new.title')%></span>
+      		<%= f.text_field :title ,:style=>"border:#d1d1d1 1px solid; height:19px; width:160px;"%>
+    	</div>
+
+	    <div class="form">
+	      <span class="label"><%=t('article_new.description')%></span>
+	      <%= f.text_area :body_part, :id=>"area1", :cols => "50", :rows=>"3",:style=>"border:#d1d1d1 1px solid; height:180px; width:360px;" %>
+	    </div>
+
+	    <div class="form">
+	      <span class="label" style="width:125px; float:left;"><%=t('article_new.category')%></span>
+	      <%= f.select :blog_category_id, options_for_select([[t('general.select') , 0 ]] + BlogCategory.all.collect {|p| [ p.name, p.id ] }),{},{:style=>"width:200px; height:19px; border:#d1d1d1 1px solid;"} %>
+	    </div>
+	
+	    <div class="form">
+	      <span class="label" style="width:125px; float:left;"><%=t('article_new.subcategory')%></span>
+	      <%= f.select :subcategory_id, options_for_select([[t('general.select') , 0 ]] + @subcategories.collect{|e| [e.name[0..30],e.id]}),{},{:style=>"width:200px; height:19px; border:#d1d1d1 1px solid;"}   %>
+		</div>
+
+	    <div class="form">
+	  		<%= f.check_box :enable_comment %><label> <%=t('article_new.enable_comments')%></label>
+	    </div>
+		<%=f.hidden_field :user_id, :value => current_user.id%>
+  	</div> <br>
+
+	<%= f.submit t('article_new.save'), :id => "article_new_create", :class=>'btnBg', :style=>"margin-bottom:20px;" %>
+
+<%end%>
+<script type="text/javascript">	
+
+bkLib.onDomLoaded(function() { nicEditors.allTextAreas() });
+
+$(document).ready(function() {
+	
+	$("#article_new_create").click(function(){
+		var title = $('#article_title').val();
+     	var nicE = new nicEditors.findEditor('area1');
+		var temp = nicE.getContent();
+		if($.trim(title) == ""){
+			alert("Please enter Title");
+			return false
+		}
+		else if(temp == "<br>"){
+			alert("<%=t('blog.enter_desc')%>");
+			return false
+		}
+     });
+
+  //Fetch Exam-------------------------------------------------------
+	
+   	 $("#article_blog_category_id").change(function() {
+	  var data = {
+	  	category_id: $("#article_blog_category_id").val(),
+	  };
+	  var url = "<%= url_for(getBlogcategory_path)%>";
+	  
+	  			$.get(url, data, function(resp_data){
+				   var arr = resp_data.subcategories
+				    $("#article_subcategory_id").empty();  
+				 $("#article_subcategory_id").append("<option value=" + 0 + ">" + "<%=t('general.select')%>" + "</option>");
+				 jQuery.each(arr, function(index, value) {
+					$("#article_subcategory_id").append("<option title='"+value.subcategory.name+"' value=" + value.subcategory.id + ">" + value.subcategory.name + "</option>");
+				    });
+
+		    }, 'json')
+	  
+     });	
+		
+  //--------------------------------------------------------	
+
+  });
+  
+
+  </script>
+  

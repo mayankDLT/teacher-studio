@@ -1,0 +1,15 @@
+<div style="color: #5C5C5C; float: left; font-weight: bold; padding: 0 0 12px; width: 100%; font-size:14px;"><%=@page_header%></div>
+
+<fieldset class="formContainer">
+<% form_for @user, :id=>'create_user_form',:action => 'create', :html => { :id => "class_form"} do |f| %>
+    <%= f.error_messages %>
+    <%= render :partial => "form", :object => f %>
+    <%= f.submit t('general.create'), :class=>'btnBg floatL',:id=>"Submit" %>  
+    <div class="back_btn">| <%=link_to t('general.back'), :action=>"index", :controller=>"users", :create_id=>@create_id%></div>
+<% end %>
+</fieldset>
+
+
+
+
+

@@ -1,0 +1,31 @@
+<h2>Upload File</h2>
+<div class="main_wrapper">
+  <div class="main_inner">
+  	
+    <%= render :partial => "folders/breadcrumbs" %> 
+  	
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">&nbsp;</td>
+      </tr>
+
+    <%= render 'form' %> 
+
+          <tr>
+          	<% if @asset.folder %>  
+            <td valign="top">
+            	<div style="float:left;"><%= link_to "Back to '#{@asset.folder.name}' Folder", browse_path(@asset.folder) %></div>
+				<div style="float:left; margin:0 10px 0 10px;"> | </div>
+				<div style="float:left;"><%= link_to t('general.back'), browse_path(@asset.folder)%></div>
+				
+            </td>
+		
+			<%else%>
+            <% end %> 
+		  </tr>
+      <tr>
+        <td valign="top">&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+</div>

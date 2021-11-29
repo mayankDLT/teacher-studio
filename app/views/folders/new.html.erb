@@ -1,0 +1,31 @@
+  
+<h2>New Folder</h2>
+<div class="main_wrapper">
+  <div class="main_inner">
+  	  	
+    <table width="95%" border="0" cellspacing="0" cellpadding="0">
+      <tr>
+        <td valign="top">&nbsp;</td>
+      </tr>
+
+    <%= render 'form' %> 
+
+          <tr>
+          	<% if @folder.parent %>  
+            
+            <td valign="top">
+            	<div style="float:left;"><%= link_to "Back to '#{@folder.parent.name}' Folder", browse_path(@folder.parent) %></div>
+				<div style="float:left; margin:0 10px 0 10px;"> | </div>
+				<div style="float:left;"><%= link_to "Back to Home page", :action=>:index %></div>
+				
+            </td>
+		
+			<%else%>
+            <% end %> 
+		  </tr>
+      <tr>
+        <td valign="top">&nbsp;</td>
+      </tr>
+    </table>
+  </div>
+</div>

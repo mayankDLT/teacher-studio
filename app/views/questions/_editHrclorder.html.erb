@@ -1,0 +1,49 @@
+<table cellpadding="0" cellspacing="0" border="0" style="margin: -5px -20px 0px 0px;" class="tblRepeter" >
+  	<tr>
+  		<th valign="top" style="width:165px;  padding:3px 0 5px 0;"><%=t('question.answer_order')%></th>
+		<%if t('language.lang') == "zh"%>
+			<th valign="top" style="padding:3px 0 5px 15px;"><%=t('question.display_order')%></th>
+		<%elsif%>
+			<th valign="top" style="padding:3px 0 5px 5px;"><%=t('question.display_order')%></th>
+		<%end%>
+  	</tr>
+  	<tr align="center">  
+  		<td colspan="2">
+	   		<div class="tblCols rowValue">
+	   			<% @max_subquestion_order = @sub_questions.order("sort_order DESC").first.sort_order.to_i%>
+				<% @options_count = @sub_questions.count.to_i%>
+				<%if @max_subquestion_order != @options_count%>
+					<% @h_order = []%>
+					<% 1.upto(@options_count) do |i|%>
+					    <% @h_order << "#{i}"%>
+				  	<% end%>
+				<%end%>
+    	    	<%@sub_questions.each do|answer|%>
+		    		<%= fields_for "answer[]", answer do |answer_fields| %>
+						<%= answer_fields.hidden_field :id %>
+           				<div class="tblRepeaterRow mb0 pb10">  
+							<%= answer_fields.text_field :name, :class=>"tblInputtxt validate[required,funcCall[checkHELLO]] text-input" %>
+							<%if @max_subquestion_order == @options_count%>
+								<%= answer_fields.select :sort_order, options_for_select(@h_order.to_a, :selected =>answer.sort_order), {}, { :class => "hrclselect_order displayOrder" }%>
+							<%else%>
+								<%= answer_fields.select :sort_order, options_for_select(@h_order, :selected => 1), {}, { :class => "hrclselect_order displayOrder" }%>
+							<%end%>
+		   				</div>  
+		    		<%end%>
+		   		<%end%>
+		   	</div>
+	 	</td> 
+	 	<td style="text-align:left;">  
+	 		<div class="tblCols rowValue"> 
+		 		<%@ans.each do|answer|%>
+		    		<%= fields_for "answerOrder[]", answer do |answerOrder_fields| %>
+			    		<%= answerOrder_fields.hidden_field :id %>
+			    		<div class="tblRepeaterRow mb0 pb10">  
+							<%=link_to image_tag("cross.jpg", :alt=>"Add Option"), {:action=>"delete_hrcl_option",:controller=>"questions",:id=>answer.id,:question_id=>@question.id}, {:class => "delete_editClassInfo", :confirm => t('json_message.are_you_sure')}%>
+						</div>
+		    		<%end%>
+				<%end%>	
+	      	</div>
+	 	</td> 
+	</tr>
+</table> 

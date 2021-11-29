@@ -1,0 +1,63 @@
+<%unless @shared_to_users.blank?%>
+	<fieldset class="formContainer" style="width:450px; float: left; margin: 15px 0 20px 5px;">
+	
+		<legend><%=t('document.legend')%>:</legend>
+		<%= form_tag '/assets/unshare', {:id => "class_form_#{@shared_folder.id}"} do -%>  
+			<%=hidden_field_tag "folder_id", @shared_folder.id%>
+			<table>
+				<%@shared_to_users.each do |user|%>
+					<%user_role = User.where("id = ?", user.shared_user_id)%>
+					<%if user_role.first.role_id == 1%>
+						<%user_type = t('roles.admin')%>
+					<%elsif user_role.first.role_id == 2%>
+						<%user_type = t('roles.examiner')%>
+					<%elsif user_role.first.role_id == 3%>
+						<%user_type = t('roles.qsetter')%>
+					<%elsif user_role.first.role_id == 4%>
+						<%user_type = t('roles.examinee')%>
+					<%end%>
+		  			<tr>
+		  				<td>
+		  					<%= check_box_tag 'shared_ids[]', user.shared_user_id,false, :class => "check_user unshare_#{@shared_folder.id}"%>
+		  				</td>
+		  				<td>
+		  					<label>
+		  						<%=user.shared_email%>&nbsp;(<%=user_role.first.name%> - <%=user_type%>)
+		  					</label>
+		  				</td>
+		  			</tr>
+				<%end%>
+				<tr>
+					<td></td>
+					<td class="dlog">
+						<%= submit_tag t('document.unshare'), :id=>"unshare_#{@shared_folder.id}", :class=>'btnBg', :disabled => true, :style => "opacity:0.5;"  %>
+					</td>
+				</tr>
+			</table>
+			
+		<%end%>
+	
+	</fieldset>
+<%else%>
+	<div class="error error_unshare">
+		<%=t('document.no_user_for_share')%>
+	</div>
+<% end %>
+<script type="text/javascript">
+	$(document).ready(function() {
+		$('.check_user').change(function() {
+			var classname = "." +$(this).attr('class').split(' ')[1]
+			var unshare_id = "#" + $(this).attr('class').split(' ')[1]
+			if ($('.check_user:checked').length) {
+				$(unshare_id).removeAttr('disabled');
+		        $(unshare_id).css('opacity', '1');
+			}
+	        else {
+		        $(unshare_id).attr('disabled', 'disabled');
+		        $(unshare_id).css('opacity', '0.5');
+	    	}
+		});
+	});
+</script>
+
+

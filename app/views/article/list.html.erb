@@ -1,0 +1,70 @@
+<div id="form_header">
+  <h2><%=t('article_list.articles')%> -  <%= link_to t('article_list.add_new'), :controller => "article", :action => "new" %></h2><!-- -
+    See: <%#= link_to "All", :controller => "article", :action => "list", :sort => "all" %> 
+	 - Filter by: (<%#= link_to "Year", :controller => "article", :action => "list", :sort => "year" %>  /
+    <%#= link_to "Month", :controller => "article", :action => "list", :sort => "month" %>)</h3> -->
+
+
+
+</div>
+
+
+<div class="updateStatus">
+<%unless @articles.empty?%>
+
+<div class="questionTabele">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr class="updateHeader">
+<th><%=t('article_list.name')%></th>
+<th><%=t('article_new.category')%></th>
+<th><%=t('article_list.view')%></th>
+<th><%=t('general.edit')%></th>
+<th><%=t('general.delete')%></th>
+<th><%=t('blog.recommended')%></th>
+<th><%=t('article_list.thumbs_up')%></th>
+<th><%=t('article_list.thumbs_down')%></th>
+</tr>
+
+<%@articles.each do|article|%>
+<tr class="<%= cycle("odd_table", "even_table") %>">
+
+<td class="firstblock"><%= link_to article.title, {:controller=>"article", :action => "index", :articles => article.title}, :id => "article_list_#{article.id}"%></td>
+<td><%=article.blog_category.name unless article.blog_category == nil%></td>
+<td class="thirdblock">
+<%= link_to t('article_list.view'), {:controller=>"article", :action => "index", :articles => article.title}, :id => "article_list_#{article.id}" %>
+</td>
+<%if current_user.role_id == 1 or current_user.id == article.user_id%>
+<td><%= link_to image_tag("edit.png", :alt=>"Edit"), :controller=>"article", :action => "edit", :id => article.id %></td>
+<td><%=link_to image_tag("del.png", :alt=>"Remove"), {:controller=>"article", :action => "delete", :id=>article.id}, :confirm => "Are you sure?"%></td>
+<%else%>
+<td><%=image_tag("edit_d.png", :alt=>"Edit")%></td>
+<td><%=image_tag("del_g.png", :alt=>"Remove")%></td>
+<%end%>
+<td><%=article.getPercentage(article.id)%>%</td>
+<td><%=article.getCount_tp(article.id)%></td>        
+<td><%=article.getCount_td(article.id)%></td>		
+</tr>
+<%end%>
+
+</table>
+</div>
+<%else%>
+<div class="formContainer">
+  <%=t('article_list.article_not_found')%>
+ </div>
+ <%end%>
+ </div>
+ 
+  <div class="qestionhead">
+ <div style="margin: 10px 0; padding: 8px 0 0; float:left;">
+<%=link_to t('article_new.new_article'), :controller => "article", :action => "new"%>
+</div>
+	<%= will_paginate @articles, 
+                :prev_label => t('general.previous'), 
+                :next_label => t('general.next'),
+   				 :inner_window => "2", 
+  				  :outer_window => "0",
+                :page_links =>true,           
+                :renderer => PaginationListLinkRenderer
+              %>
+</div>

@@ -1,0 +1,15 @@
+<h1><%=t('article_new.category')%> : <%= @category.name %></h1>
+<%unless @articles.empty?%>
+<% @articles.each do |article| %>
+    <strong><p class="fs12"></p><%= article.created_at.try(:strftime,"%B %d %Y %H:%M %p") %></p></strong>
+    <div class="art_rep">
+      <div class="art_block">
+	  <h5><%= link_to article.title, :controller => "article", :articles => article.title %></h5>
+      <%= article.body_part.html_safe[0..800] %>
+	  </div>	 
+	  <%=link_to t('article_new.read_more'), :controller => "article", :articles => article.title%>
+    </div>
+<% end %>
+<%else%>
+<%=t('article_list.article_not_found')%>
+<%end%>

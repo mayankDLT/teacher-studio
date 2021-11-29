@@ -1,0 +1,49 @@
+<div id="wrap">
+  <h2><%=t('article_new.blog_category')%> -  <%= link_to t('article_list.add_new'), :controller=>"blog_category", :action => "new" %> </h2>
+
+  
+  
+ <div class="updateStatus">
+<%unless @categories.empty?%>
+
+<div class="questionTabele">
+<table border="0" cellspacing="0" cellpadding="0" width="100%">
+<tr class="updateHeader">
+<th><%=t('article_list.name')%></th>
+<th><%=t('article_new.subcategories')%></th>
+<th><%=t('article_list.articles')%></th>
+<th><%=t('general.edit')%></th>
+<th><%=t('general.delete')%></th>
+</tr>
+
+<% @categories.each do |category| %>
+<tr class="<%= cycle("odd_table", "even_table") %>">
+
+<td class="firstblock"><%= category.name %></td>
+
+<td><%= link_to t('article_list.view'), {:controller=>"blog_category", :action => "subcategory", :category => category.name}, :id => "category_list_#{category.id}" %></td>
+<td>
+<%= link_to t('article_list.view'), {:controller=>"blog_category", :action => "index", :category => category.name}, :id => "category_list_#{category.id}" %>
+</td>
+<td><%= link_to image_tag("edit.png", :alt=>"Edit"), :controller=>"blog_category", :action => "edit", :id => category.id %></td>
+<td><%= link_to image_tag("del.png", :alt=>"Remove") , {:controller=>"blog_category", :action => "destroy", :id=>category.id}, :confirm => "Are you sure?" %></td>
+		
+</tr>
+<%end%>
+
+</table>
+</div>
+<%else%>
+<div class="formContainer">
+ <%=t('article_list.category_not_found')%>
+ </div>
+ <%end%>
+ </div> 
+  
+  
+  
+  
+  
+  
+  
+</div>

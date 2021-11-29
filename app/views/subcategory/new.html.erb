@@ -1,0 +1,17 @@
+<div id="form_header">
+       <%= form_for @subcategory, :url => {:controller=>"subcategory", :action => "save" } do |f| %>  
+    <%= f.error_messages %> 
+	  <h2 style="font-size:24px; margin:0 0 10px 0;"> <%=t('blog.new_sub')%> </h2>
+	  <div class="form">
+	    <span class="label" style="width:125px; float:left;"><%=t('article_new.title')%></span>
+	    <%= f.text_field :name ,:style=>"border:#d1d1d1 1px solid; height:19px; width:160px;"  %>
+	  </div>
+
+    <div class="form">
+      <span class="label" style="width:125px; float:left;"><%=t('article_new.category')%></span>
+      <%= f.select :blog_category_id, options_for_select([[t('general.select'),""]] + BlogCategory.all.collect {|p| [ p.name, p.id ] }),{},{:style=>"width:200px; height:19px; border:#d1d1d1 1px solid;"} %>
+    </div>
+
+	<%= f.submit t('article_new.save'), :class=>'btnBg' %>
+	<%end%>
+</div>

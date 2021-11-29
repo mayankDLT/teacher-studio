@@ -1,0 +1,27 @@
+
+<%= form_for @folder , :html => { :id => "class_form"} do |f| %>  
+ <%= f.error_messages %> 
+      <tr>
+        <td valign="top"><table width="42%" border="0" cellspacing="0" cellpadding="0">
+          <tr>
+            <td width="105" valign="middle"><h1 style="width:90px;">Name:</h1></td>
+            <td align="right" valign="top">
+              <%= f.text_field :name, :class=>"form_txtarea validate[required,funcCall[checkHELLO]] text-input" %>
+			  <%= f.hidden_field :parent_id %>  
+            </td>
+          </tr>
+          <tr>
+            <td valign="top">&nbsp;</td>
+			<% if @folder.new_record? %>  
+            <td height="40" align="right" valign="bottom">
+			<%= f.submit "Create", :class=>'btnBg ' %>
+			</td>			
+			<%else%>
+            <td height="40" align="right" valign="bottom">
+			<%= f.submit "Rename", :class=>'btnBg ' %>
+			</td>
+			<% end %> 
+          </tr>
+        </table></td>
+      </tr>
+<% end %> 

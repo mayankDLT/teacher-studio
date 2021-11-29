@@ -1,0 +1,69 @@
+
+
+<% if @flag == 'q'%>
+$('.showComment').hide("slow");
+$("#userQuestions").show("slow");
+$("#userQuestions").html("<%= escape_javascript(render("userQuestions"))%>")
+<%end%>
+
+<% if @flag == 'e'%>
+$("#userQuestions").hide("slow");
+$(".examineesOuter").show("slow");
+$("#examinees").html("<%= escape_javascript(render("examinees"))%>")
+<%end%>
+
+<%if @examComplete == 'f'%>
+$("#userQuestions").hide("slow");
+$("#examinees").html("<%= escape_javascript(render("examinees"))%>")
+$('.showComment').show("slow");
+$('.evalComplete').show();
+$('.evalComplete').append("<%=t('evaluate.evaluation_completed')%>").delay(2000);
+		setTimeout(function() {
+		                     $("#notallowed").empty();
+							 $('.evalComplete').empty();
+						     $(".evalComplete").hide("slow");
+						     }, 5000);
+<%elsif @examComplete == 'nf'%>
+$(".assign_examinee #assign").prop("disabled", true);
+$('.showComment').show("slow");
+$('.showComment').append("<%=t('evaluate.evaluate_all')%>").delay(1000);
+		setTimeout(function() {
+		                     $("#notallowed").empty();
+							 $(".showComment").empty();
+						    $(".showComment").hide("slow");
+						     $(".assign_examinee #assign").prop("disabled", false);
+						     }, 2000);
+<%end%>
+
+<%if @notallowed == 'n'%>
+$(".examineesOuter").hide("slow");
+$("#userQuestions").hide("slow");
+$('#notallowed').append("<%=t('evaluate.not_permitted')%>").delay(2000);
+							setTimeout(function() {
+						     $("#notallowed").empty();
+						     }, 5000);
+<%end%>
+
+<%if @manualflag == 'm'%>
+$(".assign_examinee #assign").prop("disabled", true);
+$('.showComment').show("slow");
+$('.showComment').append("<%=t('evaluate.mark_added')%>").delay(1000);
+		setTimeout(function() {
+						     $(".showComment").empty();
+							 $(".showComment").hide("slow");
+							 $(".assign_examinee #assign").prop("disabled", false);
+					     }, 2000);
+<%end%>
+
+<%if @manualflag == 'qs_al_eval'%>
+$(".assign_examinee #assign").prop("disabled", true);
+$('.showAlreayEval').show("slow");
+$('.showAlreayEval').append("<%=t('evaluate.qstn_already_evaluated')%>").delay(1000);
+		setTimeout(function() {
+						     $(".showAlreayEval").empty();
+							 $(".showAlreayEval").hide("slow");
+							$(".assign_examinee #assign").prop("disabled", false);
+						     }, 2000);
+
+
+ <%end%>
