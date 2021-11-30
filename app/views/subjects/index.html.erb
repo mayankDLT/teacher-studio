@@ -18,9 +18,7 @@
 
 </table>
 <%else%>
-<div class="formContainer">
-  <%=t('subject.no_sub_found')%> 
- </div>
+
  <%end%>
  <div class="qestionhead"> 
 <div style="float:left; margin:10px 0 0 0; padding:8px 0 0 0;"><%=link_to t('subject.create_sub'), :action=>'new', :controller=>'subjects'%> | <%=link_to t('subject.add_sub_to_cat'), :action=>'add_subject_category', :controller=>'subjects'%></div>
