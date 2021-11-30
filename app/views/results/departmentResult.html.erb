@@ -6,13 +6,13 @@
             <tr>
             <td> 
            <div style="float:left; padding:0px; margin:0 20px 0 0;">
-		   <label style="float:left; padding-right:10px; width:120px;"><%=t('general.select_cat')%>: </label>
+		   <label style="float:left; padding-right:10px; width:130px;"><%=t('general.select_cat')%>: </label>
 		   <%= select_tag "examCategory",options_for_select([[t('general.select') , "" ]] + @c.collect{|p| [p.gathercat(p),p.id,{:title=>p.gathercat(p)}]},:selected=>@examCategory), {:id=>"examCategory", :class=>"category w530 bdr validate[required]"} %>
 		   </div>
 		   <div class="clear"></div><br>
 		   		   
 	       <div style="float:left; padding:0px; margin:0; clear: left;">
-		   <label style="float:left; padding-right:10px; width:120px;"><%=t('exam.year')%>:</label>
+		   <label style="float:left; padding-right:10px; width:130px;"><%=t('exam.year')%>:</label>
 		   <%= select_tag 'academicYear', options_for_select(([[t('general.select'),""]] + @yrs.to_a),:selected=>@academicyear),:class=>"validate[required] w120 bdr" %>		   
 		   </div>
 		   <div class="clear"></div><br>		   
@@ -24,7 +24,7 @@
             </td> 
 			</tr> 
             </table>
-			<%= submit_tag t('general.generate'), :id=>"assign", :class=>'btnBg' %>
+			<%= submit_tag t('general.generate'), :id=>"assign", style:"margin-left:186px", :class=>'btnBg' %>
 	<%end%>
 </div>
 

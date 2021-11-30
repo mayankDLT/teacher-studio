@@ -2504,3 +2504,23 @@ input[type='text'] {
 #class_form {
   margin-left: 5vw;
 }
+
+#filter {
+	margin-right: 90px;
+	float: right
+}
+
+.green-button {
+	padding: px 14px 0pt 15px;
+	background: #00a651;
+	color: #fff;
+	/* width: 30vw; */
+	padding-left: 2.25vw;
+	padding-right: 2.25vw;
+	padding-top: 0.2vh;
+	border-radius: 0.3rem;
+	margin-left: 0.5vw;
+	padding-bottom: 0.24vh;
+  }
+  
+  

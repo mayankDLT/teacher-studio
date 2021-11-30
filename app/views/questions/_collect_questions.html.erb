@@ -70,14 +70,12 @@
 </table>
 </div>
 <%else%>
-<div class="formContainer">
-  <%=t('question.no_q_found')%>
- </div>
+
  <%end%>
  
  <div class="qestionhead">
  <div style="margin: 10px 0; padding: 8px 0 0; float:left;">
-<%=link_to t('question.create_ques'), :action=>"question_type_listing", :controller=>"questions", :q_id=>@qId.to_i%>
+<%=link_to t('question.create_ques'), {:action=>"question_type_listing", :controller=>"questions"},  class:'green-button', :q_id=>@qId.to_i%>
 </div>
 	<%= will_paginate @questions, 
                 :prev_label => t('general.previous'), 

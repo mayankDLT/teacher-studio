@@ -96,9 +96,9 @@
 <fieldset class="formContainer">
 
 <!--<legend>Result Types</legend>-->
-<%= link_to t('result.examinees_result'), :action=>"usersResult", :controller=>"results"%> <br><br>
-<%= link_to t('result.exams_result'), :action=>"examsResult", :controller=>"results"%><br><br>
-<%= link_to t('result.department_result'), :action=>"departmentResult", :controller=>"results"%>
+<%= link_to t('result.examinees_result'), {:action=>"usersResult", :controller=>"results"}, class:'green-button',style:'padding-right:42px;padding-left:42px' %> <br><br>
+<%= link_to t('result.exams_result'), {:action=>"examsResult", :controller=>"results"}, class:'green-button', style:'padding-right:59px;padding-left:59px' %><br><br>
+<%= link_to t('result.department_result'), {:action=>"departmentResult", :controller=>"results"},class:'green-button'%>
 </fieldset>
 
 <%end%>
