@@ -2375,7 +2375,7 @@ ul.group_two li.nobrdr {
 /* a,p {
 	color: #f26f29 !important;
   } */
-
+/* 
 input {
   display: block;
   width: 100%;
@@ -2392,7 +2392,7 @@ input {
   appearance: none;
   border-radius: 0.25rem;
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
-}
+} */
 select {
   height: auto !important;
   padding: 0.375rem 0.75rem;
@@ -2506,8 +2506,9 @@ input[type='text'] {
 }
 
 #filter {
-  margin-right: 90px;
+  margin-right: 14.5vh;
   float: right;
+  background: #f26f29;
 }
 
 .green-button {
