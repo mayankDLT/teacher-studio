@@ -4,7 +4,7 @@
 <nav style="font-size: 1rem">
 		<ul class="mcd-menu" style="background-color: #f7f7f7; border-radius:10px;">
 			<li>
-				<strong><%=link_to(content_tag('span',t('general.users')), :action=>'user_management', :controller=>'welcome') %></strong>
+				<strong><%=link_to(content_tag('span',t('general.users')), {:action=>'user_management', :controller=>'welcome'},id:'users')%></strong>
 				<ul>
 					<li><%= link_to t('general.confirm_reject_user'), :action=>'admin_dashboard', :controller=>'welcome'%></li>
 					<li><%= link_to t('general.examiner'), :action=>'index', :controller=>'users', :create_id => 2%></li>
@@ -15,13 +15,13 @@
 				</ul>
 			</li>
 			<li>
-                <strong><%=link_to(content_tag('span',t('general.subjects')),:action=>'index', :controller=>'subjects') %></strong>
+                <strong><%=link_to(content_tag('span',t('general.subjects')),{:action=>'index', :controller=>'subjects'},id:'subjects') %></strong>
 			</li>
 			<li>
-			<strong><%=link_to(content_tag('span',t('general.questions')),:action=>'index', :controller=>'questions') %></strong>
+			<strong><%=link_to(content_tag('span',t('general.questions')),{:action=>'index', :controller=>'questions'},id:'questions') %></strong>
 			</li>
 			<li>
-				<strong><%=link_to(content_tag('span',t('general.exams')), :action=>'index', :controller=>'exams') %></strong>
+				<strong><%=link_to(content_tag('span',t('general.exams')), {:action=>'index', :controller=>'exams'},id:'exams') %></strong>
 				<ul>
 				<li><%= link_to t('general.create_exam'),:action=>"scheduleExam", :controller=>"exams" %></li>
 				<li><%= link_to t('general.examtype'),:action=>"listExamtypes", :controller=>"exams" %></li>
@@ -34,7 +34,7 @@
 				</ul>
 			</li>
 			<li>
-				<strong><%=link_to(content_tag('span',t('general.result')), :action=>'index', :controller=>'results') %></strong>
+				<strong><%=link_to(content_tag('span',t('general.result')), {:action=>'index', :controller=>'results'},id:'results') %></strong>
 				<ul>
 					<li><%= link_to t('result.examinees_result'), :action=>"usersResult", :controller=>"results"%></li>
 					<li><%= link_to t('result.exams_result'), :action=>"examsResult", :controller=>"results"%></li>
@@ -42,7 +42,7 @@
 				</ul>
 			</li>
 			<li>
-				<strong><%=link_to(content_tag('span',t('general.org_levels')), :action=>'index', :controller=>'category_titles') %></strong>
+				<strong><%=link_to(content_tag('span',t('general.org_levels')), {:action=>'index', :controller=>'category_titles'},id:'org-levels') %></strong>
 				<%unless @organization_id == nil && @category_types.blank?%>
 					<ul>
 						<% @category_types.each do |category_type| %>
@@ -66,13 +66,13 @@
 				<%end%>
 			</li>
 			<li>
-                <strong><%=link_to(content_tag('span',t('general.category')), :action=>'listCategories', :controller=>'categories') %></strong>
+                <strong><%=link_to(content_tag('span',t('general.category')), {:action=>'listCategories', :controller=>'categories'},id:'category') %></strong>
                     <ul>
                       <li><%= link_to t('general.config_category'), :action=>'index', :controller=>'categories', :create_id => 3%></li>
                     </ul>
 			</li>
 			<li>
-				<strong><%=link_to(content_tag('span',t('general.reports')), :action=>'index', :controller=>'reports') %></strong>
+				<strong><%=link_to(content_tag('span',t('general.reports')), {:action=>'index', :controller=>'reports'},id:'reports') %></strong>
 				<ul>
 					<li><%= link_to t('general.examinees_report'), :action=>"userReport", :controller=>"reports"%></li>
 					<li><%= link_to t('general.exams_report'), :action=>"examReport", :controller=>"reports"%></li>
@@ -83,7 +83,7 @@
 			</li>
 			<%if current_user.role_id == 1 %>
 			<li>
-				<strong><%=link_to(content_tag('span',t('general.settings')), :action=>'index', :controller=>'settings') %></strong>
+				<strong><%=link_to(content_tag('span',t('general.settings')), {:action=>'index', :controller=>'settings'},id:'settings') %></strong>
 				<ul>
 				<li><%= link_to t('general.client_image'), :action=>"clientImage", :controller=>"images"%></li>
 				<li><%= link_to t('about.aboutus'), :action=>"index", :controller=>"aboutus"%></li>
@@ -91,11 +91,11 @@
 				</ul>
 			</li>
 			<li>
-				<strong><%=link_to(content_tag('span',t('general.email')), :action=>'index', :controller=>'emails') %></strong>
+				<strong><%=link_to(content_tag('span',t('general.email')), {:action=>'index', :controller=>'emails'},id:'email') %></strong>
 			</li>
 			<%end%>
 			<li>
-				<strong><%=link_to(content_tag('span',t('general.feedback')), :action=>'index', :controller=>'feedback') %></strong>
+				<strong><%=link_to(content_tag('span',t('general.feedback')), {:action=>'index', :controller=>'feedback'},id:'feedback') %></strong>
 				<ul>
 					<li><%= link_to t('general.feedback_res'), :action=>"feedbackResponse", :controller=>"feedback"%></li>
 				</ul>

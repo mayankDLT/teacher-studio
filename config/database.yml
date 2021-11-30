@@ -5,15 +5,15 @@ production:
   database: virtualx
   host: localhost
   username: root
-  password:
+  password: P@ssw0rd22071994
   encoding: utf8
 
 development:
   adapter: mysql2
   database: virtualx_development
   host: localhost
-  username: sammy
-  password: password
+  username: root
+  password: P@ssw0rd22071994
   encoding: utf8
 
 # Warning: The database defined as "test" will be erased and
@@ -23,8 +23,8 @@ test:
   adapter: mysql2
   database: virtualx_test
   host: localhost
-  username: sammy
-  password: password
+  username: root
+  password: P@ssw0rd22071994
   encoding: utf8
 
 test_pgsql:
