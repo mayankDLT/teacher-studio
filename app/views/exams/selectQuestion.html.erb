@@ -4,7 +4,7 @@
 <%=hidden_field_tag "flag", "f"%>
 
 <h2><%=t('general.filter')%></h2>
-<div class="formContainer mb0">
+<div class="formContainer mb0" style="width:40vh">
             <table class="formTable" style="border:0px;">
 			<%=hidden_field_tag "categoryId", @categoryId, :class=>"f_cid", :id=>"f_cid"%>
 			<%=hidden_field_tag "academicYear", @categoryId, :class=>"f_yr", :id=>"f_yr"%>
@@ -12,7 +12,7 @@
               <tr>
                 <td>
                 <div style="float:left; padding:0px; margin:0 20px 5px 0;">
-					<label style="float:left; padding-right:10px; width:95px;"><%=t('question.ques_type')%>:</label>
+					<label style="float:left; padding-right:10px; width:116px;"><%=t('question.ques_type')%>:</label>
 					<%= select_tag "question_type", options_for_select([[t('general.select'),""],[t('general.all') , "0" ]] + @question_types.collect{ |q| [t("question_types.qt#{q.id}"), q.id,{:title=>q.name}] }), :id=>"assignQuestion", :class=>"validate[required]"%>
 				</div>
 				<div class="clear"></div><br>
@@ -33,13 +33,13 @@
 <%=hidden_field_tag "category_type", @category_type, :class=>"cType"%>
 
 
-<div class="formContainer">
+<div class="formContainer" style="width:40vh">
 	<table class="formTable" style="border:0px;">
 		<tr>
 			
 	<td class="pb0">
 		<div style="float:left; padding:0px; margin:0 20px 5px 0;">
-			<label style="float:left; padding-right:10px; width:95px;"><%=t('general.select_cat')%>:</label>
+			<label style="float:left; padding-right:10px; width:130px;"><%=t('general.select_cat')%>:</label>
 			<%= select_tag "categoryId", options_for_select([[t('general.select') , "" ]] + Category.find(:all, :conditions=>["organization_id = ?", @organization_id]).collect { |p| [p.gathercat(p),p.id,{:title=>p.gathercat(p)}] },:selected=>@categoryId), :class=>"category w530 bdr validate[required]"%>
 		</div>
 		<div class="clear"></div><br>
@@ -49,7 +49,7 @@
 		</div>
 		<div class="clear"></div><br>
 	    <div style="float:left; padding:0px; margin:0;">
-			<label style="float:left; padding-right:10px; width:95px;"><%=t('exam.year')%>:</label>
+			<label style="float:left; padding-right:10px; width:130px;"><%=t('exam.year')%>:</label>
 			<%= select_tag 'academicYear', options_for_select([[t('general.select') , "" ]] + @yrs.collect{|p| [p]},:selected=>@academicYear), {:class=>"validate[required] w120 bdr academicYear"} %>
 		</div>
 	</td>				

@@ -19,7 +19,7 @@
 				</td>				
 	  		</tr>
 		</table>
-	<%= submit_tag t('general.filter'), :id=>"filterExam", :class=>'btnBg' %>
+	<%= submit_tag t('general.filter'), :id=>"filterExam", :class=>'btnBg',style:"margin-left:21vh;" %>
 </div>
 <%end%>
 
@@ -33,7 +33,7 @@
 			
 	<td class="pb0">
 		<div style="float:left; padding:0px; margin:0 20px 5px 0;">
-			<label style="float:left; padding-right:10px; width:95px;"><%=t('exam.select_exam')%>:</label>
+			<label style="float:left; padding-right:10px; width:100px;"><%=t('exam.select_exam')%>:</label>
 		    <%= f.select :id,[[t('general.select'),""]] + @exams.collect{|p| [p.name[0..40],p.id,{:title=>p.name}]}, {}, :class=>"validate[required] w200 bdr" %>
 		</div>
 		<div class="clear"></div><br>
@@ -43,7 +43,7 @@
 		</div>
 		<div class="clear"></div><br>
 	    <div style="float:left; padding:0px; margin:0;">
-			<label style="float:left; padding-right:10px; width:95px;"><%=t('exam.year')%>:</label>
+			<label style="float:left; padding-right:10px; width:126px;"><%=t('exam.year')%>:</label>
             <%= select_tag 'academicYear', options_for_select(([[t('general.select'),""]] + @yrs.to_a)), :class=>"validate[required] w120 bdr" %>
 		</div>
 	</td>				
@@ -51,7 +51,7 @@
 </table>
 </div>
 
-<h2><%=t('exam.cat')%></h2>
+<h2 style="margin-right:9.5vh;"><%=t('exam.cat')%></h2>
 <%unless @c.empty?%>
 <div class="updateStatus">
 <span id="collectCategory"><%=render :partial=>"collect_category"%></span>
@@ -59,9 +59,7 @@
 
 </div>
 <%else%>
-<div class="formContainer">
-  No category found. Configure categories 
- </div>
+
  <%end%>
 
 <%end%>

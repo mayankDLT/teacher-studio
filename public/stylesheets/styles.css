@@ -2461,12 +2461,12 @@ select {
 #subject-controls {
   display: flex;
   justify-content: center;
-  margin-left: -12.6vw;
+  margin-left: -4vw;
 }
 #subject-controls2 {
   display: flex;
   justify-content: center;
-  margin-left: -14vw;
+  margin-left: -13vw;
   margin-top: 6vh;
 }
 
@@ -2506,21 +2506,39 @@ input[type='text'] {
 }
 
 #filter {
-	margin-right: 90px;
-	float: right
+  margin-right: 90px;
+  float: right;
 }
 
 .green-button {
-	padding: px 14px 0pt 15px;
-	background: #00a651;
-	color: #fff;
-	/* width: 30vw; */
-	padding-left: 2.25vw;
-	padding-right: 2.25vw;
-	padding-top: 0.2vh;
-	border-radius: 0.3rem;
-	margin-left: 0.5vw;
-	padding-bottom: 0.24vh;
-  }
-  
-  
+  padding: px 14px 0pt 15px;
+  background: #00a651;
+  color: #fff;
+  /* width: 30vw; */
+  padding-left: 2.25vw;
+  padding-right: 2.25vw;
+  padding-top: 0.2vh;
+  border-radius: 0.3rem;
+  margin-left: 0.5vw;
+  padding-bottom: 0.24vh;
+}
+
+#subject {
+  width: 17vw;
+}
+.green-button {
+  padding: 14px 0pt 15px;
+  background: #00a651;
+  color: #fff;
+  /* width: 30vw; */
+  padding-left: 2.25vw;
+  padding-right: 2.25vw;
+  padding-top: 0.5vh;
+  border-radius: 0.3rem;
+  margin-left: 0.5vw;
+  padding-bottom: 0.4vh;
+  font-weight: bold;
+}
+.green-button :hover {
+  color: white !important;
+}
