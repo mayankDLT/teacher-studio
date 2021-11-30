@@ -139,6 +139,3 @@ DEPENDENCIES
   ruby-debug19
   truncate_html (= 0.5.5)
   will_paginate (= 2.3.15)
-
-BUNDLED WITH
-   1.17.3

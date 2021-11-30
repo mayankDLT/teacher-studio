@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+        <head>
+                <meta charset="utf-8">
+                <title>CKEditor</title>
+                <script src="../build/ckeditor.js"></script>
+        </head>
+        <body>
+                <textarea name="description" id="question-text" rows="10" cols="80"></textarea>
+                
+                <button id="btn" onclick="execFunc()">submit</button>
+
+                <script>
+                        var editor1;
+                        ClassicEditor
+                                .create( document.querySelector( '#question-text' ) )
+                                .then( editor => {
+                                        console.log( editor );
+                                        editor1=question-text;
+                                        editor.modal.document.on("change", ()=> {execFunc();})
+                                } )
+                                function execFunc(){
+                                        document.getElementsByName("description")[0].value = editor1.getData();
+                                        console.log(document.getElementById("question-text").value);
+                                }
+                                
+                </script>
+        </body>
+</html>

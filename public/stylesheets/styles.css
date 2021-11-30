@@ -415,7 +415,7 @@ input[type='text'] {
   font-size: 12px;
   line-height: 16px;
   font-weight: bold;
-  float: left;
+  
 }
 .signOut p a {
   text-decoration: none;
