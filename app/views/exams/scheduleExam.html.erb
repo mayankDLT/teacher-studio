@@ -59,7 +59,7 @@
 			  <tr>
                 <td style="width:115px; text-align:left; padding-right:5px;" valign="top"><%=t('exam.inst')%></td>
                 <td>
-		          <%= f.text_area :instruction,:class=>"validate[required,funcCall[checkHELLO]] text-input", :style=>"border:#d1d1d1 1px solid; height:87px; width:300px; margin-bottom:8px;"  %>
+		          <%= f.text_area :instruction,:class=>"validate[required,funcCall[checkHELLO]] text-input", :style=>"border:#d1d1d1 1px solid; height:87px; width:300px; margin-bottom:8px;margin-left:11vw;"  %>
 		        </td>
 				
               </tr>
@@ -74,7 +74,7 @@
             </table>
           </div>
 
-  <%= f.submit t('general.create'), :class=>'btnBg checkTime',:id=>"Submit" %> 
+  <%= f.submit t('general.create'), :class=>'btnBg checkTime',:id=>"Submit",style:'margin-left:17vw;' %> 
 
  
 <% end %>
