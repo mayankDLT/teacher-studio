@@ -1,8 +1,20 @@
 
 <%if @question_type_id.to_i >= 1%>
-<div style="color: #5C5C5C; float: left; font-weight: bold; padding: 0 0 12px; width: 100%; font-size:14px;"><%=t("question_types.qt#{@question_type_id}")%></div>
+<div style="color: #5C5C5C;
+float: left;
+font-weight: bolder;
+padding: 0 0 12px;
+width: 100%;
+margin-left: 5vw;
+font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t("question_types.qt#{@question_type_id}")%></div>
 <%else%>
-<div style="color: #5C5C5C; float: left; font-weight: bold; padding: 0 0 12px; width: 100%; font-size:14px;"><%=t('general.gen')%></div>
+<div style="color: #5C5C5C;
+float: left;
+font-weight: bolder;
+padding: 0 0 12px;
+width: 100%;
+margin-left: 5vw;
+font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('general.gen')%></div>
 <%end%>
 <fieldset class="formContainer">
 	
@@ -88,12 +100,15 @@
 	
         <%=render :partial=>"fillUps"%>
         
-		<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+		<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:426px; height:100px; border:#d1d1d1 1px solid;"%>
 		<br><br>
-		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
-
+		<div style="display:flex; margin-left:8.5vw;">
+		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"width:5vw; height:19px; margin-right:5vw;margin-left:2vw; border:#d1d1d1 1px solid;"%>
+	</div>
 <br><br><br>
-<%= submit_tag t('general.create'), :class=>'btnBg fullup_submit floatL',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+<div style="margin-left:8vw;">
+<%= submit_tag t('general.create'), :class=>'btnBg fullup_submit floatL',:id=>"Submit" %> <div class="back_btn">  <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+</div>
 <% end %>
 <%end%>
 
@@ -255,7 +270,7 @@
 		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw;margin-left:2vw;width:40px; height:19px; border:#d1d1d1 1px solid;"%>
 		</div>
 <br><br><br>
-<%= f.submit t('general.create'), :class=>'btnBg floatL multipleSelection',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+<%= f.submit t('general.create'), :class=>'btnBg floatL multipleSelection',:id=>"Submit" %> <div class="back_btn"> <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
 <%end%>
 

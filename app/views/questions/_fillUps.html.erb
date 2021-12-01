@@ -1,17 +1,17 @@
-<div style="float:left; width:100%;">
+<div style="float:left; width:100% display:flex; ">
 
 
-       <table class="answer_name" style="float:left; width:400px; padding:0; margin:0;">
-		<tr>
-			<th style='float:left;'><%=t('question.enter_opt')%> </th>
-			<th></th>
-		</tr>		
-				
-        </table>
-		<table class="answer_name" style="float:left; width:400px; padding:0; margin:0;">
+
+
+		<div style="display: flex;
+		flex-direction: column;
+		align-items: center;
+		margin-left: 0; width:40vw;">
+		<%=t('question.enter_opt')%> 
+		<table class="answer_name" style="width:400px; padding:0; margin:0;">
                <tr class="editor_last"><td>
 				<% 1.upto(1) do |i| %>
-				  <%= text_area_tag "fields[#{i}][name]",'', :class=>"validate[required,funcCall[checkHELLO]] text-input blankCount options",:style=>"width:115px; height:19px; border:#d1d1d1 1px solid;" %>
+				  <%= text_area_tag "fields[#{i}][name]",'', :class=>"validate[required,funcCall[checkHELLO]] text-input blankCount options",:style=>"width:20vw; height:19px; border:#d1d1d1 1px solid;" %>
 				<% end %>
 				</td></tr> 
 	   </table>
@@ -19,5 +19,5 @@
 		<div style="margin-bottom:10px; float:left; width:400px;" >
 			<%=link_to image_tag("plus.jpg", :alt=>"Add Option"),"#", :id=>"add_new_blank", :style => "width:auto;"%><br><br>
 		</div>
-		
+		</div>
 </div>
