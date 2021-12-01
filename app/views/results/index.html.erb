@@ -93,7 +93,9 @@
 <%if current_user.role_id == Admin or current_user.role_id == Examiner%>
 <h2><%=t('result.res_type')%></h2>
 
-<fieldset class="formContainer">
+<fieldset class="formContainer" style="
+    display: flex;
+    align-items: center;">
 
 <!--<legend>Result Types</legend>-->
 <%= link_to t('result.examinees_result'), {:action=>"usersResult", :controller=>"results"}, class:'green-button',style:'padding-right:42px;padding-left:42px' %> <br><br>

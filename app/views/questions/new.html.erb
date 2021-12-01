@@ -42,13 +42,14 @@
 	<br><br>
 	<div style="
     display: flex;
+	margin-left:3.5vw;
 ">
 
 	Set mark: 
 <input class="validate[required,custom[number]] text-input" id="mark" name="mark" style="margin-left:1vw; border:#d1d1d1 1px solid; */" type="text"></div>
 	
 <br><br><br>
-<%= submit_tag t('general.create'), :class=>'btnBg floatL multipleChoice',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+<%= submit_tag t('general.create'), :class=>'btnBg floatL multipleChoice',:id=>"Submit",:style=>'margin-left:3.4vw;' %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
 <%end%>
 

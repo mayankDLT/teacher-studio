@@ -1,20 +1,20 @@
 
-<div style="float:left; padding:0px; margin:0px; width:100%;", class="showExamname">
+<div style="float:left; display:flex;margin-left:-6vw;padding:0px;width:100%;", class="showExamname">
 <div style="float:left; padding:0px; margin:0 20px 5px 0;">
 	<label style="float:left; padding-right:10px; width:95px;"><%=t('exam.select_exam')%>:</label>
    <%=  select_tag "examName", options_for_select([[t('general.select') , "" ]] + @examNames.collect{|e| [e.name[0..30],e.id,{:title=>e.name}]}, :selected=>@selectedExamname), {:style=>"width:200px; border:#d1d1d1 1px solid;",:class=>"validate[required]"}%>
 	</div>
 
-<span style="float:right;">
+<span style="float:right; display:flex;">
 <%=t('exam.total_mark')%>: <span id="totalMark_value" class="mr10">
 	<%if @taken == 1%>
-	<%=text_field_tag "totalMark", @examMark, :disabled => true,:class=>"validate[required,custom[onlyNumberSp],funcCall[checkHELLO]] text-input", :style=>"border:#d1d1d1 1px solid; height:19px; width:40px; text-align:right;"%>
+	<%=text_field_tag "totalMark", @examMark, :disabled => true,:class=>"validate[required,custom[onlyNumberSp],funcCall[checkHELLO]] text-input", :style=>" margin-left:2vw;border:#d1d1d1 1px solid; height:19px; width:40px; text-align:right;"%>
 	<%else%>
-    <%=text_field_tag "totalMark", @examMark,:class=>"validate[required,custom[onlyNumberSp],funcCall[checkHELLO]] text-input", :style=>"border:#d1d1d1 1px solid; height:19px; width:40px; text-align:right;"%>
+    <%=text_field_tag "totalMark", @examMark,:class=>"validate[required,custom[onlyNumberSp],funcCall[checkHELLO]] text-input", :style=>"border:#d1d1d1 1px solid; margin-left:2vw; height:19px; width:40px; text-align:right;"%>
 	<%end%>
 	</span>
 
-<%=t('exam.mark_assigned')%>: <span id="markAssigned"><%=text_field_tag "assignedMark", @fetchQuestions, :disabled=>true, :style=>"border:#d1d1d1 1px solid; height:19px; width:40px; text-align:right;"%></span>
+<%=t('exam.mark_assigned')%>: <span id="markAssigned"><%=text_field_tag "assignedMark", @fetchQuestions, :disabled=>true, :style=>"border:#d1d1d1 1px solid; margin-left:2vw;height:19px; width:40px; text-align:right;"%></span>
 </span>
 </div>
 

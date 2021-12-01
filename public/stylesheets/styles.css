@@ -2508,7 +2508,7 @@ input[type='text'] {
 
 #filter {
   margin-right: 14.5vh;
-  float: right;
+  float: left;
   background: #f26f29;
 }
 
@@ -2547,7 +2547,7 @@ input[type='text'] {
 
 .midCol a {
   font-size: 1rem;
-  float: left;
+  /* float: left; */
 }
 
 textarea {
