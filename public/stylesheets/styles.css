@@ -622,6 +622,7 @@ a.four {
   display: flex;
   /* align-items: center; */
   justify-content: center;
+  overflow: scroll;
 }
 .leftCol {
   width: 216px;
@@ -738,6 +739,7 @@ ul.subNav li a:hover {
   height: 22px;
   padding: 5px;
   border-bottom: 1px solid #d1d1d1;
+  background-color: #00a651;
 }
 .updateStatus table td {
   text-align: left;
@@ -754,7 +756,7 @@ ul.subNav li a:hover {
   padding: 0px;
 }
 .updateHeader {
-  background-image: url(../images/updateHead_d.jpg);
+  /* background-image: url(../images/updateHead_d.jpg); */
   background-repeat: repeat-x;
   border-bottom: 2px #d1d1d1 solid !important;
 }
@@ -2560,6 +2562,7 @@ textarea {
   height: 19px;
   border: #d1d1d1 1px solid;
   margin: auto;
+  float: left;
 }
 
 .paginationDiv a {
