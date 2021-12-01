@@ -4,17 +4,6 @@
 <nav style="font-size: 1rem">
 		<ul class="mcd-menu" style="background-color: #f7f7f7; border-radius:10px;">
 			<li>
-				<strong><%=link_to(content_tag('span',t('general.users')), {:action=>'user_management', :controller=>'welcome'},id:'users')%></strong>
-				<ul>
-					<li><%= link_to t('general.confirm_reject_user'), :action=>'admin_dashboard', :controller=>'welcome'%></li>
-					<li><%= link_to t('general.examiner'), :action=>'index', :controller=>'users', :create_id => 2%></li>
-					<li><%= link_to t('welcome.q_setter'), :action=>'index', :controller=>'users', :create_id => 3%></li>
-					 <li><%= link_to t('welcome.examinee'), :action=>'index', :controller=>'users', :create_id => 4%></li>
-					<li><%= link_to t('general.group_user'), :action=>'groupUser', :controller=>'users'%></li>
-					<li><%= link_to t('general.activate'), :action=>'activate_inactivate', :controller=>'users'%></li>
-				</ul>
-			</li>
-			<li>
                 <strong><%=link_to(content_tag('span',t('general.subjects')),{:action=>'index', :controller=>'subjects'},id:'subjects') %></strong>
 			</li>
 			<li>
@@ -90,16 +79,7 @@
 				<li><%= link_to t('client.client_info'), :action=>"index", :controller=>"clientinfo"%></li>
 				</ul>
 			</li>
-			<li>
-				<strong><%=link_to(content_tag('span',t('general.email')), {:action=>'index', :controller=>'emails'},id:'email') %></strong>
-			</li>
 			<%end%>
-			<li>
-				<strong><%=link_to(content_tag('span',t('general.feedback')), {:action=>'index', :controller=>'feedback'},id:'feedback') %></strong>
-				<ul>
-					<li><%= link_to t('general.feedback_res'), :action=>"feedbackResponse", :controller=>"feedback"%></li>
-				</ul>
-			</li>	
 		</ul>
 	</nav>
 </div>
