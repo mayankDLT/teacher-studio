@@ -19,9 +19,9 @@
 	<br><br>
 	<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
 	<br><br>
-	<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+	
 <br><br><br>
-<%= submit_tag t('general.create'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+<%= submit_tag t('general.create'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn">  <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
 <%end%>	
 	
@@ -49,7 +49,7 @@
 <input class="validate[required,custom[number]] text-input" id="mark" name="mark" style="margin-left:1vw; border:#d1d1d1 1px solid; */" type="text"></div>
 	
 <br><br><br>
-<%= submit_tag t('general.create'), :class=>'btnBg floatL multipleChoice',:id=>"Submit",:style=>'margin-left:3.4vw;' %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+<%= submit_tag t('general.create'), :class=>'btnBg floatL multipleChoice',:id=>"Submit",:style=>'margin-left:3.4vw;' %> <div class="back_btn"> <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
 <%end%>
 
@@ -72,7 +72,7 @@
 	<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
 
 <br><br><br>
-<%= submit_tag t('general.create'), :class=>'btnBg floatL multipleSelection',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+<%= submit_tag t('general.create'), :class=>'btnBg floatL multipleSelection',:id=>"Submit" %> <div class="back_btn">  <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
 <%end%>
 
@@ -471,9 +471,9 @@ $('.hrclbtn').click(function() {
  	var i=3
 	
 	function addOption(){
-		//var optionInfo = $("<tr>	\n    <td>\n <textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input options\"  style=\"width:115px; height:19px; border:#d1d1d1 1px solid;\" id=\"fields" +"_" + i + "_" + "name\" />\n <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\"margin-left: 10px; margin-right: 5px;\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" />  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
+		//var optionInfo = $("<tr>	\n    <td>\n <textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input options\"  style=\"width:29vw; height:19px; border:#d1d1d1 1px solid;\" id=\"fields" +"_" + i + "_" + "name\" />\n <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\"margin-left: 10px; margin-right: 5px;\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" />  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
 		
-		var optionInfo = $("<tr class=\"editor_last\">\n    <td style=\'width:20px; text-align:center; vertical-align:middle;\'>\n <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\"margin-left: 10px; margin-right: 5px;\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" /> <\/td>  <td><textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input options\"  style=\"width:115px; height:19px; border:#d1d1d1 1px solid;\" id=\"fields" +"_" + i + "_" + "name\" />\n   <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
+		var optionInfo = $("<tr class=\"editor_last\">\n    <td style=\'width:20px; text-align:center; vertical-align:middle;\'>\n <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\"margin-left: 10px; margin-right: 5px;\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" /> <\/td>  <td><textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input options\"  style=\"width:29vw; height:19px; border:#d1d1d1 1px solid;\" id=\"fields" +"_" + i + "_" + "name\" />\n   <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
 
 		i=i+1;
 		return optionInfo;

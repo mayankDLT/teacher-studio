@@ -739,13 +739,19 @@ ul.subNav li a:hover {
   height: 22px;
   padding: 5px;
   border-bottom: 1px solid #d1d1d1;
-  background-color: #00a651;
+  background-color: #f26f29;
+  color: #fff;
 }
 .updateStatus table td {
   text-align: left;
   height: 22px;
   padding: 5px;
   border-top: 1px solid #d1d1d1;
+}
+.updateStatus table tr {
+  border-bottom: 1px #d1d1d1 solid;
+  font-weight: bolder;
+  font-size: 1.12rem;
 }
 .updateStatus h3 {
   font-size: 15px;
@@ -773,13 +779,16 @@ ul.subNav li a:hover {
   width: 105px;
   height: 28px;
   /* background-image: url(../images/btn_bg.jpg); */
-  background-color: #00a651;
+  background-color: white;
   cursor: pointer;
   background-repeat: no-repeat;
-  color: #fff;
+  color: #f26f29;
   font-weight: bold;
   margin: 19px 0 10px 0;
   padding: 0px;
+  border-radius: 1.5rem;
+  border: 1px solid;
+  font-weight: bold;
 }
 
 input [type='checkbox'] {
@@ -1474,9 +1483,10 @@ button.ui-datepicker-current {
 }
 /*.questionTabele table {width:694px; float:left; margin:0px; padding:0px;}*/
 .questionTabele table td {
-  height: auto !important;
+  /* height: auto !important; */
   border-top: 0px;
   vertical-align: middle;
+  overflow: hidden;
 }
 
 .questionTabele table td.firstblock {
@@ -1674,14 +1684,10 @@ ul.bulletList li {
   text-decoration: none;
 }
 .btnLink span {
-  background: url(../images/btn_bg_link.jpg) no-repeat 0 0;
-  margin: 0;
-  padding: 0 0 0 10px;
+  background: white;
+  color: #f26f29;
   text-align: center;
-  display: block;
-  height: 26px;
-  line-height: 26px;
-  color: #fff !important;
+  font-weight: bold;
 }
 .w105 {
   width: 85px;
@@ -2448,7 +2454,7 @@ select {
 
 .back_btn a {
   padding: px 14px 0pt 15px;
-  background: #454545;
+
   color: #fff;
   /* width: 30vw; */
   padding-left: 2.25vw;
@@ -2457,6 +2463,12 @@ select {
   border-radius: 0.3rem;
   margin-left: 0.5vw;
   padding-bottom: 0.24vh;
+  background: white;
+  float: none;
+  color: #f26f29;
+  border-radius: 1.5rem;
+  border: 1px solid;
+  font-weight: bold;
 }
 
 #subject-controls {
@@ -2506,15 +2518,17 @@ input[type='text'] {
   margin-left: 5vw;
 }
 
-#filter {
+#filterExam {
   margin-right: 14.5vh;
   float: left;
-  background: #f26f29;
+  background: white;
+  color: #f26f29;
+  border-radius: 1rem;
+  border: 1px solid;
 }
-
 .green-button {
   padding: px 14px 0pt 15px;
-  background: #00a651;
+  background: #e67e22;
   color: #fff;
   /* width: 30vw; */
   padding-left: 2.25vw;
@@ -2530,8 +2544,8 @@ input[type='text'] {
 }
 .green-button {
   padding: 14px 0pt 15px;
-  background: #00a651;
-  color: #fff;
+  background: #fff;
+  color: #f26f29;
   /* width: 30vw; */
   padding-left: 2.25vw;
   padding-right: 2.25vw;
@@ -2540,9 +2554,12 @@ input[type='text'] {
   margin-left: 0.5vw;
   padding-bottom: 0.4vh;
   font-weight: bold;
+  border-radius: 2.5rem;
+  border: 1px solid;
 }
-.green-button :hover {
+.green-button:hover {
   color: white !important;
+  background-color: #f26f29 !important;
 }
 
 .midCol a {

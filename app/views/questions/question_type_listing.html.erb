@@ -16,7 +16,15 @@
   <%=  select_tag 'subject', options_for_select([[t('general.select') , "" ]] + @category_subject.reject{|p|p.gather_cat_sub(p).blank?}.collect{|p| [p.gather_cat_sub(p),p.id,{:title=>p.gather_cat_sub(p)}]}), :style=>"width:530px; border:#d1d1d1 1px solid;",:class=>"validate[required] text-input"%>
   <%end%>
 <br><br>   
-   <%= submit_tag t('general.next'), :class=>'btnBg floatL',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'index', :question_type=>@qId%></div>
+   <%= submit_tag t('general.next'), :class=>'btnBg floatL',:id=>"Submit",:style=>'background: white;
+   float: none;
+   color: #f26f29;
+   border-radius: 1.5rem;
+   border: 1px solid;' %> <div class="back_btn">  <%=link_to t('general.back'), :action=>'index', :question_type=>@qId,:style=>'background: white;
+   float: none;
+   color: #f26f29;
+   border-radius: 1.5rem;
+   border: 1px solid;'%></div>
    <% end %>
 </fieldset>
 
