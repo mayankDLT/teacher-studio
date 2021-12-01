@@ -19,8 +19,10 @@
 	<br><br>
 	<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
 	<br><br>
-	
-<br><br><br>
+	<div style="display:flex; margin-left:3.5vw;">
+	<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:2vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+	</div>
+	<br><br><br>
 <%= submit_tag t('general.create'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn">  <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
 <%end%>	
@@ -129,8 +131,9 @@
     <%=render :partial=>"trueFalse"%><br><br>
     <%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
 	<br><br>
-		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
-
+	<div style="display:flex; margin-left:3.5vw;">
+		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:2vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+	</div>
 <br><br><br>
 <%= submit_tag t('general.create'), :class=>'btnBg floatL multipleChoice',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
@@ -195,8 +198,10 @@
 	
 	<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
 	<br><br>
-			<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
-<br><br><br>
+	<div style="display:flex; margin-left:3.5vw;">
+	<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:2vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+	</div>
+	<br><br><br>
 <%= submit_tag t('general.create'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
 <%end%><!--  end Matching question type -->
@@ -246,8 +251,9 @@
 	<%=link_to image_tag("plus.jpg", :alt=>"Add Option"),"#", :id=>"add_new_image_option"%><br><br>
 	<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
 	<br><br>
-		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
-
+	<div style="display:flex; margin-left:3.5vw;">
+		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw;margin-left:2vw;width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+		</div>
 <br><br><br>
 <%= f.submit t('general.create'), :class=>'btnBg floatL multipleSelection',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
