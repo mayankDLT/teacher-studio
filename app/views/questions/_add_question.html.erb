@@ -1,6 +1,6 @@
 <%=t('question.ques')%>:<br>
 <%if @question_type.id == 3%>
-<%= text_area_tag "description",'', :class=>"validate[required,custom[onlyUnderscoreSp]] text-input description", :id=>"big-search-box", :style=>"width: 426px;  height: 117px; border: 1px solid rgb(209, 209, 209);" %>
+<%= text_area_tag "description",'', :class=>"validate[required,custom[onlyUnderscoreSp]] text-input description", :id=>"question-text", :style=>"width: 426px;  height: 117px; border: 1px solid rgb(209, 209, 209);" %>
 <%else%>
 <%= text_area_tag "description",'', :class=>"validate[required,funcCall[checkHELLO]] text-input description", :id=>"question-text", :style=>"width: 426px;  height: 117px; border: 1px solid rgb(209, 209, 209); float:left;" %>
 <%end%>
