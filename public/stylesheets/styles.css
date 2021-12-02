@@ -2596,3 +2596,10 @@ textarea {
   background-color: #f26f29;
   color: white;
 }
+.updateStatus table td {
+  text-align: left;
+  height: 22px;
+  padding: 5px;
+  border-top: 1px solid #d1d1d1;
+  min-width: 2vw;
+}

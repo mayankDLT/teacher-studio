@@ -19,7 +19,7 @@
 				</td>				
 	  		</tr>
 		</table>
-	<%= submit_tag t('general.filter'), :id=>"filterExam", :class=>'btnBg' %>
+	<%= submit_tag t('general.filter'), :id=>"filterExam", :class=>'btnBg',:style=>'margin-left:11vw'%>
 </div>
 <%end%>
 
@@ -40,7 +40,7 @@
                </tr> 
             </table>
 			
-			<%= submit_tag t('general.filter'), :id=>"assign", :class=>'btnBg', :name=>"sub" %>
+			<%= submit_tag t('general.filter'), :id=>"assign", :class=>'btnBg', :style=>'margin-left:11vw',:name=>"sub" %>
 <%end%>
 </div>
 
@@ -53,7 +53,7 @@
             
 			<span id="select_category"><%=render :partial=>"select_category"%></span><br>
 			
-			<%= submit_tag t('general.filter'), :id=>"getCategory", :class=>'btnBg' %> <%end%>
+			<%= submit_tag t('general.filter'), :id=>"getCategory", :class=>'btnBg',:style=>'margin-left:11vw' %> <%end%>
 </div>
 
 <div class="updateStatus examineeList floatL w100pc">

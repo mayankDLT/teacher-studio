@@ -18,7 +18,7 @@ window.onload = function () {
     const element = (document.querySelector('#questions').className = 'active');
     return;
   }
-  if (url.includes('exam')) {
+  if (url.includes('exam') || url.includes('selectquestion')) {
     const element = (document.querySelector('#exams').className = 'active');
     return;
   }
