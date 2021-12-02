@@ -530,22 +530,11 @@ $('.hrclbtn').click(function() {
 	}
 	
 	function addOptionblank(){
-		var text = tinyMCE.get('big-search-box').getContent();
-		//var text = tinymce.editors[0].getContent();
 		
-	    	var textboxElement = $('.blankCount')
-	       //var formData = $('#big-search-box').val();
-		   var formData = text
-	        var patt1=/_/gi;
-	
-	       var blank = formData.match(patt1).length
-	     if (textboxElement.length >= blank){
-		  alert("<%=t('question.blank_cant_exceed')%>")
-		  }
 
-		  else{
-		  		var optionInfo = $("<tr class=\"editor_last\">	\n    <td>\n <textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input blankCount options\"  style=\"width:115px; height:19px; border:#d1d1d1 1px solid;\"  id=\"fields" +"_" + i + "_" + "name\" />\n  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
-           }
+		 
+		  		var optionInfo = $("<tr class=\"editor_last\">	\n    <td>\n <textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input blankCount options\"  style=\"width:18.5vw; height:19px; border:#d1d1d1 1px solid;\"  id=\"fields" +"_" + i + "_" + "name\" />\n  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
+           
 	     
 		i=i+1;
 		return optionInfo;
@@ -553,7 +542,7 @@ $('.hrclbtn').click(function() {
 	
 	
 	function addImageoptions(){
-     var optionInfo = $("<tr>	\n    <td>\n <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\" margin-right: 5px; margin-top:3px;\"  class=\"mtie7\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" /> \n <input type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input\"  style=\"width:115px; height:19px; border:#d1d1d1 1px solid; margin-right:10px;\"  id=\"fields" +"_" + i + "_" + "name\" />  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
+     var optionInfo = $("<tr>	\n    <td>\n <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\" margin-right:-21px;width:1vw; display:inline; margin-top:3px;\"  class=\"mtie7\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" /> \n <input type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input\"  style=\"width:19vw; margin-left:3.5vw; display:inline; height:19px; border:#d1d1d1 1px solid; margin-right:10px;\"  id=\"fields" +"_" + i + "_" + "name\" />  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
 		i=i+1;
 		return optionInfo;
 	}

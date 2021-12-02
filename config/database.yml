@@ -5,7 +5,7 @@ production:
   database: virtualx
   host: localhost
   username: root
-  password: password
+  password: P@ssw0rd22071994
   encoding: utf8
 
 development:
@@ -13,7 +13,7 @@ development:
   database: virtualx_development
   host: localhost
   username: root
-  password: password
+  password: P@ssw0rd22071994
   encoding: utf8
 
 # Warning: The database defined as "test" will be erased and
@@ -24,7 +24,7 @@ test:
   database: virtualx_test
   host: localhost
   username: root
-  password: password
+  password: P@ssw0rd22071994
   encoding: utf8
 
 test_pgsql:

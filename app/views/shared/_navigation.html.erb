@@ -3,13 +3,30 @@
 <div class="container" style="background-color: white;">
 <nav style="font-size: 1rem">
 		<ul class="mcd-menu" style="background-color: #f7f7f7; border-radius:10px;">
+		<%if current_user.role_id == 1 ||current_user.role_id == 2%>
 			<li>
                 <strong><%=link_to(content_tag('span',t('general.subjects')),{:action=>'index', :controller=>'subjects'},id:'subjects') %></strong>
 			</li>
 			<li>
 			<strong><%=link_to(content_tag('span',t('general.questions')),{:action=>'index', :controller=>'questions'},id:'questions') %></strong>
 			</li>
+			<%end%> 	
+			<%if current_user.role_id == 4%>
 			<li>
+			<strong><%=link_to(content_tag('span',t('general.view_exams')), :action=>'index', :controller=>'attend_exams', :user=>current_user) %>
+			</strong>
+                      <ul>
+                      <li><%= link_to t('exam.pending'), :action=>"pendingExams", :controller=>"attend_exams"%></li>
+                      <li style="padding:5px 5px 0 5px"></li>
+                      <li><%= link_to t('exam.completed'), :action=>"completedExams", :controller=>"attend_exams"%></li>
+                      <li style="padding:5px 5px 0 5px"></li>
+                     </ul>
+               </li>
+			   <%end%>
+			   <%if current_user.role_id == 1 ||current_user.role_id == 2%>
+			
+			<li>
+			
 				<strong><%=link_to(content_tag('span',t('general.exams')), {:action=>'index', :controller=>'exams'},id:'exams') %></strong>
 				<ul>
 				<li><%= link_to t('general.create_exam'),:action=>"scheduleExam", :controller=>"exams" %></li>
@@ -22,14 +39,24 @@
 				<li><%= link_to t('evaluate.assign_evaluator'),:action=>"getEvaluator", :controller=>"exams" %></li>
 				</ul>
 			</li>
+			<%end%>
+
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.result')), {:action=>'index', :controller=>'results'},id:'results') %></strong>
 				<ul>
+				<%if current_user.role_id == 1||current_user.role_id == 2%>
 					<li><%= link_to t('result.examinees_result'), :action=>"usersResult", :controller=>"results"%></li>
 					<li><%= link_to t('result.exams_result'), :action=>"examsResult", :controller=>"results"%></li>
 					<li><%= link_to t('result.department_result'), :action=>"departmentResult", :controller=>"results"%></li>
+					<%end%>
+					<%if current_user.role_id == 4%>
+					<li>
+					<%=link_to(content_tag('span',t('general.result')), :action=>'index', :controller=>'results') %>
+				   </li>
+				   <%end%>
 				</ul>
 			</li>
+			<%if current_user.role_id == 1 ||current_user.role_id == 2%>
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.org_levels')), {:action=>'index', :controller=>'category_titles'},id:'org-levels') %></strong>
 				<%unless @organization_id == nil && @category_types.blank?%>
@@ -54,12 +81,16 @@
 					</ul>
 				<%end%>
 			</li>
+			<%end%>
+			<%if current_user.role_id == 1 ||current_user.role_id == 2%>
 			<li>
                 <strong><%=link_to(content_tag('span',t('general.category')), {:action=>'listCategories', :controller=>'categories'},id:'category') %></strong>
                     <ul>
                       <li><%= link_to t('general.config_category'), :action=>'index', :controller=>'categories', :create_id => 3%></li>
                     </ul>
 			</li>
+			<%end%>
+			<%if current_user.role_id == 1 ||current_user.role_id == 2%>
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.reports')), {:action=>'index', :controller=>'reports'},id:'reports') %></strong>
 				<ul>
@@ -70,7 +101,8 @@
 					<li><%= link_to t('general.pass_fail'), :action=>"pass_fail", :controller=>"reports"%></li>
 				</ul>
 			</li>
-			<%if current_user and current_user.role_id == 1 %>
+			<%end%>
+			<%if current_user.role_id == 1||current_user.role_id == 2 %>
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.settings')), {:action=>'index', :controller=>'settings'},id:'settings') %></strong>
 				<ul>
