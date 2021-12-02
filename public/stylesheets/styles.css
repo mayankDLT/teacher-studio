@@ -2588,3 +2588,8 @@ textarea {
   font-weight: normal;
   margin-left: 1vw;
 }
+
+.btnBg:hover {
+  background-color: #f26f29;
+  color: white;
+}
