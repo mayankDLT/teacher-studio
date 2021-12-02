@@ -5,6 +5,10 @@ window.onload = function () {
     const element = (document.querySelector('#users').className = 'active');
     return;
   }
+  if (url.includes('exam')) {
+    const element = (document.querySelector('#view-exams').className =
+      'active');
+  }
 
   if (url.includes('subjects')) {
     const element = (document.querySelector('#subjects').className = 'active');
@@ -38,7 +42,7 @@ window.onload = function () {
     const element = (document.querySelector('#feedback').className = 'active');
     return;
   }
-  if (url.includes('Categories')) {
+  if (url.includes('categories')) {
     const element = (document.querySelector('#category').className = 'active');
     return;
   }

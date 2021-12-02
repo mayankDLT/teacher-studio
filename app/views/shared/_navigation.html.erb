@@ -13,7 +13,7 @@
 			<%end%> 	
 			<%if current_user.role_id == 4%>
 			<li>
-			<strong><%=link_to(content_tag('span',t('general.view_exams')), :action=>'index', :controller=>'attend_exams', :user=>current_user) %>
+			<strong><%=link_to(content_tag('span',t('general.view_exams')), {:action=>'index', :controller=>'attend_exams'},id:'view-exams', :user=>current_user) %>
 			</strong>
                       <ul>
                       <li><%= link_to t('exam.pending'), :action=>"pendingExams", :controller=>"attend_exams"%></li>

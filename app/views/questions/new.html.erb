@@ -150,7 +150,7 @@ font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('g
 		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:2vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
 	</div>
 <br><br><br>
-<%= submit_tag t('general.create'), :class=>'btnBg floatL multipleChoice',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+<%= submit_tag t('general.create'), :class=>'btnBg floatL multipleChoice',:id=>"Submit" %> <div class="back_btn"><%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
 <%end%>
 
@@ -217,7 +217,7 @@ font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('g
 	<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:2vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
 	</div>
 	<br><br><br>
-<%= submit_tag t('general.create'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+<%= submit_tag t('general.create'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn"> <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 <% end %>
 <%end%><!--  end Matching question type -->
 
