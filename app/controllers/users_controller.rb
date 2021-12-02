@@ -1,3 +1,4 @@
+# encoding: UTF-8
 =begin 
   users_controller.rb
   Description: Controller file for managing the users of the application
