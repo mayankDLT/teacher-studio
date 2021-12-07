@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "attend-multiple-choice"%>
+		  
 		  <%checkAttended = Evaluation.where(["question_id = ? and categoryexam_id = ? and categoryuser_id = ? and has_attended = ? and attempt = ?", @question.id,@categoryExam,@categoryUser,true,@attempt])%>
 		   <% correct_ans_count  = Answer.where(["question_id = ? and is_answer = ?", @question.id,1]) %>
 		   <%unless checkAttended.empty?%> 

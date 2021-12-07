@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "select-question-type-alert"%>
+		  
 		  <%checkAttended = Evaluation.where(["question_id = ? and categoryexam_id = ? and categoryuser_id = ? and has_attended = ? and attempt = ?", @question.id,@categoryExam,@categoryUser,true,@attempt])%>
 
 		  <%unless checkAttended.empty?%>

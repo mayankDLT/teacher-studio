@@ -370,7 +370,7 @@ class ExamsController < ApplicationController
        @categoryexamuser.save
        
           if getExaminee.is_temp_examinee == 0
-            UserMailer.examSchedule(@examName,getExaminee).deliver
+            # UserMailer.examSchedule(@examName,getExaminee).deliver
           end
        
     elsif @getCategoryexamuser.categoryexam_id == @categoryexam.id
@@ -380,7 +380,7 @@ class ExamsController < ApplicationController
          @examName = Exam.find_by_id(@categoryexam.exam_id)
          getExaminee = User.find_by_id(@categoryuser.user_id)
           if getExaminee.is_temp_examinee == 0
-            UserMailer.examSchedule(@examName,getExaminee).deliver
+            # UserMailer.examSchedule(@examName,getExaminee).deliver
           end
    else
      @categoryexamuser = Categoryexamuser.new

@@ -20,7 +20,7 @@
 		  				<div class="tblCols rowValue" style="width: 256px; margin: 0pt 0pt 0pt 60px;">	
 						<%@sub_questions.each do|s|%> 
 							<div class="tblRepeaterRow" title="<%=s.name%>">  
-			    			<%= text_field_tag :answer,truncate(s.name,:length=>30), :style=>"width:200px; height:19px; border:#d1d1d1 1px solid; background:#cfcfcf;", :readonly => true, :id=>s.id%>
+			    			<%= text_field_tag :answer,truncate(s.name,:length=>30), :style=>"width:200px;margin-left:0; height:19px; border:#d1d1d1 1px solid; background:#cfcfcf;", :readonly => true, :id=>s.id%>
 
 							</div>
 						<%end%>
@@ -40,7 +40,7 @@
 						    
 							  <li style="padding-left: 0px; padding-top: 0px; margin:0px 0 8px 0; font-size: 13px; float:left; width:90%;">
 							  <div class="tblRepeaterRow" style="margin-bottom: 11px;" title="<%=a.match_answer%>">
-								<%= label_tag :answer,truncate(a.match_answer, :length=>30), :style=>"width: 200px; height: 18px; border: 1px solid rgb(209, 209, 209); display: block; float: left; padding-left: 2px;", :disabled => true, :id=>a.id%>
+								<%= label_tag :answer,truncate(a.match_answer, :length=>30), :style=>"width: 200px; height: 3vh; border: 1px solid rgb(209, 209, 209); display: block; float: left; padding-left: 2px;", :disabled => true, :id=>a.id%>
 								<%= hidden_field_tag "answer_id[]",a.id %>
 								</div>
 							  </li>
@@ -55,11 +55,11 @@
 						<ul id="sortable" style="width:99%; float:left; padd">
 						
 					    <%@checkAttended.each do |a|%>
-						   <li style="padding-left: 0px; padding-top: 0px; margin:0px 0 8px 0; font-size: 13px; float:left; width:90%;">
+						   <li style="padding-left: 0px; padding-top: 0px; margin:0px 0 8px 0; font-size: 13px; float:left; margin-bottom:1.7vh; width:90%;">
 						    <div class="tblRepeaterRow" style="margin-bottom:0px;">
 						    	<%#=a.id%>
 						    	<%answer = Answer.find_by_id(a.answer_id)%>
-						    	<span style="margin-left:0px;" title="<%=answer.match_answer%>"><%= label_tag :answer,truncate(answer.match_answer, :length=>30), :style=>"width:200px; height:19px; border:#d1d1d1 1px solid; display: block; float:left; padding-left: 2px;", :disabled => true, :id=>a.id%></span>
+						    	<span style="margin-left:0px;" title="<%=answer.match_answer%>"><%= label_tag :answer,truncate(answer.match_answer, :length=>30), :style=>"width:200px; height:3vh;border:#d1d1d1 1px solid; display: block; float:left; padding-left: 2px;", :disabled => true, :id=>a.id%></span>
 							    <%= hidden_field_tag "answer_id[]",a.answer_id %>
 								<%= hidden_field_tag "evaluation_id[]", a.id%>
 							</div>
