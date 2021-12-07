@@ -2,12 +2,16 @@ window.onload = function () {
   const url = document.location.href.toLowerCase();
 
   if (url.includes('user')) {
-    const element = (document.querySelector('#users').className = 'active');
-    return;
+    try {
+      const element = (document.querySelector('#users').className = 'active');
+      return;
+    } catch (e) {}
   }
   if (url.includes('exam')) {
-    const element = (document.querySelector('#view-exams').className =
-      'active');
+    try {
+      const element = (document.querySelector('#view-exams').className =
+        'active');
+    } catch (e) {}
   }
 
   if (url.includes('subjects')) {
@@ -18,11 +22,18 @@ window.onload = function () {
     const element = (document.querySelector('#questions').className = 'active');
     return;
   }
-  if (url.includes('exam') || url.includes('selectquestion')) {
+  if (
+    (url.includes('exam') ||
+      url.includes('selectquestion') ||
+      url.includes('evaluat')) &&
+    !url.includes('examreport') &&
+    !url.includes('examsresult')
+  ) {
     const element = (document.querySelector('#exams').className = 'active');
+
     return;
   }
-  if (url.includes('results')) {
+  if (url.includes('result')) {
     const element = (document.querySelector('#results').className = 'active');
     return;
   }
@@ -34,7 +45,7 @@ window.onload = function () {
     const element = (document.querySelector('#email').className = 'active');
     return;
   }
-  if (url.includes('reports')) {
+  if (url.includes('report')) {
     const element = (document.querySelector('#reports').className = 'active');
     return;
   }

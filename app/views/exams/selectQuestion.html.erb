@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "select-question-alert"%>
 
 <br>
 <% form_tag selectQuestion_path, :method=>"get",:remote=>true, :id=>"question_filter", :class=>"assign_question floatL w100pc mb15" do -%>
@@ -13,7 +14,7 @@
                 <td>
                 <div style="float:left; padding:0px; margin:0 20px 5px 0;">
 					<label style="float:left; padding-right:10px; width:116px;"><%=t('question.ques_type')%>:</label>
-					<%= select_tag "question_type", options_for_select([[t('general.select'),""],[t('general.all') , "0" ]] + @question_types.collect{ |q| [t("question_types.qt#{q.id}"), q.id,{:title=>q.name}] }), :id=>"assignQuestion", :class=>"validate[required]"%>
+					<%= select_tag "question_type", options_for_select([[t('general.select'),""],[t('general.all') , "0" ]] + @question_types.collect{ |q| [t("question_types.qt#{q.id}"), q.id,{:title=>q.name}] }), :id=>"assignQuestion", :class=>"validate[required]",:style=>"width:17vw"%>
 				</div>
 				<div class="clear"></div><br>
 			    <div style="float:left; padding:0px; margin:0;">
@@ -45,12 +46,12 @@
 		<div class="clear"></div><br>
 	    <div style="float:left; padding:0px; margin:0; clear: left;">
 			<label style="float:left; padding-right:10px; width:95px;"><%=t('exam.exam_type')%>:</label>
-             <%= select_tag 'et_name',options_for_select([[t('general.select') , "" ]] + @examTypes.collect{|p| [p.name[0..30],p.id,{:title=>p.name}]},:selected=>@examtypeName), {:class=>"validate[required] w200 bdr"} %>
+             <%= select_tag 'et_name',options_for_select([[t('general.select') , "" ]] + @examTypes.collect{|p| [p.name[0..30],p.id,{:title=>p.name}]},:selected=>@examtypeName), {:class=>"validate[required] bdr",:style=>"width:17vw"}%>
 		</div>
 		<div class="clear"></div><br>
 	    <div style="float:left; padding:0px; margin:0;">
 			<label style="float:left; padding-right:10px; width:130px;"><%=t('exam.year')%>:</label>
-			<%= select_tag 'academicYear', options_for_select([[t('general.select') , "" ]] + @yrs.collect{|p| [p]},:selected=>@academicYear), {:class=>"validate[required] w120 bdr academicYear"} %>
+			<%= select_tag 'academicYear', options_for_select([[t('general.select') , "" ]] + @yrs.collect{|p| [p]},:selected=>@academicYear), {:class=>"validate[required]  bdr academicYear",:style=>"width:17vw "} %>
 		</div>
 	</td>				
   		</tr>

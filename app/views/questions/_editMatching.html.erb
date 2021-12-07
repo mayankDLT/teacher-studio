@@ -1,11 +1,13 @@
 
             <table cellpadding="0" cellspacing="0" border="0" class="tblRepeter" >
-	  	<tr>
+	  	<tr style="    display: flex;
+		  justify-content: space-between;
+	  ">
 	  		<td valign="top"><strong><%=t('question.opt_a')%></strong></td>
-			<td valign="top"><strong><%=t('question.opt_b')%></strong></td>
+			<td valign="top" ><strong><%=t('question.opt_b')%></strong></td>
 	  	</tr>
 	    
-	    	<tr align="center">
+	    	<tr style="display:flex;margin-top: 1vh;">
 	       <td>
 		  	<div class="tblCols rowValue">
     	       <%@sub_questions.each do|answer|%>
@@ -13,7 +15,7 @@
 			<%= answer_fields.hidden_field :id %>
 		    
 			  <div class="tblRepeaterRow mb0 pb10">  
-			    <%= answer_fields.text_field :name, :class=>"tblInputtxt validate[required,funcCall[checkHELLO]] text-input"%>
+			    <%= answer_fields.text_field :name, :class=>"tblInputtxt validate[required,funcCall[checkHELLO]] text-input",:style=>"margin-left:1vw"%>
 			</div>
 			  
 		    <%end%>
@@ -26,7 +28,7 @@
 		    <%@ans.each do|answer|%>
 			<%= fields_for "answerOrder[]", answer do |answerOrder_fields| %>
 			    <%= answerOrder_fields.hidden_field :id %>
-			   <div class="tblRepeaterRow mb0 pb10">  
+			   <div class="tblRepeaterRow mb0 pb10" style="display:flex;">  
  	
 				<%= answerOrder_fields.text_field :match_answer, :class=>"tblInputtxt validate[required,funcCall[checkHELLO]] text-input"%>
                 <div class="tblClsholder">

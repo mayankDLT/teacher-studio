@@ -1,0 +1,4 @@
+.answer_name td {
+  display: flex;
+  margin-left: 5vw;
+}

@@ -612,7 +612,7 @@ a.four {
 
 .contentWrapper {
   border-radius: 10px;
-  width: 2200vw;
+  width: 122vw;
   height: 84vh; /*margin:44px 0 0 0;*/
   padding: 0;
   float: left;
@@ -1483,6 +1483,7 @@ button.ui-datepicker-current {
   float: left;
   margin: 0px;
   padding: 0px;
+  margin-bottom: 3vh;
 }
 /*.questionTabele table {width:694px; float:left; margin:0px; padding:0px;}*/
 .questionTabele table td {
@@ -1523,6 +1524,7 @@ button.ui-datepicker-current {
 .qestionhead h3 {
   margin-top: 0px;
   float: left;
+  font-size: 1.25rem;
 }
 .qestionhead .paginationDiv {
   padding-top: 5px;
@@ -2477,12 +2479,12 @@ select {
 #subject-controls {
   display: flex;
   justify-content: center;
-  margin-left: -4vw;
+  margin-left: 2.5vw;
 }
 #subject-controls2 {
   display: flex;
   justify-content: center;
-  margin-left: -13vw;
+  margin-left: 2.5vw;
   margin-top: 6vh;
 }
 
@@ -2593,8 +2595,8 @@ textarea {
 }
 
 .btnBg:hover {
-  background-color: #f26f29;
-  color: white;
+  background-color: #f26f29 !important;
+  color: white !important;
 }
 .updateStatus table td {
   text-align: left;
@@ -2602,4 +2604,20 @@ textarea {
   padding: 5px;
   border-top: 1px solid #d1d1d1;
   min-width: 2vw;
+}
+.paginationDiv {
+  float: none !important;
+  margin-top: 2vh !important;
+}
+.back_btn a:hover {
+  background-color: #f26f29 !important;
+  color: white !important;
+}
+
+.formErrorContent {
+  font-size: 1rem !important;
+  /* margin-left: 4vw !important; */
+}
+.formErrorArrow {
+  /* margin-left: 4vw !important; */
 }

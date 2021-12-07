@@ -15,26 +15,29 @@
 		   		   
 	       <div style="float:left; padding:0px; margin:0; clear: left;">
 		   <label style="float:left; padding-right:10px; width:120px;"><%=t('exam.year')%>:</label>
-		   <%= select_tag 'academicYear', options_for_select(([[t('general.select'),""]] + @yrs.to_a),:selected=>@academicYear),:class=>"validate[required] w120 bdr" %>		   
+		   <%= select_tag 'academicYear', options_for_select(([[t('general.select'),""]] + @yrs.to_a),:selected=>@academicYear),:class=>"validate[required] w120 bdr",:style=>'min-width:17vw;' %>		   
 		   </div>
 		   <div class="clear"></div><br>		   
 
 			<div style="float:left; padding:0px; margin:0; clear: left;">
 			<label style="float:left; padding:3px 10px 0 0; width:120px;"><%=t('general.examtype')%>:</label>
-			<%= select_tag 'examtype',options_for_select([[t('general.select'),""]] + @examTypes.collect{|p| [truncate(p.name,:length=>30),p.id,{:title=>p.name}]},:selected=>@examtype), {:style=>"width: 200px; height: 19px; border: 1px solid rgb(209, 209, 209);",:class=>"validate[required]"} %>
+			<%= select_tag 'examtype',options_for_select([[t('general.select'),""]] + @examTypes.collect{|p| [truncate(p.name,:length=>30),p.id,{:title=>p.name}]},:selected=>@examtype), {:style=>"width: 200px; height: 19px; border: 1px solid rgb(209, 209, 209);min-width:17vw;",:class=>"validate[required]"} %>
             </div>
 			<div class="clear"></div><br>	
 			
-			<div style="float:left; padding:0px; margin:0; clear: left;">
-			<%=t('reports.exl')%>: <%= radio_button_tag "fileType", 1, false,:class=>"validate[minCheckbox[1]] checkbox publish"%>
-		    <%=t('reports.pd')%>: <%= radio_button_tag "fileType", 0, false,:class=>"validate[minCheckbox[1]] checkbox publish"%>
+			<div style="    display: flex;
+			justify-content: center;
+			align-items: center;
+		">
+			<%=t('reports.exl')%>: <%= radio_button_tag "fileType", 1, false,:class=>"validate[minCheckbox[1]] checkbox publish",:style=>'width:1vw;margin-right:2vw;margin-left:1vw;'%>
+		    <%=t('reports.pd')%>: <%= radio_button_tag "fileType", 0, false,:class=>"validate[minCheckbox[1]] checkbox publish",:style=>'width:1vw;margin-left:1vw;'%>
 			</div>
             </td> 
 			
 			</tr> 
 
             </table>
-			<%= submit_tag t('general.generate'), :id=>"assign", :class=>'btnBg' %>
+			<%= submit_tag t('general.generate'), :id=>"assign", :class=>'btnBg',:style=>'margin-left:11vw;'%>
 	<%end%>
 </div>
 

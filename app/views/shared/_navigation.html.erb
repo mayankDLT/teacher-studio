@@ -3,7 +3,7 @@
 <div class="container" style="background-color: white;">
 <nav style="font-size: 1rem">
 		<ul class="mcd-menu" style="background-color: #f7f7f7; border-radius:10px;">
-		<%if current_user.role_id == 1 ||current_user.role_id == 2%>
+		<%if current_user != nil && (current_user.role_id == 1 ||current_user.role_id == 2)%>
 			<li>
                 <strong><%=link_to(content_tag('span',t('general.subjects')),{:action=>'index', :controller=>'subjects'},id:'subjects') %></strong>
 			</li>
@@ -11,7 +11,7 @@
 			<strong><%=link_to(content_tag('span',t('general.questions')),{:action=>'index', :controller=>'questions'},id:'questions') %></strong>
 			</li>
 			<%end%> 	
-			<%if current_user.role_id == 4%>
+			<%if current_user != nil && current_user.role_id == 4%>
 			<li>
 			<strong><%=link_to(content_tag('span',t('general.view_exams')), {:action=>'index', :controller=>'attend_exams'},id:'view-exams', :user=>current_user) %>
 			</strong>
@@ -23,7 +23,7 @@
                      </ul>
                </li>
 			   <%end%>
-			   <%if current_user.role_id == 1 ||current_user.role_id == 2%>
+			   <% if current_user != nil && (current_user.role_id == 1 ||current_user.role_id == 2)%>
 			
 			<li>
 			
@@ -44,19 +44,19 @@
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.result')), {:action=>'index', :controller=>'results'},id:'results') %></strong>
 				<ul>
-				<%if current_user.role_id == 1||current_user.role_id == 2%>
+				<% if current_user != nil && (current_user.role_id == 1||current_user.role_id == 2)%>
 					<li><%= link_to t('result.examinees_result'), :action=>"usersResult", :controller=>"results"%></li>
 					<li><%= link_to t('result.exams_result'), :action=>"examsResult", :controller=>"results"%></li>
 					<li><%= link_to t('result.department_result'), :action=>"departmentResult", :controller=>"results"%></li>
 					<%end%>
-					<%if current_user.role_id == 4%>
+					<% if current_user != nil &&(current_user.role_id == 4)%>
 					<li>
 					<%=link_to(content_tag('span',t('general.result')), :action=>'index', :controller=>'results') %>
 				   </li>
 				   <%end%>
 				</ul>
 			</li>
-			<%if current_user.role_id == 1 ||current_user.role_id == 2%>
+			<% if current_user != nil &&(current_user.role_id == 1 ||current_user.role_id == 2)%>
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.org_levels')), {:action=>'index', :controller=>'category_titles'},id:'org-levels') %></strong>
 				<%unless @organization_id == nil && @category_types.blank?%>
@@ -82,7 +82,7 @@
 				<%end%>
 			</li>
 			<%end%>
-			<%if current_user.role_id == 1 ||current_user.role_id == 2%>
+			<% if current_user != nil &&(current_user.role_id == 1 ||current_user.role_id == 2)%>
 			<li>
                 <strong><%=link_to(content_tag('span',t('general.category')), {:action=>'listCategories', :controller=>'categories'},id:'category') %></strong>
                     <ul>
@@ -90,7 +90,7 @@
                     </ul>
 			</li>
 			<%end%>
-			<%if current_user.role_id == 1 ||current_user.role_id == 2%>
+			<% if current_user != nil && (current_user.role_id == 1 ||current_user.role_id == 2)%>
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.reports')), {:action=>'index', :controller=>'reports'},id:'reports') %></strong>
 				<ul>
@@ -102,7 +102,7 @@
 				</ul>
 			</li>
 			<%end%>
-			<%if current_user.role_id == 1||current_user.role_id == 2 %>
+			<%if current_user != nil && (current_user.role_id == 1||current_user.role_id == 2) %>
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.settings')), {:action=>'index', :controller=>'settings'},id:'settings') %></strong>
 				<ul>

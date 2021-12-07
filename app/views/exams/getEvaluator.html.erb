@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "schedule-exam-alert"%>
+
 <h2><%=t('exam.filter_exam')%></h2>
 
 <%= form_tag getExam_path, :method=>"get",:remote=>true, :id=>"class_form", :class=>"assign_exam_question floatL w100pc mb15" do -%>
@@ -31,7 +33,7 @@
             <table class="formTable" style="border:0px;">
               <tr>
                 <td class="pb0">
-				<div style="float:left; padding:0px; margin:0 20px 5px 0;">
+				<div style="float:left; padding:0px; margin:0 20px 5px 0;margin-left:5vw;">
 					<label style="float:left; padding-right:10px; width:95px;"><%=t('exam.select_exam')%>:</label>
 					<%=  select_tag "examName", options_for_select([[t('general.select') , "" ]] + @examNames.collect{|e| [e.name[0..30],e.id,{:title=>e.name}] },:selected=>@exam_id), {:id=>"examName", :style=>"width:200px; height:19px; border:#d1d1d1 1px solid;",:class=>"validate[required]"}%>
 					<%=hidden_field_tag "flag", "c"%>
@@ -53,7 +55,7 @@
             
 			<span id="select_category"><%=render :partial=>"select_category_evaluator"%></span><br>
 			
-			<%= submit_tag t('general.filter'), :id=>"getCategory", :class=>'btnBg' %> <%end%>
+			<%= submit_tag t('general.filter'), :id=>"getCategory", :class=>'btnBg',:style=>'margin-left:11vw' %> <%end%>
 </div>
 
 <div class="updateStatus examineeList floatL w100pc">

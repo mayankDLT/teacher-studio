@@ -1,5 +1,5 @@
 <%unless @questions.empty?%>
-<div class="qestionhead"><h3><%if @question_type_id%><%=@question_type_name%> <%=t('general.questions')%><%else%><%=t('question.all_question')%><%end%></h3> <%=render :partial=>"users/pageLinks"%></div>
+<div class="qestionhead"><h3><%if @question_type_id%><%=@question_type_name%> <%=t('general.questions')%><%else%><%=t('question.all_question')%><%end%></h3> </div>
 
 
 <div class="questionTabele">
@@ -72,9 +72,9 @@
 <%else%>
 
  <%end%>
- 
+ <%=render :partial=>"users/pageLinks"%>
  <div class="qestionhead">
- <div style="margin: 10px 0; padding: 8px 0 0; float:left;">
+ <div style="margin: 10px 0; margin-top:1vw;padding: 8px 0 0; float:left;">
 <%=link_to t('question.create_ques'), {:action=>"question_type_listing", :controller=>"questions"},  class:'green-button', :q_id=>@qId.to_i%>
 </div>
 	<%= will_paginate @questions, 

@@ -1,21 +1,23 @@
+<%= stylesheet_link_tag "schedule-exam-alert"%>
+
 <% unless @allYears == nil or @allYears.empty?%>
 <div id="container" style="width:700px; height:400px;"></div>
 <%end%>
-<div style="color: #5C5C5C; float: left; font-weight: bold; padding: 0 0 12px; width: 100%; font-size:14px;"><%= t('general.filter')%></div>
+<div style="color: #5C5C5C; float: left; font-weight: bold; padding: 0 0 12px; width: 100%; font-size:2rem;"><%= t('general.filter')%></div>
 
 <div class="formContainer">
      <% form_tag overall_path,:method=>"get", :id=>"question_filter", :class=>"assign_examinee" do -%>
             
 			<div style="float:left; padding:0; margin:0 15px 0 0; width:auto;">
 			<label  style="width:110px; float:left; line-height: 21px;"><%=t('exam.yr')%>:</label>
-			 <%= select_tag 'academicYear', options_for_select(([[t('general.select') , "" ]] + @yrs.to_a),:selected=>@y), :class=>"validate[required] w120 bdr" %>
+			 <%= select_tag 'academicYear', options_for_select(([[t('general.select') , "" ]] + @yrs.to_a),:selected=>@y), :class=>"validate[required] bdr",:style=>"margin-bottom:2vh;width:11vw;"%>
 			</div>	
 				
 			<div style="float:left; padding:0; margin:0 15px 0 0; width:auto;">
 			<label  style="width:110px; float:left; line-height: 21px;"><%=t('general.examtype')%>:</label>
 			 <%= select_tag 'examtype_id', options_for_select(([[t('general.select'),""]] +@examTypes.collect{|p| [truncate(p.name,:length=>30),p.id,{:title=>p.name}]}),:selected=>@exam_type), :class=>"validate[required] w200 bdr" %>
 			</div><div class='clear'></div>				
-			<%= submit_tag t('general.filter'), :id=>"assign", :class=>'btnBg' %>
+			<%= submit_tag t('general.filter'), :id=>"assign", :class=>'btnBg',:style=>'margin-left:11vw;' %>
 	<%end%>
 </div>
 

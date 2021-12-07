@@ -14,9 +14,10 @@
 			<table cellpadding="0" cellspacing="0" border="0" class="tblRepeter">
 				<tr>
 					<td>
-						<div class="uploadRept">
-							<%= file_field 'image','photo',:class=>"uploadReptCtrl" %>
-							<div class="imageRept"><%= image_tag @image.photo.url(:original), :size => "200x80", :id=>"preview-photo", :src => "#"%></div>
+						<div class="uploadRept" style="    display: flex;
+						flex-direction: column;margin-left:0vw;">
+							<%= file_field 'image','photo',:class=>"uploadReptCtrl",:style=>"background:transparent;border:none;margin-bottom:1vh;" %>
+							<div class="imageRept" style="width:30vw;" ><%= image_tag @image.photo.url(:original), :size => "800x450", :id=>"preview-photo", :src => "#"%></div>
 						</div>
 					</td>
 				</tr>
@@ -32,26 +33,27 @@
 		<%= render :partial=>"editImageBased"%>
 		
 		
-		<%=link_to image_tag("plus.jpg", :alt=>"Add Option"),"#",:id=>"add_imagebased_blank"%><br><br>
+		<%=link_to image_tag("plus.jpg", :alt=>"Add Option"),"#",:id=>"add_imagebased_blank",:style=>"float:left;margin-left:5.5vw;margin-top:1vh;"%><br><br>
 		  		  
 		<%=t('question.ques_hint')%>: <br>
 		<%unless @question.question_hint.nil?%>
-			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%else%>
-			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%end%>
 		<br><br>
-		
+		<div style="display:flex;">
 		  <%=t('question.set_mark')%>: 
 		  <%if @question.checkMark(@question.id)== 1%>
-		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; margin-left:1vw;margin-bottom:2vh;border:#d1d1d1 1px solid;"%>
           <%else%>
-		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;",:disabled=>true%>
+		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; margin-left:1vw;margin-bottom:2vh;border:#d1d1d1 1px solid;",:disabled=>true%>
 		  <%end%>
 		<p class="showComment" style="color:#db3939; font-style:italic;  text-align:center; font-size:14px; display:inline"></p>
 		<br><br>
+		</div>
 	  <%#=link_to "Add option", "#", :id=>"add_imagebased_blank" %>
-	  <%= f.submit t('general.update'), :class=>'btnBg floatL multipleSelection',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%> </div>
+	  <%= f.submit t('general.update'), :class=>'btnBg floatL multipleSelection',:id=>"Submit" %> <div class="back_btn"> <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%> </div>
 	  <%end%>
 	  <%end%>
 	  
@@ -126,23 +128,24 @@
           
 		<%=t('question.ques_hint')%>: <br>
 		<%unless @question.question_hint.nil?%>
-  			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+  			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%else%>
-			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%end%>
 		<br><br>
-		
+		<div style="display:flex;">
 		<%=t('question.set_mark')%>: 
 		  <%if @question.checkMark(@question.id)== 1%>
-		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px;    margin-left: 1vw;border:#d1d1d1 1px solid;"%>
           <%else%>
-		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;",:disabled=>true%>
+		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px;    margin-left: 1vw;border:#d1d1d1 1px solid;",:disabled=>true%>
 		  <%end%>
+		  </div>
 			<p class="showComment" style="color:#db3939; font-style:italic;  text-align:center; font-size:14px; display:inline"></p>
 			
 	  <br><br><br>
 	  <%if @question.question_type_id == 1%>
-	  <%= f.submit t('general.update'), :class=>'btnBg floatL multipleChoice',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%></div>
+	  <%= f.submit t('general.update'), :class=>'btnBg floatL multipleChoice',:id=>"Submit" %> <div class="back_btn"> <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%></div>
       <%elsif @question.question_type_id == 2%>
 	  <%= f.submit t('general.update'), :class=>'btnBg floatL multipleSelection',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :controller=>"questions",:question_type=>@question_type_id%></div>
 	  <%end%>
@@ -160,21 +163,22 @@
 		  		  
 		<%=t('question.ques_hint')%>: <br>
 		<%unless @question.question_hint.nil?%>
-			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%else%>
-			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%end%>
 		<br><br>
-	
+	<div style="display:flex;">
           <%=t('question.set_mark')%>: 
 		  <%if @question.checkMark(@question.id)== 1%>
-		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:4vw; height:19px;margin-left: 3vw;border:#d1d1d1 1px solid;"%>
           <%else%>
-		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;",:disabled=>true%>
+		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:4vw; height:19px;margin-left: 3vw;border:#d1d1d1 1px solid;",:disabled=>true%>
 		  <%end%>
+		  </div>
 <p class="showComment" style="color:#db3939; font-style:italic;  text-align:center; font-size:14px; display:inline"></p> 
  <br><br>
-		  <%= f.submit t('general.update'), :class=>'btnBg floatL multipleChoice',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%></div>
+		  <%= f.submit t('general.update'), :class=>'btnBg floatL multipleChoice',:id=>"Submit" %> <div class="back_btn">  <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%></div>
    <%end%>
 <%end%>
 
@@ -193,18 +197,19 @@
 		  		  
 		<%=t('question.ques_hint')%>: <br>
 		<%unless @question.question_hint.nil?%>
-			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%else%>
-			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%end%>
 		<br><br>
-
+<div style="display:flex;">
 	 		  <%=t('question.set_mark')%>: 
-		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; margin-left:1vw;border:#d1d1d1 1px solid;"%>
 
  <p class="showComment" style="color:#db3939; font-style:italic;  text-align:center; font-size:14px; display:inline"></p>
+ </div>
  <br><br>
-	 <%= f.submit t('general.update'), :class=>'btnBg fullup_submit floatL',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%></div>
+	 <%= f.submit t('general.update'), :class=>'btnBg fullup_submit floatL',:id=>"Submit" %> <div class="back_btn">  <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%></div>
 
    <%end%>
 <%end%>	 
@@ -332,21 +337,22 @@
 		  		  
 		<%=t('question.ques_hint')%>: <br>
 		<%unless @question.question_hint.nil?%>
-			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+			<%=text_area_tag "hint", @question.question_hint, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%else%>
-			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+			<%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:615px; height:100px; border:#d1d1d1 1px solid;"%>
 		<%end%>
 		<br><br>
-
+	<div style="display:flex;">
 		<%=t('question.set_mark')%>: 
 		  <%if @question.checkMark(@question.id)== 1%>
-		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;margin-left:1vw;"%>
           <%else%>
-		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;",:disabled=>true%>
+		  <%=text_field_tag "mark", @question.mark,:class=>"validate[required,custom[number]] text-input",:style=>"width:40px; height:19px; border:#d1d1d1 1px solid;margin-left:1vw;",:disabled=>true%>
 		  <%end%>
+		  </div>
 		<p class="showComment" style="color:#db3939; font-style:italic;  text-align:center; font-size:14px; display:inline"></p>
 		<br><br>
-		<%= f.submit t('general.update'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn"> | <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%></div>
+		<%= f.submit t('general.update'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn">  <%=link_to t('general.back'), :controller=>"questions", :question_type=>@question_type_id%></div>
    <%end%>
 <%end%>
 
@@ -466,7 +472,7 @@ $(document).ready(function(){
 
  $('.selectLikert').click(function() {
  	
-       var text = tinyMCE.get('big-search-box').getContent();
+       var text = document.getElementById('question-text').value
 	   if (text.length == 0){
 	   	alert("Please enter question.");
 		return false;
@@ -475,7 +481,7 @@ $(document).ready(function(){
 
  $('.multipleChoice').click(function() {
 	  
-	       var text = tinyMCE.get('big-search-box').getContent();
+	       var text = document.getElementById('question-text').value
 	   if (text.length == 0){
 	   	alert("Please enter question.");
 		return false;
@@ -497,7 +503,7 @@ $(document).ready(function(){
 
  $('.multipleSelection').click(function() {
  	
-	       var text = tinyMCE.get('big-search-box').getContent();
+	       var text = document.getElementById('question-text');
 	   if (text.length == 0){
 	   	alert("Please enter question.");
 		return false;
@@ -518,7 +524,7 @@ $(document).ready(function(){
 
 $('.hrclbtn').click(function() {
 
-       var text = tinyMCE.get('big-search-box').getContent();
+       var text = document.getElementById('question-text')
 	   if (text.length == 0){
 	   	alert("Please enter question.");
 		return false;
@@ -573,7 +579,7 @@ $('.hrclbtn').click(function() {
         	    
 		//var optionInfo = $("<tr>	\n    <td>\n <textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input options\"  style=\"width:115px; height:19px; border:#d1d1d1 1px solid; margin-right:10px; float:left;\" id=\"fields" +"_" + i + "_" + "name\" />\n <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\"float:left; margin-right:5px; margin-top:3px;\" class=\"mtie7\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" />  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
 		
-		var optionInfo = $("<tr class=\"editor_last\">\n  <td style=\'width:20px; text-align:center; vertical-align:middle;\'> <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\"float:left; margin-right:5px; margin-top:3px;\" class=\"mtie7\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" /><\/td>  <td>\n <textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input options\"  style=\"width:115px; height:19px; border:#d1d1d1 1px solid; margin-right:10px; float:left;\" id=\"fields" +"_" + i + "_" + "name\" />\n   <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
+		var optionInfo = $("<tr class=\"editor_last\">\n  <td style=\'width:20px; text-align:center; vertical-align:middle;\'> <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\"float:left; margin-right:5px; margin-top:3px;\" class=\"mtie7\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" /><\/td>  <td style=\"display:flex;\">\n <textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input options\"  style=\"width:115px; height:19px; border:#d1d1d1 1px solid; margin-right:10px; margin-left:1vw; float:left;\" id=\"fields" +"_" + i + "_" + "name\" />\n   <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
 
 		i=i+1;
 		return optionInfo;
@@ -608,16 +614,19 @@ $('.hrclbtn').click(function() {
 	}
 	
 	function addOptionblank(){
-		var text = tinyMCE.get('big-search-box').getContent();
+		var text = document.getElementById('question-text').value
 		//var text = tinymce.editors[0].getContent();
 		
 	    	var textboxElement = $('.blankCount')
+
 	       //var formData = $('#big-search-box').val();
 		   var formData = text
 	        var patt1=/_/gi;
-	
+		console.log('formdata '+formData)
 	       var blank = formData.match(patt1).length
-	     if (textboxElement.length >= blank){
+		   console.log('blank '+blank)
+		   console.log(textboxElement.length)
+	     if (!textboxElement.length >= blank){
 		  alert("<%=t('question.blank_cant_exceed')%>")
 		  }
 		  else{
@@ -666,7 +675,7 @@ $('.hrclbtn').click(function() {
 
 		//var optionInfo = $("		\n		<tr align=\"center\">\n			\n			<td>	\n				  <input class=\"validate[required] text-input\" style=\"width:115px; height:19px; border:#d1d1d1 1px solid;\"  id=\"fields" +"_"+i+"_"+"name\" name=\"fields" + "[" + i + "]" + "[name]\" type=\"text\" value=\"\" />\n		    <\/td>	\n			<td>\n <input class=\"validate[required] text-input\" style=\"width:115px; height:19px; border:#d1d1d1 1px solid;\"  id=\"fields" +"_"+i+"_"+"match\" name=\"fields" + "[" + i + "]" + "[match]\" type=\"text\" value=\"\" />	<td>\n<a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n<\/td>\n			<\/tr>\n");
 		//var optionInfo = $("	\n<tr align=\"center\">	<td> <div class=\"tblCols\"><div class=\"tblRepeaterRow\"> <input class=\"validate[required] text-input tblInputtxt\"  id=\"fields" +"_"+i+"_"+"name\" name=\"fields" + "[" + i + "]" + "[name]\" type=\"text\" value=\"\" />\n	<\/div><\/div><\/td>   <td> <div class=\"tblCols\"><div class=\"tblRepeaterRow\">\n <input class=\"validate[required] text-input tblInputtxt\"  id=\"fields" +"_"+i+"_"+"match\" name=\"fields" + "[" + i + "]" + "[match]\" type=\"text\" value=\"\" /> <div class=\"tblClsholder\"><a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a><\/div>\n<\/div><\/td> <\/div><\/tr> \n \n\n");
-		var optionInfo = $("	\n<tr align=\"center\" class=\"currentRow\">	<td> <div class=\"tblCols\"><div class=\"tblRepeaterRow mb0 pb10\"> <input class=\"validate[required,funcCall[checkHELLO]] text-input tblInputtxt\"  id=\"fields" +"_"+i+"_"+"name\" name=\"fields" + "[" + i + "]" + "[name]\" type=\"text\" value=\"\" />\n	<\/div><\/div><\/td>   <td> <div class=\"tblCols\"><div class=\"tblRepeaterRow mb0 pb10\">\n <input class=\"validate[required,funcCall[checkHELLO]] text-input tblInputtxt\"  id=\"fields" +"_"+i+"_"+"match\" name=\"fields" + "[" + i + "]" + "[match]\" type=\"text\" value=\"\" /> <div class=\"tblClsholder\"><a class=\"deletematchClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a><\/div>\n<\/div><\/td> <\/div><\/tr> \n \n\n");
+		var optionInfo = $("	\n<tr align=\"center\" class=\"currentRow\">	<td> <div class=\"tblCols\"><div class=\"tblRepeaterRow mb0 pb10\" style=\"display:flex; width:14.5vw;\"> <input class=\"validate[required,funcCall[checkHELLO]] text-input tblInputtxt\" style=\"margin-left:1vw; width:100%;\" id=\"fields" +"_"+i+"_"+"name\" name=\"fields" + "[" + i + "]" + "[name]\" type=\"text\" value=\"\" />\n	<\/div><\/div><\/td>   <td> <div class=\"tblCols\"><div class=\"tblRepeaterRow mb0 pb10\" style=\"display:flex;\">\n <input class=\"validate[required,funcCall[checkHELLO]] text-input tblInputtxt\" style=\"margin-left:-2vw;\"  id=\"fields" +"_"+i+"_"+"match\" name=\"fields" + "[" + i + "]" + "[match]\" type=\"text\" value=\"\" /> <div class=\"tblClsholder\"><a class=\"deletematchClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a><\/div>\n<\/div><\/td> <\/div><\/tr> \n \n\n");
 
 		i=i+1;
 		return optionInfo;
@@ -702,7 +711,7 @@ $('.hrclbtn').click(function() {
 	
 	function addImageOption(){
 			
-		var optionInfo = $("<tr>\n  <td>  <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\"float:left; margin-right:5px; margin-top:3px;\" class=\"mtie7\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" />\n <input type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input options\"  style=\"width:115px; height:19px; border:#d1d1d1 1px solid; margin-right:10px; float:left;\" id=\"fields" +"_" + i + "_" + "name\" />\n   <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
+		var optionInfo = $("<tr>\n  <td style=\"display:flex;\">  <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\"float:left; margin-right:5px; margin-top:3px;width:1vw;\" class=\"mtie7\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" />\n <input type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input options\"  style=\"width:115px; height:19px; border:#d1d1d1 1px solid; margin-left:1vw;margin-right:10px; float:left;\" id=\"fields" +"_" + i + "_" + "name\" />\n   <a class=\"deleteClassInfo\" alt=\"Add Option\"><img  src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
 		i=i+1;
 		return optionInfo;
 	};
@@ -725,7 +734,7 @@ $('.hrclbtn').click(function() {
 
 
 	$(".fullup_submit").click(function(){
-	var text = tinyMCE.get('big-search-box').getContent();	
+	var text = document.getElementById('question-text').value
 		
 
 
