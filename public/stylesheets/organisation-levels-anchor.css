@@ -1,0 +1,32 @@
+.org-levels a {
+  padding: px 14px 0pt 15px;
+  background: #e67e22;
+  color: #fff;
+  /* width: 30vw; */
+  padding-left: 2.25vw;
+  padding-right: 2.25vw;
+  padding-top: 0.2vh;
+  border-radius: 0.3rem;
+  margin-left: 0.5vw;
+  padding-bottom: 0.24vh;
+}
+
+.org-levels a {
+  padding: 14px 0pt 15px;
+  background: #fff;
+  color: #f26f29;
+  /* width: 30vw; */
+  padding-left: 2.25vw;
+  padding-right: 2.25vw;
+  padding-top: 0.5vh;
+  border-radius: 0.3rem;
+  margin-left: 0.5vw;
+  padding-bottom: 0.4vh;
+  font-weight: bold;
+  border-radius: 2.5rem;
+  border: 1px solid;
+}
+.org-levels a:hover {
+  color: white !important;
+  background-color: #f26f29 !important;
+}

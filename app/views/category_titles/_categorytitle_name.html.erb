@@ -12,7 +12,7 @@
 <tr class="updateAltrRow <%= cycle("odd", "even") %>">
 <td>
 	<span id="titleLabel_<%=title.id%>" title="<%=title.name%>"><%=title.name%></span>
-	<%= text_field_tag "titleText", title.name, :id=>"titleText_#{title.id}", :class=>"categories",:style=>"width:200px; height:19px; border:#d1d1d1 1px solid;"%>
+	<%= text_field_tag "titleText", title.name, :id=>"titleText_#{title.id}", :class=>"categories",:style=>"margin-left:0;width:200px; height:19px; border:#d1d1d1 1px solid;"%>
 </td>
 
 <%=hidden_field_tag "categoryType", @collect_type%>

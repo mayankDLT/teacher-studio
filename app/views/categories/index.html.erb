@@ -1,5 +1,5 @@
 <div class="updateStatus">
-<h3><%=t('general.categories')%></h3>
+<h3 style="font-size:1.5rem;"><%=t('general.categories')%></h3>
 
 <%= form_tag({:action => "create"}, {:id => "class_form"}) do %>
 <table border="1" width="100%">
@@ -39,10 +39,10 @@
 <%end%>
 
 <%if @organization_id == 2%>
-<td><%=select_tag 'courseName', options_for_select([[t('general.select'),""]] + @courses.collect{ |ca| [truncate(ca.name,:length=>28), ca.id,{:title=>ca.name}] }),:class=>"validate[required]", :style=>"width:150px; height:19px; border:#d1d1d1 1px solid;"%></td>
-<td><%=select_tag 'academicYear', options_for_select([[t('general.select'),""]] + @academicYears.collect{ |ca| [truncate(ca.name,:length=>28), ca.id,{:title=>ca.name}] }),:class=>"validate[required]", :style=>"width:150px; height:19px; border:#d1d1d1 1px solid;"%></td>
-<td><%=select_tag 'department', options_for_select([[t('general.select'),""]] + @departments.collect{ |ca| [truncate(ca.name,:length=>28), ca.id,{:title=>ca.name}] }),:class=>"validate[required]", :style=>"width:150px; height:19px; border:#d1d1d1 1px solid;"%></td>
-<td><%=select_tag 'semester', options_for_select([[t('general.select'),""]] + @semesters.collect{ |ca| [truncate(ca.name,:length=>28), ca.id,{:title=>ca.name}] }),:class=>"validate[required]", :style=>"width:150px; height:19px; border:#d1d1d1 1px solid;"%></td>
+<td><%=select_tag 'courseName', options_for_select([[t('general.select'),""]] + @courses.collect{ |ca| [truncate(ca.name,:length=>28), ca.id,{:title=>ca.name}] }),:class=>"validate[required]", :style=>"width:150px;    margin-left: 1vw; height:19px; border:#d1d1d1 1px solid;"%></td>
+<td><%=select_tag 'academicYear', options_for_select([[t('general.select'),""]] + @academicYears.collect{ |ca| [truncate(ca.name,:length=>28), ca.id,{:title=>ca.name}] }),:class=>"validate[required]", :style=>"width:150px; margin-left: 1vw;  height:19px; border:#d1d1d1 1px solid;"%></td>
+<td><%=select_tag 'department', options_for_select([[t('general.select'),""]] + @departments.collect{ |ca| [truncate(ca.name,:length=>28), ca.id,{:title=>ca.name}] }),:class=>"validate[required]", :style=>"width:150px;  margin-left: 1vw; height:19px; border:#d1d1d1 1px solid;"%></td>
+<td><%=select_tag 'semester', options_for_select([[t('general.select'),""]] + @semesters.collect{ |ca| [truncate(ca.name,:length=>28), ca.id,{:title=>ca.name}] }),:class=>"validate[required]", :style=>"width:150px; height:19px; margin-left: 1vw;  border:#d1d1d1 1px solid;"%></td>
 
 <%end%>
 

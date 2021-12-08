@@ -72,7 +72,7 @@
 <tr>
 <td width="120px;" style="vertical-align:top;"><%=t('exam.inst')%></td>
 <td>
-   <%= f.text_area :instruction,:class=>"validate[required,funcCall[checkHELLO]] text-input", :style=>"border:#d1d1d1 1px solid; height:87px; width:300px;"  %>
+   <%= f.text_area :instruction,:class=>"validate[required,funcCall[checkHELLO]] text-input", :style=>"border:#d1d1d1 1px solid; height:87px; width:300px;    margin-left: 11vw;"  %>
 </td></tr>   
   
 <tr>
@@ -86,7 +86,7 @@
 <% end %>
 
 
-<div class="updateStatus"><h3 class="m0_P25"><span class="toggleQuestion"> <%=image_tag("plus_icon.png", :alt=>"Expand", :height=>"20", :width=>'20')%>  </span><%=t('general.questions')%></h3></div>
+<div class="updateStatus"><h3 class="m0_P25" style="margin-right: 2vw;"><span class="toggleQuestion"> <%=image_tag("plus_icon.png", :alt=>"Expand", :height=>"20", :width=>'20')%>  </span><%=t('general.questions')%></h3></div>
 <div class="toggleQuestionForm" style=" display:none; width:100%; clear:left;">
 	
 <div class="updateStatus">	
@@ -119,7 +119,7 @@
 </div>
 
 <div class="clear"></div>
-<div class="updateStatus"><h3 class="m0_P25"><span class="toggleExaminee"> <%=image_tag("plus_icon.png", :alt=>"Expand", :height=>"20", :width=>'20')%>  </span><%=t('user.examinees')%></h3></div>
+<div class="updateStatus"><h3 class="m0_P25" style="margin-right:1vw;"><span class="toggleExaminee"> <%=image_tag("plus_icon.png", :alt=>"Expand", :height=>"20", :width=>'20')%>  </span><%=t('user.examinees')%></h3></div>
 <div class="toggleExamineeForm" style=" display:none; width:100%; clear:left;">
 <div class="updateStatus">	
         <%unless @examUsers.empty?%> 
