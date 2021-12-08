@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "descriptive"%>
+		  
 		  <%checkAttended = Evaluation.find_by_question_id_and_categoryexam_id_and_categoryuser_id_and_has_attended_and_attempt(@question.id,@categoryExam,@categoryUser,true,@attempt) %>
 		  
 		  <%unless checkAttended == nil%>

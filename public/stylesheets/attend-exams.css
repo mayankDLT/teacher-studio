@@ -1,0 +1,10 @@
+#mainWrapper {
+  width: 98%;
+  height: auto !important;
+  height: 100%;
+  /* min-height: 20%; */
+  margin: 0 auto;
+  padding: 0;
+  text-align: left;
+  background: #fff;
+}
