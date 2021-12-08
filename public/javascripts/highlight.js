@@ -11,7 +11,11 @@ window.onload = function () {
       return;
     } catch (e) {}
   }
-  if (url.includes('exam') && !url.includes('usersresult')) {
+  if (
+    url.includes('exam') &&
+    !url.includes('usersresult') &&
+    !url.includes('overall')
+  ) {
     try {
       const element = (document.querySelector('#view-exams').className =
         'active');
@@ -40,7 +44,8 @@ window.onload = function () {
     !url.includes('usersresult') &&
     !url.includes('departmentresult') &&
     !url.includes('userreport') &&
-    !url.includes('specificdepartment')
+    !url.includes('specificdepartment') &&
+    !url.includes('overall')
   ) {
     const element = (document.querySelector('#exams').className = 'active');
 

@@ -14,17 +14,17 @@
 <th><%=t('exam.start_time')%></th>
 
 <%if @setting == true%>
-<th><%=t('welcome.confirm')%>/<%=t('welcome.reject')%></th>
+
 <%else%>
-<th><%=t('attend_exam.attend')%></th>
+
 <%end%>
-<th></th>
+<th>Status</th>
 
 </tr>
 
 
 
-<% @exams_list.each do|exam| %>
+<% @exams_list.reverse.each do|exam| %>
 <tr class="updateAltrRow <%= cycle("odd", "even") %>">
 
 <% exam_hrs = exam.exam_date.hour()%>
@@ -66,36 +66,27 @@
 <td><%= "#{exam.exam_date.strftime('%I:%M %p')}"%></td>
 <%if @setting == true%>
 
-<td><%if "#{exam.is_confirmed}" == '1'%>
-    <%=t('general.confirmed')%>
-	<%elsif "#{exam.is_confirmed}" == '2'%>
-	<%=t('general.rejected')%>
-	<%else%>
-	<%= link_to t('welcome.confirm'), :action=>"confirm_exam", :controller=>"attend_exams", :categoryuser_id=>"#{exam.categoryuser_id}", :categoryexam_id=>"#{exam.categoryexam_id}" %>
-	| <%= link_to t('welcome.reject'), :action=>"reject_exam", :controller=>"attend_exams", :categoryuser_id=>"#{exam.categoryuser_id}", :categoryexam_id=>"#{exam.categoryexam_id}" %>
 
-	<%end%>
-</td>
 
 <%else%>
-<td>Confirmed</td>
+
 <%end%>
 
-<td>
+<td id="attend">
 	<%if @setting == true%>
-	    <%if @current_time.strftime('%m/%d/%Y') == "#{exam.exam_date.strftime('%m/%d/%Y')}" and @current_time.strftime('%H:%M') >= "#{exam.exam_date.strftime('%H:%M')}" and (final_time >= @current_time.strftime('%H:%M+1')) and "#{exam.is_confirmed}" == '1' and "#{exam.has_attended}" == '0' and "#{exam.start_exam}" == '1'%>
-		<%=link_to t('general.attend'), :action=>"instruction", :categoryuser_id=>"#{exam.categoryuser_id}", :categoryexam_id=>"#{exam.categoryexam_id}", :exam_id=>"#{exam.exam_id}",:attempt=>"#{exam.attempt}"%>
-	    <%elsif "#{exam.is_confirmed}" == '1' and "#{exam.has_attended}" == '0'%>	     
-		<%=t('general.attend')%>
-		<%elsif "#{exam.is_confirmed}" == '1' and "#{exam.has_attended}" == '1'%>
+	    <%if @current_time.strftime('%m/%d/%Y') == "#{exam.exam_date.strftime('%m/%d/%Y')}" and @current_time.strftime('%H:%M') >= "#{exam.exam_date.strftime('%H:%M')}" and (final_time >= @current_time.strftime('%H:%M+1')) and "#{exam.has_attended}" == '0' and "#{exam.start_exam}" == '1'%>
+		<%=link_to t('general.attend'),{:action=>"instruction", :categoryuser_id=>"#{exam.categoryuser_id}", :categoryexam_id=>"#{exam.categoryexam_id}", :exam_id=>"#{exam.exam_id}",:attempt=>"#{exam.attempt}"},:class=>'green-button'%>
+	    <%elsif "#{exam.has_attended}" == '0'%>	     
+		<a class='green-button-disabled'><%=t('general.attend')%></a>
+		<%elsif "#{exam.has_attended}" == '1'%>
 		<%=t('general.done')%>		
 		<%end%>
 	<%else%>
 		<%if @current_time.strftime('%m/%d/%Y') == "#{exam.exam_date.strftime('%m/%d/%Y')}" and @current_time.strftime('%H:%M') >= "#{exam.exam_date.strftime('%H:%M')}" and (final_time >= @current_time.strftime('%H:%M+1')) and "#{exam.has_attended}" == '0' and "#{exam.start_exam}" == '1'%>
-		<%=link_to t('general.attend'), :action=>"instruction", :categoryuser_id=>"#{exam.categoryuser_id}", :categoryexam_id=>"#{exam.categoryexam_id}", :exam_id=>"#{exam.exam_id}",:attempt=>"#{exam.attempt}"%>
-		<%elsif "#{exam.is_confirmed}" == '1' and "#{exam.has_attended}" == '0'%>
-		<%=t('general.attend')%>
-		<%elsif "#{exam.is_confirmed}" == '1' and "#{exam.has_attended}" == '1'%>
+		<%=link_to t('general.attend'), {:action=>"instruction", :categoryuser_id=>"#{exam.categoryuser_id}", :categoryexam_id=>"#{exam.categoryexam_id}", :exam_id=>"#{exam.exam_id}",:attempt=>"#{exam.attempt}"},:class=>'green-button'%>
+		<%elsif "#{exam.has_attended}" == '0'%>
+		<a class='green-button-disabled'><%=t('general.attend')%></a>
+		<%elsif "#{exam.has_attended}" == '1'%>
 		<%=t('general.done')%>		
 		<%end%>
 	<%end%>
@@ -118,4 +109,9 @@
 	        $(document).ready(function() {
 	            setInterval("location.reload(true)", 15000);
 	        });   
+			if(document.querySelector('#attend a'))
+				{
+					document.querySelector('#attend a').target="_blank"
+					
+				}
 	 </script>

@@ -5,7 +5,7 @@
 <th><%=t('general.name')%></th>
 
 <th><%=t('reports.view_report')%></th>
-<th><%=t('reports.excel')%></th>
+
 <th><%=t('reports.pdf')%></th>
 </tr>
 
@@ -22,10 +22,7 @@
 
 <%#= link_to "View", :action =>"viewexamReport", :exam_id=>exam.id, :semester_id=>semesterId %>
 </td>
-<td>
-	<%= link_to image_tag("excel.png", :alt=>"excel report"), :action=>"generateExamReport", :exam_id=>exam.id,:category_id=>@category_id, :examType=>@examtype, :currentyear=>@academicYear, :csv=>1%>
 
-</td>
 <td>
 	<%= link_to image_tag("pdf.png", :alt=>"pdf report"), :action=>"generateExamReport", :exam_id=>exam.id,:category_id=>@category_id, :examType=>@examtype, :currentyear=>@academicYear, :pdf=>1%>
 

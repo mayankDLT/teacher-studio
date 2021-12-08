@@ -28,7 +28,7 @@
 			<%end%>
 			
 			</table>
-	<div style="display:flex; width:100%; justify-content:center;margin-top:1vh;" class="n_s_left">	<%= link_to t('reports.excel'), {:action=>"generatePassfail", :category_id=>@category_id, :exam_id=>@examId, :passfail=>@passFail, :academicyear=>@academicYear, :examtype=>@examtype, :csv => 1},:class=>"green-button",:style=>"margin-right:3vw;"%>	   
+	<div style="display:flex; width:100%; justify-content:center;margin-top:1vh;" class="n_s_left">	
 
 				
 	    <%= link_to t('reports.pdf'), {:action=>"generatePassfail", :category_id=>@category_id, :exam_id=>@examId, :passfail=>@passFail, :academicyear=>@academicYear, :examtype=>@examtype, :pdf => 1},:class=>"green-button"%>	

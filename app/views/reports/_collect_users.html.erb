@@ -4,7 +4,7 @@
 <tr class="updateHeader">
 <th><%=t('general.name')%></th>
 <th><%=t('reports.view_report')%></th>
-<th><%=t('reports.excel')%></th>
+
 <th><%=t('reports.pdf')%></th>
 </tr>
 
@@ -23,7 +23,7 @@
 <%= link_to t('general.view'), :action =>"viewuserReport", :user_id=>user.id, :category_id=>examinee.categoryid, :academicYear => examinee.academicyear, :examType=>examinee.examtype%>
 
 </td>
-<td><%= link_to image_tag("excel.png", :alt=>"excel report"), :action=>"userSubjectwise", :user_id=>user.id, :category_id=>examinee.categoryid, :academicYear => examinee.academicyear, :examType=>examinee.examtype, :csv => 1%>
+
 <td><%= link_to image_tag("pdf.png", :alt=>"pdf report"), :action=>"userSubjectwise", :user_id=>user.id, :category_id=>examinee.categoryid, :academicYear => examinee.academicyear, :examType=>examinee.examtype, :pdf => 1%>
 
 </td>
