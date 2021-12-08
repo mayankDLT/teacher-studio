@@ -11,7 +11,7 @@
 				  <%= hidden_field_tag "evaluation_id", checkAttended.id%>	
 				  <%# answers = Answer.find_all_by_question_id(@question.id)%>
 				   <%#answers.each do|answer|%>
-				        <span><%= text_area_tag "answer_name",checkAttended.descriptive_answer, :style=>"width:115px; height:19px; border:#d1d1d1 1px solid; background:#cfcfcf", :class=>"description"%></span>
+				        <span><%= text_area_tag "answer_name",checkAttended.descriptive_answer, :style=>"width:50vw; height:30vh; border:#d1d1d1 1px solid; background:#cfcfcf;min-height: 30vh;min-width:50vw;", :class=>"description"%></span>
 						<%#= radio_button_tag "answer_id", answer.id, checkAttended.answer_id == answer.id ? true : false, {:class=>"validate[minCheckbox[1]] checkbox publish", :style=>"margin-left: 10px; margin-right: 5px;",:disabled => false} %><br><br>
 					 
 				   <%#end%>				
@@ -27,8 +27,8 @@
 	              <%= hidden_field_tag "question_id", @question.id%>	
 				  <%# answers = Answer.find_all_by_question_id(@question.id)%>
 				   <%#answers.each do|answer|%>
-				        <span><%= text_area_tag "answer_name","", :style=>"width:115px; height:19px; border:#d1d1d1 1px solid;  background:#cfcfcf", :class=>"description"%></span>
-						<%#= radio_button_tag "answer_id", answer.id,false, {:class=>"validate[minCheckbox[1]] checkbox publish", :style=>"margin-left: 10px; margin-right: 5px;"} %><br><br>
+				        <span><%= text_area_tag "answer_name","", :style=>"width:50vw; height:30vh; border:#d1d1d1 1px solid;  background:#cfcfcf", :class=>"description"%></span>
+						<%#= radio_button_tag "answer_id", answer.id,false, {:class=>"validate[minCheckbox[1]] checkbox publish", :style=>"margin-left: 10px; margin-right: 5px;min-height: 30vh;min-width: 50vw;"} %><br><br>
 					 
 				   <%#end%>				
 			 	 </td>

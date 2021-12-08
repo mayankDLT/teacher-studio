@@ -1,0 +1,17 @@
+.formContainer {
+  min-height: 50vh;
+}
+.contentWrapper {
+  width: fit-content;
+}
+.midCol {
+  width: auto;
+}
+
+.content-aligner {
+  width: 100vw;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  background-color: #f7f7f7;
+}

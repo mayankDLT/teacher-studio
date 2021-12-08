@@ -1,6 +1,6 @@
 input {
   display: block;
-  width: 1vw;
+  width: 0.8vw;
   height: 2vh;
   -moz-appearance: checkbox;
 }

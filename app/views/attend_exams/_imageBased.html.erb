@@ -26,7 +26,7 @@
 				   <%checkAttended_1 = Evaluation.find_by_question_id_and_answer_id_and_categoryexam_id_and_categoryuser_id_and_attempt(@question.id,answer.id,@categoryExam,@categoryUser,@attempt) %>
 				        <span style="display:flex;" title="<%=answer.name%>">
 						<%= check_box_tag "answer_id[]", answer.id, checkAttended_1 != nil ? true : false, {:class=>"validate[minCheckbox[1]] checkbox publish", :style=>"margin-left: 10px; margin-right: 5px;",:disabled => false} %>
-						<%= text_field_tag "answer_name[]",truncate(answer.name,:length=>35), :style=>"width:200px; height:19px; border:#d1d1d1 1px solid; background:#cfcfcf", :readonly => true%></span>
+						<%= text_field_tag "answer_name[]",truncate(answer.name,:length=>35), :style=>"width:200px; height:19px;margin-left:1vw; border:#d1d1d1 1px solid; background:#cfcfcf", :readonly => true%></span>
 						<br><br>
 					    <%= hidden_field_tag "evaluation_id[]", checkAttended_1.id if checkAttended_1 != nil %>
 				   <%end%>				
@@ -44,7 +44,7 @@
 				   <%answers.each do|answer|%>
 				        <span style="display:flex;" title="<%=answer.name%>">
 						<%= check_box_tag "answer_id[]", answer.id,false, {:class=>"validate[minCheckbox[1]] checkbox publish", :style=>"margin-left: 10px; margin-right: 5px;"} %>
-						<%= text_field_tag "answer_name[]",truncate(answer.name,:length=>35), :style=>"width:200px; height:19px; border:#d1d1d1 1px solid; background:#cfcfcf", :readonly => true%></span>
+						<%= text_field_tag "answer_name[]",truncate(answer.name,:length=>35), :style=>"width:200px; height:19px; margin-left:1vw;border:#d1d1d1 1px solid; background:#cfcfcf", :readonly => true%></span>
 						<br><br>
 					 
 				   <%end%>				

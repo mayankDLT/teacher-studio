@@ -16,6 +16,8 @@
 		<link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,200;0,300;1,100&display=swap" rel="stylesheet">
     <%= stylesheet_link_tag "application" %>
 	<%= stylesheet_link_tag "styles", "dropdown.linear", "validationEngine.jquery.css" %>
+<%= stylesheet_link_tag "form-container-height"%>
+
 	<%= stylesheet_link_tag "jquery-ui", "jquery.ui.theme"%>
     <%= javascript_include_tag :defaults %>
 
@@ -70,6 +72,7 @@
   </div>
 
   <div class="navigation"> </div>
+  <div class="content-aligner">
   <div class="contentWrapper">
 
 
@@ -86,7 +89,7 @@
    <%= yield %>
     </div>
   </div>
-  
+  </div>
   <div class="clear"></div>
 </div>
 <div class="clear"></div>
