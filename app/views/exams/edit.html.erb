@@ -1,3 +1,4 @@
+<%= stylesheet_link_tag "exams-anchor"%>
 <%= hidden_field_tag "now_year",Time.now().year(), :id=>"nowYr"%>
 <%= hidden_field_tag "now_month",Time.now().month(), :id=>"nowMnth"%>
 <%= hidden_field_tag "now_day",Time.now().day(), :id=>"nowDt"%>
@@ -114,7 +115,7 @@
 	     <p class="mb10 w100pc floatL "><%=t('not_found.no_ques_avail')%>.</p> 
 	  <%end%>
 	  
-	<div class="n_s_left mt15"><%= link_to t('question.add_more_que'), :action=>"selectQuestion"%></div>
+	<div class="n_s_left mt15"><%= link_to t('question.add_more_que'), 	:action=>"selectQuestion"%></div>
 </div>
 </div>
 

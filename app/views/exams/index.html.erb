@@ -1,3 +1,5 @@
+<%= stylesheet_link_tag "exams-pagination"%>
+
 <h2><%=t('exam.exams')%></h2>
 <%unless @exams.blank?%>
 <div class="updateStatus">
@@ -31,4 +33,7 @@
                 :page_links =>true,           
                 :renderer => PaginationListLinkRenderer
               %>
-
+			  <script>document.querySelector('.previous a').innerText='<'
+			  document.querySelector('.next a').innerText='>'
+			 
+			  </script>

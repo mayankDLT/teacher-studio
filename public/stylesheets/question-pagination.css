@@ -1,0 +1,67 @@
+.pagination li a {
+  padding: px 14px 0pt 15px;
+  background: #e67e22;
+  color: #fff;
+  /* width: 30vw; */
+  padding-left: 0.3vw;
+  padding-right: 0.3vw;
+  padding-top: 0.2vh;
+  border-radius: 0.3rem;
+  margin-left: 0.5vw;
+  padding-bottom: 0.24vh;
+  line-height: 14px;
+  float: left;
+  width: 2vw !important;
+}
+.pagination li a {
+  padding: 14px 0pt 15px;
+  background: #fff;
+  color: #f26f29;
+  /* width: 30vw; */
+  padding-left: 0.3vw;
+  padding-right: 0.3vw;
+  padding-top: 0.5vh;
+  border-radius: 0.3rem;
+  margin-left: 0.5vw;
+  padding-bottom: 0.4vh;
+  font-weight: bold;
+  border-radius: 2.5rem;
+  border: 1px solid;
+}
+.pagination li a:hover {
+  color: white !important;
+  background-color: #f26f29 !important;
+  border: #f26f29 !important ;
+}
+.pagination li.current {
+  color: #fff;
+  background: white !important;
+  font-weight: bold;
+}
+.pagination li.current a {
+  color: #fff;
+  border: none !important;
+  background: #f26f29 !important;
+  font-weight: bold;
+}
+.qestionhead {
+  width: 100%;
+  margin: 0 0 5px 0;
+  padding: 0px;
+  display: flex;
+  justify-content: center !important;
+  align-items: center !important;
+  flex-direction: column;
+  margin-top: 1vh;
+}
+
+.pagination li a {
+  width: 2vw !important;
+}
+.previous a {
+  font-size: 1.5rem !important;
+}
+
+.next a {
+  font-size: 1.5rem !important;
+}

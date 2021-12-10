@@ -22,6 +22,11 @@ window.onload = function () {
     const element = (document.querySelector('#questions').className = 'active');
     return;
   }
+  if (url.includes('category_titles')) {
+    const element = (document.querySelector('#org-levels').className =
+      'active');
+    return;
+  }
   if (
     (url.includes('exam') ||
       url.includes('selectquestion') ||
@@ -45,7 +50,11 @@ window.onload = function () {
     const element = (document.querySelector('#email').className = 'active');
     return;
   }
-  if (url.includes('report')) {
+  if (
+    url.includes('report') ||
+    url.includes('overall') ||
+    url.includes('pass_fail')
+  ) {
     const element = (document.querySelector('#reports').className = 'active');
     return;
   }

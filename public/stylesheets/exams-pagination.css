@@ -1,0 +1,56 @@
+.pagination {
+  margin-top: 3.5vh;
+  width: 30vw;
+}
+.pagination li a {
+  padding: px 14px 0pt 15px;
+  background: #e67e22;
+  color: #fff;
+  /* width: 30vw; */
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 0.2vh;
+  border-radius: 0.3rem;
+  margin-left: 0.5vw;
+  padding-bottom: 0.24vh;
+  line-height: 14px;
+  float: left;
+}
+.pagination li a {
+  padding: 14px 0pt 15px;
+  background: #fff;
+  color: #f26f29;
+  /* width: 30vw; */
+  padding-left: 1vw;
+  padding-right: 1vw;
+  padding-top: 0.5vh;
+  border-radius: 0.3rem;
+  margin-left: 0.5vw;
+  padding-bottom: 0.4vh;
+  font-weight: bold;
+  border-radius: 2.5rem;
+  border: 1px solid;
+}
+.pagination li a:hover {
+  color: white !important;
+  background-color: #f26f29 !important;
+  border: #f26f29 !important ;
+}
+.pagination li.current {
+  color: #fff;
+  background: white !important;
+  font-weight: bold;
+}
+.pagination li.current a {
+  color: #fff;
+  border: none !important;
+  background: #f26f29 !important;
+  font-weight: bold;
+}
+.previous a {
+  font-size: 1.5rem !important;
+}
+
+.next a {
+  font-size: 1.5rem !important;
+}
