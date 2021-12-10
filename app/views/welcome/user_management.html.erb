@@ -1,13 +1,10 @@
 
-<h2><%= t('welcome.manage')%></h2>
+<h2 style="margin-bottom: 1.5vw;"><%= t('welcome.manage')%></h2>
 
 <%if current_user.role_id == 1%>
-<%= link_to t('general.examiner'), :action=>'index', :controller=>'users', :create_id => 2%><br><br>
-<%= link_to t('welcome.q_setter'), :action=>'index', :controller=>'users', :create_id => 3%><br><br>
-<%= link_to t('welcome.examinee'), :action=>'index', :controller=>'users', :create_id => 4%><br><br>
-<%= link_to t('general.group_user'), :action=>'groupUser', :controller=>'users'%><br><br>
-<%= link_to t('general.activate'), :action=>'activate_inactivate', :controller=>'users'%><br><br>
-<%= link_to t('general.confirm_reject_user'), :action=>'admin_dashboard', :controller=>'welcome'%>
+
+<%= link_to t('general.group_user'),{ :action=>'groupUser', :controller=>'users'},:class=>"green-button",:style=>'margin-top:2vh;'%><br><br>
+
 <%end%>
 
 <%if current_user.role_id == 2%>

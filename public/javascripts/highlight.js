@@ -66,4 +66,8 @@ window.onload = function () {
     const element = (document.querySelector('#category').className = 'active');
     return;
   }
+  if (url.includes('welcome/user_management') || url.includes('groupUser')) {
+    const element = (document.querySelector('#users').className = 'active');
+    return;
+  }
 };

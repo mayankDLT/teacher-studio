@@ -8,13 +8,13 @@
 			    <tr>
                 <td>
                 	<div style="float:left; padding:0px; margin:0 20px 0 0;">
-					<label style="float:left; padding-right:10px; width:115px;"><%=t('user.select_examinee')%>:</label>
-					<%= select_tag 'examineeType', options_for_select(@examineeTypes.to_a), :style=>"width:185px; height:19px; border:#d1d1d1 1px solid;",:class=>"validate[required]" %>				
+					<label style="float:left; padding-right:10px; width:115px;margin-left: 6vw;"><%=t('user.select_examinee')%>:</label>
+					<%= select_tag 'examineeType', options_for_select(@examineeTypes.to_a), :style=>"width:17vw; height:19px;margin-left: 16vw; border:#d1d1d1 1px solid;",:class=>"validate[required]" %>				
 					</div>
 				</td>
                 </tr> 
             </table>
-			<%= submit_tag t('general.filter'), :id=>"filter", :class=>'btnBg' %>
+			<%= submit_tag t('general.filter'), :id=>"filter", :class=>'btnBg',:style=>'margin-left: 16vw; margin-top:0;' %>
 </div><br><br><br>
 <%end%>
 
@@ -30,12 +30,12 @@
 			
 	<td class="pb0">
 		<div style="float:left; padding:0px; margin:0 20px 0 0;">
-			<label style="float:left; padding-right:10px; width:95px;"><%=t('general.select_cat')%>:</label>
-			<%= f.select :id,options_for_select([[t('general.select'),""]] + @c.collect{|p| [p.gathercat(p),p.id,{:title=>p.gathercat(p)}]}),{},:class=>"validate[required] w530 bdr" %>
+			<label style="float:left; padding-right:10px; width:95px;margin-left:1.5vw"><%=t('general.select_cat')%>:</label>
+			<%= f.select :id,options_for_select([[t('general.select'),""]] + @c.collect{|p| [p.gathercat(p),p.id,{:title=>p.gathercat(p)}]}),{},:class=>"validate[required] w530 bdr",:style=>'width:17vw;' %>
 		</div><div class="clear"></div><br>
 	    <div style="float:left; padding:0px; margin:0;">
-			<label style="float:left; padding-right:10px; width:95px;"><%=t('general.acedemic_yr')%>:</label>
-			 <%= select_tag 'academicYear', options_for_select(([[t('general.select'),""]] + @yrs.to_a)), :class=>"validate[required] w120 bdr" %>
+			<label style="float:left; padding-right:10px; width:95px;margin-left:1.5vw"><%=t('general.acedemic_yr')%>:</label>
+			 <%= select_tag 'academicYear', options_for_select(([[t('general.select'),""]] + @yrs.to_a)), :class=>"validate[required]  bdr",:style=>'width:17vw;' %>
 		</div>
 	</td>		
 			

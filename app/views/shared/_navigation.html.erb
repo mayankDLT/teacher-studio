@@ -3,6 +3,34 @@
 <div class="container" style="background-color: white;">
 <nav style="font-size: 1rem">
 		<ul class="mcd-menu" style="background-color: #f7f7f7; border-radius:10px;">
+		<%if current_user and (current_user.role_id == 1 or current_user.role_id == 2)%>
+              
+		<li >
+		  <strong><%=link_to(content_tag('span',t('general.users')), {:action=>'user_management', :controller=>'welcome'},id:'users') %></strong>
+				<%if current_user.role_id == 1%>
+			  <ul>
+				
+				<li><%= link_to t('general.group_user'), :action=>'groupUser', :controller=>'users'%></li>
+				                               
+			  </ul>
+			<%end%>
+			<%end%>	
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 		<%if current_user != nil && (current_user.role_id == 1 ||current_user.role_id == 2)%>
 			<li>
                 <strong><%=link_to(content_tag('span',t('general.subjects')),{:action=>'index', :controller=>'subjects'},id:'subjects') %></strong>
