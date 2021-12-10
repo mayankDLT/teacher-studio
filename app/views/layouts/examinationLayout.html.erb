@@ -57,13 +57,7 @@
       
     </div>
     <div class="lan_sign_Col">
-      <div class="signOut">
-      	<%unless current_user%>
-		<p><%= link_to t('general.signin'), new_user_session_path, :id=>"login"%></p>
-		<%else%>
-        <p><%= link_to t('general.signout'), logout_path%></p>
-		<%end%>
-      </div>
+      
       
     </div>
   </div>

@@ -68,7 +68,7 @@
 				</ul>
 			</li>
 			<%end%>
-
+			<% if current_user != nil%>
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.result')), {:action=>'index', :controller=>'results'},id:'results') %></strong>
 				<ul>
@@ -84,6 +84,7 @@
 				   <%end%>
 				</ul>
 			</li>
+			<%end%>
 			<% if current_user != nil &&(current_user.role_id == 1 ||current_user.role_id == 2)%>
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.org_levels')), {:action=>'index', :controller=>'category_titles'},id:'org-levels') %></strong>
@@ -130,16 +131,7 @@
 				</ul>
 			</li>
 			<%end%>
-			<%if current_user != nil && (current_user.role_id == 1||current_user.role_id == 2) %>
-			<li>
-				<strong><%=link_to(content_tag('span',t('general.settings')), {:action=>'index', :controller=>'settings'},id:'settings') %></strong>
-				<ul>
-				<li><%= link_to t('general.client_image'), :action=>"clientImage", :controller=>"images"%></li>
-				<li><%= link_to t('about.aboutus'), :action=>"index", :controller=>"aboutus"%></li>
-				<li><%= link_to t('client.client_info'), :action=>"index", :controller=>"clientinfo"%></li>
-				</ul>
-			</li>
-			<%end%>
+			
 		</ul>
 	</nav>
 </div>

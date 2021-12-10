@@ -24,7 +24,7 @@ class UserSessionsController < ApplicationController
             @current_user = current_user
             @role_id = @current_user.role_id      
             if @role_id == 1 || @role_id == 2
-              redirect_to :action=>:workflow, :controller=>:welcome
+              redirect_to :action=>:index, :controller=>:exams
             elsif @role_id == 3
               redirect_to :action=>:index, :controller=>:questions
             else

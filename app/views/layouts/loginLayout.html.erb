@@ -14,7 +14,7 @@
 <%= favicon_link_tag 'favicon.ico' %>
 <%= stylesheet_link_tag "styles", "dropdown.linear", "validationEngine.jquery.css" %>
     <%= javascript_include_tag :defaults %>
-	
+    <%= stylesheet_link_tag "login-page"%>
 	<%if t('language.lang') == "en"%>
 	<%= javascript_include_tag 'jquery.validationEngine-en', 'jquery.validationEngine'%>
 	<%elsif t('language.lang') == "de"%>
@@ -27,6 +27,12 @@
 
 </head>
 <body style="background:#fff">
+
+
+<div class="content">
+<div class="left-side">
+</div>
+<div class="right-side">
 <div class="loginContainer">
 	<div class="loginerror">
        <% flash.each do |name, msg| %>
@@ -41,23 +47,23 @@
     </div>
   <div class="loginWrapper">
     <div class="loginCol">
-      <div class="loginHeader">
-        <div class="lockIcon">
-          <%= image_tag "lock_icon.png", :size => "42x40", :class=>'image', :alt=>"img" %>
-        </div>
-        <div class="logo">
-          <%= image_tag "virtualx_logo.png", :size => "220x32", :class=>'image', :alt=>"img" %>
-        </div>
-      </div>
+      
       <div class="loginArea">
         <div class="errMsg_Login disnone"><span><%= image_tag "exclamation-red.png", :size => "16x16" %></span>
           <p>Invalid Username / Password</p>
         </div>
           <%= yield %>
       </div>
+      <div class="logo">
+          <%= image_tag "telescholr_logo.jpg", :size => "300x50", :class=>'image', :alt=>"img" %>
+        </div>  
     </div>
   </div>
 </div>
+</div>
+</div>
+
+
 </body>
 </html>
 

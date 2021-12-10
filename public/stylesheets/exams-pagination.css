@@ -1,6 +1,7 @@
 .pagination {
   margin-top: 3.5vh;
   width: 30vw;
+  margin-right: -5vw;
 }
 .pagination li a {
   padding: px 14px 0pt 15px;

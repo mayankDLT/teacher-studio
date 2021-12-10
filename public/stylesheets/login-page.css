@@ -1,0 +1,99 @@
+body {
+  background: #f26f29;
+}
+.content {
+  display: flex;
+  width: 100vw;
+}
+.left-side {
+  width: 10vw;
+  background: #f26f29;
+  height: 100vh;
+}
+
+.right-side {
+  width: 90vw;
+  background: white;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  border-radius: 2rem;
+  position: relative;
+  right: 2vw;
+}
+.loginWrapper {
+  height: fit-content !important;
+}
+.loginerror {
+  height: fit-content;
+}
+.loginContainer {
+  margin-bottom: 20vh;
+}
+#username {
+  background: white;
+  height: 1.5vw;
+  padding: 3px;
+}
+#user_session_password {
+  background: white;
+  height: 1.5vw;
+  padding: 3px;
+}
+
+.loginCol {
+  background: #f26f29;
+  color: white;
+  width: 20vw;
+  height: 30vh;
+  border-radius: 0.5rem;
+  display: flex;
+}
+.logo {
+  background: white;
+  height: 26.5vh;
+  border-radius: 0.5rem;
+  display: flex;
+  align-items: center;
+  /* justify-content: center; */
+  margin-top: 0.5vh;
+  box-shadow: 10px 10px 10px rgb(33 33 33 / 20%);
+  position: relative;
+  right: 55px;
+}
+.logo img {
+  width: 180px !important;
+}
+
+#class_form {
+  margin-left: 0 !important;
+}
+.loginForm .inwr {
+  margin-bottom: 1vh;
+  margin-left: 2vw;
+}
+.green-button {
+  width: 275px !important;
+  height: 3.5vh;
+  font-weight: normal !important;
+  border-radius: 5px !important;
+  margin-left: -6.3vw;
+}
+.green-button:hover {
+  background: white !important;
+  font-weight: bolder !important;
+  color: #f26f29 !important;
+  cursor: pointer !important;
+}
+.loginForm .inwr input {
+  width: 275px !important;
+}
+.loginForm .block_col {
+  margin-top: 2vh !important;
+}
+.loginForm .remeCol {
+  margin-left: -4vw;
+  margin-bottom: 1vh;
+}

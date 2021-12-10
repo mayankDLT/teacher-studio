@@ -8,6 +8,29 @@
 
 
   <div class="logoHolder">
- 
-    <div class="virtualxLogo"><%= image_tag "telescholr_logo.jpg", :size => "236x60", :alt=>'img' %></div>
+  
+    <div class="virtualxLogo"><%= image_tag "telescholr_logo.jpg", :size => "236x60", :alt=>'img' %></div><button id="close" class="green-button" type="button" onclick="closeCurrentTab()">Close</button>
+    <script type="text/javascript">
+    const deleteAllCookies = () => {
+  const cookies = document.cookie.split(";");
+  for (const cookie of cookies) {
+    const eqPos = cookie.indexOf("=");
+    const name = eqPos > -1 ? cookie.substr(0, eqPos) : cookie;
+    document.cookie = name + "=;expires=Thu, 01 Jan 1970 00:00:00 GMT";
+  }
+}
+
+
+
+    function closeCurrentTab() {
+        let conf = confirm("Are you sure, you want to close this tab?");
+        if (conf == true) {
+          deleteAllCookies()
+          window.close() 
+
+        }
+       
+    }
+  </script>
   </div>
+  
