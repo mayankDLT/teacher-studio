@@ -170,8 +170,8 @@ input[type='text'] {
   text-decoration: none;
 }
 .logo {
-  width: 220px;
-  height: 32px;
+  width: 12vw;
+  height: 3.26vh;
   float: left;
   padding: 13px 0 0 0;
   margin: 0;
@@ -181,8 +181,8 @@ input[type='text'] {
   text-decoration: none;
 }
 .loginArea {
-  width: 385px;
-  height: 155px;
+  width: 20.83vw;
+  height: 16vh;
   float: left;
   padding: 0px;
   margin: 0; /* background-color:#CCF */
@@ -210,7 +210,7 @@ input[type='text'] {
   font-weight: bold;
 }
 .loginForm {
-  width: 385px;
+  width: 20.8vw;
   height: auto;
   float: left;
   padding: 0;
@@ -220,7 +220,7 @@ input[type='text'] {
   margin: 0;
   padding: 0 0 14px 0;
   float: left;
-  width: 390px;
+  width: 21vw;
 }
 .loginForm label {
   width: 145px;
@@ -236,11 +236,11 @@ input[type='text'] {
   line-height: 18px;
 }
 .loginForm .inwr {
-  width: 216px;
+  width: 11.7vw;
   float: left;
   margin: 0px;
   padding: 0;
-  height: 21px;
+  height: 2.1vh;
   border: 0;
   background: url(../images/input_login.png) no-repeat left top;
 }
@@ -250,10 +250,10 @@ input[type='text'] {
   background: none;
   border: none;
   width: 200px;
-  height: 21px;
-  line-height: 19px;
+  height: 2vh;
+  line-height: 1.9vh;
   color: #3e3d40;
-  font-size: 14px;
+  font-size: 1rem;
   float: left;
 }
 .loginForm .forgotPas {
@@ -286,10 +286,10 @@ input[type='text'] {
   text-decoration: none;
 }
 .loginForm .rembr_butn_box {
-  width: 230px;
-  height: 30px;
+  width: 12.44vw;
+  height: 3vh;
   padding: 0;
-  margin: 15px 0 0 155px;
+  margin: 1.6vh 0 0 8.2vw;
   float: left;
   display: inline;
 }

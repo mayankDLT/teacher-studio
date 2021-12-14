@@ -61,10 +61,10 @@ body {
   margin-top: 0.5vh;
   box-shadow: 10px 10px 10px rgb(33 33 33 / 20%);
   position: relative;
-  right: 55px;
+  right: 3vw;
 }
 .logo img {
-  width: 180px !important;
+  width: 9.7vw !important;
 }
 
 #class_form {
@@ -75,7 +75,7 @@ body {
   margin-left: 2vw;
 }
 .green-button {
-  width: 275px !important;
+  width: 15vw !important;
   height: 3.5vh;
   font-weight: normal !important;
   border-radius: 5px !important;
@@ -88,7 +88,7 @@ body {
   cursor: pointer !important;
 }
 .loginForm .inwr input {
-  width: 275px !important;
+  width: 14.8vw !important;
 }
 .loginForm .block_col {
   margin-top: 2vh !important;
@@ -96,4 +96,11 @@ body {
 .loginForm .remeCol {
   margin-left: -4vw;
   margin-bottom: 1vh;
+}
+
+.login-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
 }

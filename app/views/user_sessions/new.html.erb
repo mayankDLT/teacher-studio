@@ -2,6 +2,7 @@
 
 <div class="loginForm pt20">
   <%= form_for @user_session, :url => {:action => "create"}, :html => { :id => "class_form"} do |f|%>
+    <div class="login-container">
     <div class="block_col">
      
       <div class="inwr">
@@ -22,6 +23,7 @@
       </div>
     </div>
   <%end%>
+</div>
 </div>
 
 <script type="text/javascript">
