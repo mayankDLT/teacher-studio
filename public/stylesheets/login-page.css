@@ -34,20 +34,20 @@ body {
 }
 #username {
   background: white;
-  height: 1.5vw;
-  padding: 3px;
+  height: 3.8vh;
+  padding-left: 10px;
 }
 #user_session_password {
   background: white;
-  height: 1.5vw;
-  padding: 3px;
+  height: 3.8vh;
+  padding-left: 10px;
 }
 
 .loginCol {
   background: #f26f29;
   color: white;
-  width: 20vw;
-  height: 30vh;
+  width: 21.64vw;
+  height: 30.4vh;
   border-radius: 0.5rem;
   display: flex;
 }
@@ -61,22 +61,22 @@ body {
   margin-top: 0.5vh;
   box-shadow: 10px 10px 10px rgb(33 33 33 / 20%);
   position: relative;
-  right: 3vw;
+  right: 2vw;
 }
 .logo img {
-  width: 9.7vw !important;
+  width: 10.82vw !important;
 }
 
 #class_form {
   margin-left: 0 !important;
 }
 .loginForm .inwr {
-  margin-bottom: 1vh;
+  margin-bottom: 0.5vh;
   margin-left: 2vw;
 }
 .green-button {
-  width: 15vw !important;
-  height: 3.5vh;
+  width: 15.8vw !important;
+  height: 3.8vh;
   font-weight: normal !important;
   border-radius: 5px !important;
   margin-left: -6.3vw;
@@ -103,4 +103,8 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: center;
+}
+.keyboard {
+  width: 18px;
+  height: 18px;
 }

@@ -85,6 +85,19 @@
 				</ul>
 			</li>
 			<%end%>
+			<% if current_user != nil && (current_user.role_id == 1 ||current_user.role_id == 2)%>
+			<li>
+				<strong><%=link_to(content_tag('span',t('general.reports')), {:action=>'index', :controller=>'reports'},id:'reports') %></strong>
+				<ul>
+					<li><%= link_to t('general.examinees_report'), :action=>"userReport", :controller=>"reports"%></li>
+					<li><%= link_to t('general.exams_report'), :action=>"examReport", :controller=>"reports"%></li>
+					<li><%= link_to t('reports.overall'), :action=>"departmentReport", :controller=>"reports"%></li>
+					<li><%= link_to t('general.org_overview'), :action=>"overall", :controller=>"reports"%></li>
+					<li><%= link_to t('general.pass_fail'), :action=>"pass_fail", :controller=>"reports"%></li>
+				</ul>
+			</li>
+			<%end%>
+	
 			<% if current_user != nil &&(current_user.role_id == 1 ||current_user.role_id == 2)%>
 			<li>
 				<strong><%=link_to(content_tag('span',t('general.org_levels')), {:action=>'index', :controller=>'category_titles'},id:'org-levels') %></strong>
@@ -119,19 +132,7 @@
                     </ul>
 			</li>
 			<%end%>
-			<% if current_user != nil && (current_user.role_id == 1 ||current_user.role_id == 2)%>
-			<li>
-				<strong><%=link_to(content_tag('span',t('general.reports')), {:action=>'index', :controller=>'reports'},id:'reports') %></strong>
-				<ul>
-					<li><%= link_to t('general.examinees_report'), :action=>"userReport", :controller=>"reports"%></li>
-					<li><%= link_to t('general.exams_report'), :action=>"examReport", :controller=>"reports"%></li>
-					<li><%= link_to t('reports.overall'), :action=>"departmentReport", :controller=>"reports"%></li>
-					<li><%= link_to t('general.org_overview'), :action=>"overall", :controller=>"reports"%></li>
-					<li><%= link_to t('general.pass_fail'), :action=>"pass_fail", :controller=>"reports"%></li>
-				</ul>
-			</li>
-			<%end%>
-			
+				
 		</ul>
 	</nav>
 </div>

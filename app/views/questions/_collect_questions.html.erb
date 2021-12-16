@@ -1,7 +1,7 @@
 <%unless @questions.empty?%>
 <div class="qestionhead"><h3><%if @question_type_id%><%=@question_type_name%> <%=t('general.questions')%><%else%><%=t('question.all_question')%><%end%></h3> </div>
 
-
+<%=render :partial=>"users/pageLinks"%>
 <div class="questionTabele">
 <table border="0" cellspacing="0" cellpadding="0">
 <tr class="updateHeader">
@@ -62,7 +62,7 @@
 <%else%>
 
  <%end%>
- <%=render :partial=>"users/pageLinks"%>
+ 
  <div class="qestionhead">
  
 	<%= will_paginate @questions, 

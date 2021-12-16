@@ -48,7 +48,10 @@
                 :renderer => PaginationListLinkRenderer
               %>
 
-
+			  <script>document.querySelector('.previous a').innerText='<'
+			  document.querySelector('.next a').innerText='>'
+			 
+			  </script>
 <% unless @questions.blank?%>
 <%= submit_tag t('general.assign'), :id=>"assign", :class=>'btnBg', :name=>"sub" %>  
 <%end%>

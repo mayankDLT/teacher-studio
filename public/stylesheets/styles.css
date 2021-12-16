@@ -138,11 +138,14 @@ input[type='text'] {
   float: left;
 }
 .loginWrapper {
-  background: url(../images/login_bg.png) no-repeat center center;
-  width: 418px;
+  /* background: url(../images/login_bg.png) no-repeat center center; */
+  width: 100%x;
   height: 244px;
   margin: 50px auto 0 auto;
   padding: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 .loginCol {
   width: 385px;
@@ -236,13 +239,14 @@ input[type='text'] {
   line-height: 18px;
 }
 .loginForm .inwr {
-  width: 11.7vw;
+  width: 15vw;
   float: left;
   margin: 0px;
+  border-radius: 5px;
   padding: 0;
-  height: 2.1vh;
-  border: 0;
-  background: url(../images/input_login.png) no-repeat left top;
+  height: fit-content;
+
+  background: white;
 }
 .loginForm .inwr input {
   margin: 0;
@@ -350,9 +354,7 @@ input[type='text'] {
 }
 #mainWrapper {
   width: 100%;
-  height: auto !important; /* real browsers */
-  height: 100%; /* IE6: treaded as min-height*/ /*min-height:20%;*/ /* real browsers */
-  margin: 0 auto;
+  height: 9vh;
   padding: 0;
   text-align: left;
   background: #fff;
@@ -488,7 +490,7 @@ a.four {
 }
 .logoHolder {
   width: 100vw;
-  height: 90px;
+  height: 9vh;
   margin: 0;
   padding: 0;
   float: left;
@@ -614,7 +616,7 @@ a.four {
 .contentWrapper {
   border-radius: 10px;
   width: 122vw;
-  height: 84vh; /*margin:44px 0 0 0;*/
+  height: 85vh; /*margin:44px 0 0 0;*/
   padding: 0;
   float: left;
   background: #f7f7f7;
@@ -623,7 +625,7 @@ a.four {
   display: flex;
   /* align-items: center; */
   justify-content: center;
-  overflow: scroll;
+  overflow: auto;
 }
 .leftCol {
   width: 216px;
@@ -698,7 +700,7 @@ ul.subNav li a:hover {
   margin: 0; /*background:url(../images/footerbg.png) repeat-x left top;*/
   background: gray;
   clear: left;
-  width: 100%;
+  width: 101%;
   float: left;
   padding: 20px 0 5px 0;
 }
@@ -1278,7 +1280,7 @@ td.dlog {
 .loginerror {
   /*margin: 185px 26% 0pt;*/
   margin: 150px auto 0 auto;
-  width: 694px;
+  width: 37.55vw;
   height: auto;
   padding: 0;
   color: #5c5c5c;
@@ -1480,9 +1482,10 @@ button.ui-datepicker-current {
 }
 
 .questionTabele {
-  width: 721px;
+  width: 39vw;
   float: left;
   margin: 0px;
+  margin-top: 1vh;
   padding: 0px;
   margin-bottom: 3vh;
 }
@@ -1552,13 +1555,13 @@ button.ui-datepicker-current {
 /* footer columns */
 
 #footer {
-  width: 100%;
+  width: 101%;
   margin: 0;
   padding: 0;
   text-align: center;
   font-family: Arial, Helvetica, sans-serif;
   font-size: 14px;
-  height: 6vh;
+  height: 6.1vh;
 }
 .footerContent {
   padding: 20px 0;
@@ -2292,7 +2295,7 @@ ul.group_two li.nobrdr {
 }
 
 /*--------Custom CSS for removing space issue of select list in Hierarchical questions in Chorme only---------*/
-@media screen and (-webkit-min-device-pixel-ratio: 0) {
+@media screen and (min-width: 480px) {
   .hrcl_row {
     padding-left: 4px;
   }
@@ -2381,7 +2384,7 @@ ul.group_two li.nobrdr {
 }
 
 .nav-content {
-  height: 84.8vh;
+  height: 85vh;
   display: flex;
 }
 
@@ -2621,4 +2624,14 @@ textarea {
 }
 .formErrorArrow {
   /* margin-left: 4vw !important; */
+}
+
+.virtualxLogo img {
+  width: 13vw;
+  height: 5.5vh;
+}
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .midCol h2 {
+    font-size: 1rem;
+  }
 }

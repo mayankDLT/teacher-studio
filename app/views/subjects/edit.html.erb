@@ -1,7 +1,20 @@
-<br><br>
-<div style="color: #5C5C5C; float: left; font-weight: bold; padding: 0 0 12px; width: 100%; font-size:14px;"><%=t('subject.edit_sub')%></div>
 
-<fieldset class="formContainer">
+<style>
+
+.regformRep label {
+    float: left;
+    margin: 0;
+    padding: 0;
+    width: 115px;
+    font-size: 1rem;
+}
+
+
+
+</style>
+<div style="color: #5C5C5C; float: left; font-weight: bold; padding: 0 0 12px; width: 100%; font-size:1.5rem;"><%=t('subject.edit_sub')%></div>
+
+<fieldset class="formContainer" style="margin-left:3.5vw; font-size:1rem;">
 
 <%form_for @subject, :html => { :id => "class_form"} do |f|%>
   <%= f.error_messages %>
@@ -12,13 +25,13 @@
               <tr><td>
 			  <div class="regformRep">
               <label><%= f.label :name %></label>
-                <%= f.text_field :name,:class=>"validate[required,funcCall[checkHELLO]] text-input", :style=>"width:115px; height:19px; border:#d1d1d1 1px solid;" %>
+                <%= f.text_field :name,:class=>"validate[required,funcCall[checkHELLO]] text-input", :style=>"width:14vw; height:2.5vh; border:#d1d1d1 1px solid; padding-left: 8px;" %>
               </div>
               </td>
 			</tr>
            </table>
  
 
-  <%= f.submit t('general.update'), :class=>'btnBg' %>
+  <%= f.submit t('general.update'), :class=>'btnBg',:style=>'margin-left:6.5vw' %>
 <% end %>
 </fieldset>

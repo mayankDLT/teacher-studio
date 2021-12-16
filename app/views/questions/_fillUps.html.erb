@@ -11,7 +11,7 @@
 		<table class="answer_name" style="width:400px; padding:0; margin:0;">
                <tr class="editor_last"><td>
 				<% 1.upto(1) do |i| %>
-				  <%= text_area_tag "fields[#{i}][name]",'', :class=>"validate[required,funcCall[checkHELLO]] text-input blankCount options",:style=>"width:20vw; height:19px; border:#d1d1d1 1px solid;" %>
+				  <%= text_area_tag "fields[#{i}][name]",'', :class=>"validate[required,funcCall[checkHELLO]] text-input blankCount options",:style=>"width:20vw; height:19px; border:#d1d1d1 1px solid;",:placeholder=>"option" %>
 				<% end %>
 				</td></tr> 
 	   </table>

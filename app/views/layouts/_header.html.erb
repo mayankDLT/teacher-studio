@@ -9,7 +9,9 @@
 
   <div class="logoHolder">
   
-    <div class="virtualxLogo"><%= image_tag "telescholr_logo.jpg", :size => "236x60", :alt=>'img' %></div><button id="close" class="green-button" type="button" onclick="closeCurrentTab()">Close</button>
+    <div class="virtualxLogo"><%= image_tag "telescholr_logo.jpg", :alt=>'img' %></div>
+    <div style="align-self:baseline;padding-top: 0.5vh;"><button id="close" class="green-button" type="button" onclick="closeCurrentTab()">Close</button></div>
+    
     <script type="text/javascript">
     const deleteAllCookies = () => {
   const cookies = document.cookie.split(";");

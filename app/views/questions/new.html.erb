@@ -52,7 +52,9 @@ font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('g
 	<%=render :partial=>"multipleChoice"%>
 	<%=link_to image_tag("plus.jpg", :alt=>"Add Option"),"#",:id=>"add_new"%> 
 	<br><br>
+	<div style="display:flex;">
 	<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+	</div>
 	<br><br>
 	<div style="
     display: flex;
@@ -508,22 +510,28 @@ $('.hrclbtn').click(function() {
 	};
 	
 	function checkBlank(){
-       var text = tinyMCE.get('big-search-box').getContent();
-		
+
 		var textboxElement = $('.blankCount')
-	       //var formData = $('#big-search-box').val();
-		   var formData = text
-	        var patt1=/_/gi;
+		var formData =document.querySelector('.ck-content ').children[0].textContent ?  document.querySelector('.ck-content ').children[0].textContent : ''
+		 var patt1=/_/gi;
+ 
+		var blank =formData ? formData.match(patt1) ? formData.match(patt1).length : null : null
 	
-	       var blank = formData.match(patt1).length
-		  if(textboxElement.length < blank) {
-		  	alert("<%=t('question.blank_less')%>")
-			return false
+	var text =  document.querySelector('.ck-content ').children[0].textContent			
+		 
+		  if(blank>(textboxElement.length+1)) {
+		  
+			return true
 		  }
 		  else if(textboxElement.length > blank) {
-		  	alert("<%=t('question.blank_more')%>")
+		  	alert("Blank less")
 			return false
 		  }
+		else if(textboxElement.length === blank)
+			{
+				alert("Add more blank")
+				return false
+			}
 		  else {
 		  	return true
 		  }
@@ -531,13 +539,17 @@ $('.hrclbtn').click(function() {
 	
 	function addOptionblank(){
 		
-
+		if(checkBlank())
+			{
 		 
 		  		var optionInfo = $("<tr class=\"editor_last\">	\n    <td>\n <textarea type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input blankCount options\"  style=\"width:18.5vw; height:19px; border:#d1d1d1 1px solid;\"  id=\"fields" +"_" + i + "_" + "name\" />\n  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
            
 	     
 		i=i+1;
 		return optionInfo;
+			}
+		else
+			return false
 	};
 	
 	
@@ -601,41 +613,38 @@ $('.hrclbtn').click(function() {
 	}
     
 	$(".fullup_submit").click(function(){
-	var text = tinyMCE.get('big-search-box').getContent();	
-		
-
-
-		   var textboxElement = $('.blankCount')
-	       //var formData = $('#big-search-box').val();
-		   var formData = text
-	        var patt1=/_/gi;
 	
-	       var blank = formData.match(patt1);//.length
-		 
-		   if(blank == null) {
+	
+		var textboxElement = $('.blankCount')
+		var formData =document.querySelector('.ck-content ').children[0].textContent ?  document.querySelector('.ck-content ').children[0].textContent : ''
+		 var patt1=/_/gi;
+ 
+		var blank =formData ? formData.match(patt1) ? formData.match(patt1).length : null : null
+	
+	var text =  document.querySelector('.ck-content ').children[0].textContent	
+	
+		   if (!text){
+			alert("Please enter question.");
+		 return false;
+		}	  
+		   if(blank === null) {
 		   	alert("Please add '_'.");
 			return false;
 		   }		   
-		 	   if (text.length == 0){
-		   	alert("Please enter question.");
-			return false;
-		   }	  
+		 	  
 		   
-		  if(textboxElement.length < blank.length) {
-		  	alert("<%=t('question.blank_less')%>")
+		  if(textboxElement.length < blank) {
+		  	alert("Added options are less in number")
 			return false
 		  }
-		  if(textboxElement.length > blank.length) {
-		  	alert("<%=t('question.blank_more')%>")
+		  if(textboxElement.length > blank) {
+		  	alert("Added options are more in number")
 			return false
 		  }
-		  if(textboxElement.length == blank.length) {
+		  if(textboxElement.length === blank.length) {
 		  	return true
 		  }
-		  if(textboxElement.length != blank.length) {
-		  	alert("<%=t('question.add_blank')%>")
-			return false
-		  }
+		 
  
 		  
     });

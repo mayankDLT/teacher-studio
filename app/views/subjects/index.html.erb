@@ -1,6 +1,7 @@
 <div class="updateStatus">
 <h2><%=t('general.subjects')%></h2>
 <%unless @subjects.empty?%>
+<div style="margin-bottom:1.5vh;  padding:8px 0 0 0;"><%=link_to t('subject.create_sub'), {:action=>'new', :controller=>'subjects'},class:'green-button'%> <%=link_to t('subject.add_sub_to_cat'), {:action=>'add_subject_category', :controller=>'subjects'},class:'green-button'%></div>
 <table border="0" cellspacing="0">
 <tr class="updateHeader">
 	<th><%=t('general.name')%></th>
@@ -21,7 +22,7 @@
 
  <%end%>
  <div class="qestionhead"> 
-<div style="float:left; margin:10px 0 0 0; padding:8px 0 0 0;"><%=link_to t('subject.create_sub'), {:action=>'new', :controller=>'subjects'},class:'green-button'%> <%=link_to t('subject.add_sub_to_cat'), {:action=>'add_subject_category', :controller=>'subjects'},class:'green-button'%></div>
+
 
 <%= will_paginate @subjects, 
                 :prev_label => t('general.previous'), 
