@@ -261,14 +261,17 @@ $("#totalMark").keyup(function() {
  //       });
 		
 
-	  
+ 
+	 
 //	  	 $('#filter').click(function(){
   //          var target = '<%= url_for(selectQuestion_path)%>';
   //          $('.assign_question').attr('action', target);
   //          $('.assign_question').submit();
+
+  
+  
+	
  //       });
-
-
 
 //$("#collectQuestion #filter #examName .pagination a").live("click", function(){
 $("#collectQuestion .pagination a").live("click", function(){
@@ -301,5 +304,26 @@ $("#collectQuestion .pagination a").live("click", function(){
    
 
   });
-  
+  const filter=document.querySelector('#filter')
+  const form= document.querySelector('.assign_question')
+  form.addEventListener('submit',()=>{
+	 filter.disabled=true;
+	 filter.style.opacity='0.5';
+	 setTimeout(()=>{
+		 filter.disabled=false;
+		 filter.style.opacity='1';
+	 },1300)
+  })
+  const filterExam=document.querySelector('#filterexam')
+  const submitCategoryForm= document.querySelector('.submitCategory')
+  submitCategoryForm.addEventListener('submit',()=>{
+	filterExam.disabled=true;
+	filterExam.style.opacity='0.5';
+	 setTimeout(()=>{
+		filterExam.disabled=false;
+		filterExam.style.opacity='1';
+	 },1300)
+  })
+ 
+ 
   </script>

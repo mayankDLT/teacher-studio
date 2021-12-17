@@ -11,6 +11,10 @@
 					align-items: center;
 				}padding:0px; margin:0;">
 					<label style="float:left; padding-right:10px; width:14vw;"><%=t('question.select_q_type')%>:</label>
+					
+
+
+
 				<%= select_tag "question_type", options_for_select([[t('general.select'),""],[t('question.all_question') , "0" ]] +@question_types.collect{ |q| [t("question_types.qt#{q.id}"), q.id] }, :selected=>@qId),:class=>"w200 floatL validate[required]",:style=>"margin-left:0"%>
 				<%= submit_tag t('general.filter'),  :id=>"filter", :class=>'btnBg' ,:style=>"background: white;margin: 1.4vh 0 10px 0;
 			margin-left: 1vw;
@@ -33,9 +37,9 @@
 
 </div>
 
-
-
 <script type="text/javascript">	
+const selectedIndex=[];
+const filter=document.querySelector('#filter')
 function checkUncheckAll(checkAllState, cbGroup)
 {
 	// Check that the group has more than one element
@@ -77,5 +81,34 @@ $("#collectQuestion .pagination a").live("click", function(){
    });
 
   });
+
+  document.querySelector('#class_form').addEventListener('submit',()=>{
+	  
+	  if(selectedIndex[0]&&selectedIndex[0]!=document.querySelector('#question_type').selectedIndex)
+		{
+		if(document.querySelector('#question_type').selectedIndex!=0)
+			{
+				filter.disabled=true;
+				filter.style.opacity='0.5';
+  selectedIndex[0]=document.querySelector('#question_type').selectedIndex;
+
+  setTimeout(() => {
+	filter.style.opacity='1';
+		filter.disabled=false;
+	},1100 );
+		}
+	
+	}
+else if(document.querySelector('#question_type').selectedIndex!=0 && !selectedIndex[0] ) {
+	filter.disabled=true;
+				filter.style.opacity='0.5';
+	selectedIndex[0]=document.querySelector('#question_type').selectedIndex;
+	setTimeout(() => {
+		filter.style.opacity='1';
+		filter.disabled=false;
+		},1800 );
+}
+
+})
   
   </script>

@@ -1,6 +1,9 @@
+	<div style="display:flex; align-items:center; margin-top:1.5vh;">
+	<h3 style="margin-right:6vw;">Options</h3>
+
 	<table class="answer_name" style="float:left; width:100%; padding:0; margin:0;" >
 		<tr><th></th>
-			<th style='float:left;'><%=t('question.enter_opt')%> (Click the link <%=link_to "show as editor","#",:id=>"showEditor"%> to change options to editor)</th>
+			
 		</tr>
 		<% 1.upto(2) do |i| %>
 				<tr class="editor_last">
@@ -12,3 +15,4 @@
 				<% end %>
 
         </table>
+		</div>

@@ -1,7 +1,7 @@
 window.onload = function () {
   const url = document.location.href.toLowerCase();
 
-  if (url.includes('user')) {
+  if (url.includes('user') && !url.includes('userreport')) {
     try {
       const element = (document.querySelector('#users').className = 'active');
       return;

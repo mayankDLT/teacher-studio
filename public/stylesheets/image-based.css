@@ -1,7 +1,7 @@
 .answer_name td {
   display: flex;
   margin-left: 5vw;
-  flex-direction: column;
+  align-items: center;
 }
 
 .answer_name td span {

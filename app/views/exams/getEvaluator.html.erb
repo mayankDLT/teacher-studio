@@ -110,8 +110,8 @@ $("#collectUser .pagination a").live("click", function(){
 
 $("#getCategory").click(function(){
 	
-        
-		
+	
+
 	    //var c = $("#examCategory").val();
 		var e = $("#examName").val();
         if(e != 0){
@@ -122,8 +122,8 @@ $("#getCategory").click(function(){
 		else{
 			$(".examineeList").hide();
 		}
-	    
-
+		
+		
 })
 
 
@@ -136,6 +136,12 @@ $("#getCategory").click(function(){
 	  	to_date: $("#to_date").val()	  	
 	  };
 	  var url = "<%= url_for(getExam_path)%>";
+	  const filter= document.querySelector('#filterExam')
+	  
+		filter.disabled=true;
+		filter.style.opacity='0.5';
+	
+		
 	  
 	  			$.get(url, data, function(resp_data){
 				   var arr = resp_data.examNames
@@ -144,7 +150,8 @@ $("#getCategory").click(function(){
 				 jQuery.each(arr, function(index, value) {
 					$("#examName").append("<option title='"+value.exam.name+"' value=" + value.exam.id + ">" + value.exam.name + "</option>");
 				    });
-
+					filter.style.opacity='1';
+					filter.disabled=false;
 		    }, 'json')
 	  
      });	
@@ -153,6 +160,16 @@ $("#getCategory").click(function(){
 
   });
   
-
+  const filter=document.querySelector('#getCategory')
+  const form= document.querySelector('#class_form')
+  form.addEventListener('submit',()=>{
+	 filter.disabled=true;
+	 filter.style.opacity='0.5';
+	 console.log('inside')
+	 setTimeout(()=>{
+		 filter.disabled=false;
+		 filter.style.opacity='1';
+	 },1300)
+  })
   </script>
 

@@ -31,7 +31,7 @@
 		
 			<%#= link_to t('general.filter'),'#', :id=>"filterExam", :class=>'btnBg', :style=>"margin-left: 11vw;
 			margin-top: 2vh;" %>
-			<%=link_to(content_tag('span',t('general.filter')),'#nogo',{:title=>t('general.filter'),:class=>"btnLink w105", :id=>"filterExam",:style=>"margin-left: 11vw;
+			<%=link_to(content_tag('span',t('general.filter')),'#nogo',{:title=>t('general.filter'),:class=>"green-button", :id=>"filterExam",:style=>"margin-left: 11vw;
 			margin-top: 2vh;"}) %>
 			
 </div>
@@ -77,6 +77,14 @@
 $(document).ready(function() {
      //$("#examtype").change(function() {
 	 $("#filterExam").click(function() {
+		const filter=document.querySelector('#filterExam')
+		
+		
+		   filter.disabled=true;
+		   filter.style.opacity='0.5';
+		  
+			   
+		  
 	  //var data = {categoryId:$("#examCategory").val(), year:$("#academicYear").val(),examType:$(this).val()};
 	  var data = {
 	  	categoryId: $("#examCategory").val(),
@@ -92,7 +100,8 @@ $(document).ready(function() {
 				 jQuery.each(arr, function(index, value) {
 					$("#examId").append("<option title='"+value.exam.name+"' value=" + value.exam.id + ">" + value.exam.name + "</option>");
 				    });
-
+					filter.disabled=false;
+					filter.style.opacity='1';
 		    }, 'json')
 	  
 	  
@@ -110,5 +119,14 @@ $(".passFail .pagination a").live("click", function(){
 	 
 	 
 });
-
+const filter=document.querySelector('#assign')
+  const form= document.querySelector('#class_form')
+  form.addEventListener('submit',()=>{
+	 filter.disabled=true;
+	 filter.style.opacity='0.5';
+	 setTimeout(()=>{
+		 filter.disabled=false;
+		 filter.style.opacity='1';
+	 },1300)
+  })
 </script>

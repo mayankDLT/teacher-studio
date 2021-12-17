@@ -29,13 +29,17 @@ font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('g
 	<%=render :partial=>"descriptive"%>
 
 	<br><br>
+	<div style="display:flex;align-items:center;">
 	<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+	</div>
 	<br><br>
-	<div style="display:flex; margin-left:3.5vw;">
-	<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:2vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+	<div style="display:flex; margin-left:0.5vw;">
+	<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:5vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
 	</div>
 	<br><br><br>
+	<div style="margin-left:8.8vw;">
 <%= submit_tag t('general.create'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn">  <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+</div>
 <% end %>
 <%end%>	
 	
@@ -52,20 +56,22 @@ font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('g
 	<%=render :partial=>"multipleChoice"%>
 	<%=link_to image_tag("plus.jpg", :alt=>"Add Option"),"#",:id=>"add_new"%> 
 	<br><br>
-	<div style="display:flex;">
+	<div style="display:flex; align-items:center;">
 	<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
 	</div>
 	<br><br>
 	<div style="
     display: flex;
-	margin-left:3.5vw;
+   margin-left:0.3vw;
 ">
 
 	Set mark: 
-<input class="validate[required,custom[number]] text-input" id="mark" name="mark" style="margin-left:1vw; border:#d1d1d1 1px solid; */" type="text"></div>
+<input class="validate[required,custom[number]] text-input" id="mark" name="mark" style="margin-left:5.4vw; border:#d1d1d1 1px solid; */" type="text"></div>
 	
 <br><br><br>
+<div style="margin-left:6vw;">
 <%= submit_tag t('general.create'), :class=>'btnBg floatL multipleChoice',:id=>"Submit",:style=>'margin-left:3.4vw;' %> <div class="back_btn"> <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+</div>
 <% end %>
 <%end%>
 
@@ -102,13 +108,14 @@ font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('g
 	
         <%=render :partial=>"fillUps"%>
         
-		<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:426px; height:100px; border:#d1d1d1 1px solid;"%>
+		<div style="display:flex;align-items:center;"><%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:426px; height:100px; border:#d1d1d1 1px solid;"%>
+		</div>
 		<br><br>
-		<div style="display:flex; margin-left:8.5vw;">
-		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"width:5vw; height:19px; margin-right:5vw;margin-left:2vw; border:#d1d1d1 1px solid;"%>
+		<div style="display:flex; ">
+		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"width:5vw; height:19px; margin-right:5vw;margin-left:9.2vw; border:#d1d1d1 1px solid;"%>
 	</div>
 <br><br><br>
-<div style="margin-left:8vw;">
+<div style="margin-left:12.8vw;">
 <%= submit_tag t('general.create'), :class=>'btnBg fullup_submit floatL',:id=>"Submit" %> <div class="back_btn">  <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
 </div>
 <% end %>
@@ -146,13 +153,17 @@ font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('g
 	
 
     <%=render :partial=>"trueFalse"%><br><br>
+	<div style="display:flex;align-items:center;">
     <%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+	</div>
 	<br><br>
-	<div style="display:flex; margin-left:3.5vw;">
-		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:2vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+	<div style="display:flex; margin-left:0.5vw;">
+		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:5vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
 	</div>
 <br><br><br>
+<div style="margin-left:5.8vw;">
 <%= submit_tag t('general.create'), :class=>'btnBg floatL multipleChoice',:id=>"Submit",:style=>'margin-left:3.5vw;' %> <div class="back_btn"><%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+</div>
 <% end %>
 <%end%>
 
@@ -212,14 +223,17 @@ font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('g
 	
         <%=render :partial=>"matching"%>
 		<div class="clear"></div>
-	
+	<div style="display:flex; align-items:center;">
 	<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+	</div>
 	<br><br>
-	<div style="display:flex; margin-left:3.5vw;">
-	<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:2vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+	<div style="display:flex; margin-left:0.5vw;">
+	<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw; margin-left:5vw; width:40px; height:19px; border:#d1d1d1 1px solid;"%>
 	</div>
 	<br><br><br>
+	<div style="margin-left:9.5vw;">
 <%= submit_tag t('general.create'), :class=>'btnBg floatL selectLikert',:id=>"Submit" %> <div class="back_btn"> <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+</div>
 <% end %>
 <%end%><!--  end Matching question type -->
 
@@ -266,13 +280,17 @@ font-size: 1.5rem; font-weight: bolder; padding: 0 0 12px; width: 100%;"><%=t('g
 <div class="clear"></div>
     <%=render :partial=>"imagebased"%>
 	<%=link_to image_tag("plus.jpg", :alt=>"Add Option"),"#", :id=>"add_new_image_option"%><br><br>
+	<div style="display:flex; align-items:center;">
 	<%=t('question.ques_hint')%>: <br><%=text_area_tag "hint", nil, :rows => 10, :cols => 25,:style=>"width:555px; height:100px; border:#d1d1d1 1px solid;"%>
+	</div>
 	<br><br>
-	<div style="display:flex; margin-left:3.5vw;">
-		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw;margin-left:2vw;width:40px; height:19px; border:#d1d1d1 1px solid;"%>
+	<div style="display:flex; margin-left:0.5vw;">
+		<%=t('question.set_mark')%>: <%=text_field_tag "mark", nil,:class=>"validate[required,custom[number]] text-input",:style=>"margin-right:5vw;margin-left:5vw;width:40px; height:19px; border:#d1d1d1 1px solid;"%>
 		</div>
 <br><br><br>
+<div style="margin-left:9.4vw;">
 <%= f.submit t('general.create'), :class=>'btnBg floatL multipleSelection',:id=>"Submit" %> <div class="back_btn"> <%=link_to t('general.back'), :action=>'question_type_listing'%></div>
+</div>
 <% end %>
 <%end%>
 
@@ -554,7 +572,7 @@ $('.hrclbtn').click(function() {
 	
 	
 	function addImageoptions(){
-     var optionInfo = $("<tr>	\n    <td>\n <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\" margin-right:-21px;width:1vw; display:inline; margin-top:3px;\"  class=\"mtie7\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" /> \n <input type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input\"  style=\"width:19vw; margin-left:3.5vw; display:inline; height:19px; border:#d1d1d1 1px solid; margin-right:10px;\"  id=\"fields" +"_" + i + "_" + "name\" />  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
+     var optionInfo = $("<tr>	\n    <td>\n <input type=\"checkbox\" name=\"fields" + "[" + i + "]" + "[is_answer]\" value='1'  style=\" margin-right:-0.5vw;width:1vw; display:inline; margin-top:3px;\"  class=\"mtie7\" id=\"fields" +"_" + i + "_" + "is_answer" + "_1\" /> \n <input type=\"text\" value='' name=\"fields" + "[" + i + "]" + "[name]\"  class=\"validate[required,funcCall[checkHELLO]] text-input\"  style=\"width:19vw; margin-left:2.5vw; display:inline; height:19px; border:#d1d1d1 1px solid; margin-right:10px;\"  id=\"fields" +"_" + i + "_" + "name\" />  <a class=\"deleteClassInfo\"><img alt=\"Add Option\" src=\"/images/cross.jpg\" /></a> \n    <\/td> \n <\/tr>	\n");
 		i=i+1;
 		return optionInfo;
 	}

@@ -1076,7 +1076,7 @@ input [type='checkbox'] {
   padding: 0;
   display: flex;
   justify-content: space-between;
-  margin-left: 3vw;
+  margin-left: 6.5vw;
 }
 .uploadReptCtrl {
   float: left;
@@ -2524,7 +2524,7 @@ input[type='text'] {
   width: 216px;
 }
 #class_form {
-  margin-left: 5vw;
+  /* margin-left: 5vw; */
 }
 
 #filterExam {

@@ -71,4 +71,14 @@ $("#formID1").validationEngine();
 		
 		
   });
+  const filter=document.querySelector('#assign')
+  const form= document.querySelector('#class_form')
+  form.addEventListener('submit',()=>{
+	 filter.disabled=true;
+	 filter.style.opacity='0.5';
+	 setTimeout(()=>{
+		 filter.disabled=false;
+		 filter.style.opacity='1';
+	 },1300)
+  })
 </script>

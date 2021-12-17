@@ -71,6 +71,8 @@
 
 <script type="text/javascript">	
 
+
+
 function checkUncheckAll(checkAllState, cbGroup)
 {
 	// Check that the group has more than one element
@@ -133,6 +135,13 @@ $("#formID1").validationEngine();
 	  	to_date: $("#to_date").val()	  	
 	  };
 	  var url = "<%= url_for(getExam_path)%>";
+	  const filter= document.querySelector('#filterExam')
+	 
+		filter.disabled=true;
+		filter.style.opacity='0.5';
+		
+	
+	
 	  
 	  			$.get(url, data, function(resp_data){
 				   var arr = resp_data.examNames
@@ -142,7 +151,9 @@ $("#formID1").validationEngine();
 					$("#exam_id").append("<option title='"+value.exam.name+"' value=" + value.exam.id + ">" + value.exam.name + "</option>");
 				    });
 
-		    }, 'json')
+					filter.style.opacity='1';
+					filter.disabled=false;
+					}, 'json')
 	  
      });	
 		
@@ -150,7 +161,7 @@ $("#formID1").validationEngine();
 		
 
   });
-  
+
 
   </script>
 
