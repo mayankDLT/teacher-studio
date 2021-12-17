@@ -8,12 +8,12 @@
 				<td class="pb0">
 					<div style="float:left; padding:0px; margin:0 20px 5px 0;">
 						<label style="float:left; padding-right:10px; width:95px;"><%=t('exam.from_date')%>:</label>
-			          	<%= text_field_tag "from_date","",:class=>"validate[required,custom[dateOnly]] text-input datepicker", :style=>"border:#d1d1d1 1px solid; height:19px; width:160px; margin-bottom:8px;" %>
+			          	<%= text_field_tag "from_date","",:class=>"validate[required,custom[dateOnly]] text-input datepicker", :style=>"border:#d1d1d1 1px solid; height:19px; width:160px; margin-bottom:8px;",:autocomplete=>"off" %>
 					</div>
 					
 		    		<div style="float:left; padding:0px; margin:0; clear: left;">
 						<label style="float:left; padding-right:10px; width:95px;"><%=t('exam.to_date')%>:</label>
-			          	<%= text_field_tag "to_date","",:class=>"validate[required,custom[dateOnly], now[#from_date], future[#from_date]] text-input datepicker", :style=>"border:#d1d1d1 1px solid; height:19px; width:160px; margin-bottom:8px;" %>
+			          	<%= text_field_tag "to_date","",:class=>"validate[required,custom[dateOnly], now[#from_date], future[#from_date]] text-input datepicker", :style=>"border:#d1d1d1 1px solid; height:19px; width:160px; margin-bottom:8px;",:autocomplete=>"off" %>
 					</div>
 	
 				</td>				

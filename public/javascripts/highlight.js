@@ -1,13 +1,17 @@
 window.onload = function () {
   const url = document.location.href.toLowerCase();
 
-  if (url.includes('user') && !url.includes('userreport')) {
+  if (
+    url.includes('user') &&
+    !url.includes('userreport') &&
+    !url.includes('usersresult')
+  ) {
     try {
       const element = (document.querySelector('#users').className = 'active');
       return;
     } catch (e) {}
   }
-  if (url.includes('exam')) {
+  if (url.includes('exam') && !url.includes('usersresult')) {
     try {
       const element = (document.querySelector('#view-exams').className =
         'active');
@@ -32,7 +36,11 @@ window.onload = function () {
       url.includes('selectquestion') ||
       url.includes('evaluat')) &&
     !url.includes('examreport') &&
-    !url.includes('examsresult')
+    !url.includes('examsresult') &&
+    !url.includes('usersresult') &&
+    !url.includes('departmentresult') &&
+    !url.includes('userreport') &&
+    !url.includes('specificdepartment')
   ) {
     const element = (document.querySelector('#exams').className = 'active');
 
@@ -53,7 +61,8 @@ window.onload = function () {
   if (
     url.includes('report') ||
     url.includes('overall') ||
-    url.includes('pass_fail')
+    url.includes('pass_fail') ||
+    url.includes('specificdepartment')
   ) {
     const element = (document.querySelector('#reports').className = 'active');
     return;

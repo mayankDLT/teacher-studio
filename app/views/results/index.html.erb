@@ -1,10 +1,14 @@
 
+<%= stylesheet_link_tag "results-index.css"%>
+
+
 
 <%if current_user.role_id == Examinee%>
 
 <% form_tag resultIndex_path, :method=>"get", :id=>"class_form", :class=>"assign_question floatL w100pc mb15" do -%>
 
 <div class="formContainer">
+<h2>Result </h2>
 	<table class="formTable" style="border:0px;">
 		<tr>
 			
@@ -27,14 +31,14 @@
 	</td>				
   		</tr>
 </table>
-<%= submit_tag t('general.filter'), :id=>"filterexam", :class=>'btnBg' %>
+<%= submit_tag t('general.filter'), :id=>"filterexam", :class=>'btnBg',:style=>'margin-left:11vw;' %>
 </div>
 <%end%>
 
 
 
 <div class="updateStatus">
-<h3><%=t('result.res')%></h3>
+
 <%unless @results.empty?%>
 <table border="0" cellspacing="0">
 <tr class="updateHeader">

@@ -1,0 +1,26 @@
+.midCol {
+  font-size: 1rem;
+  width: 100%;
+  height: auto;
+  margin: 0 5px 20px 8px;
+  padding-top: 20px;
+  float: left;
+  /* background: #CCF; */
+  color: #3e3d40;
+}
+.questionTabele {
+  width: 80vw;
+  float: left;
+  margin: 0px;
+  margin-top: 1vh;
+  padding: 0px;
+  margin-bottom: 3vh;
+}
+.updateStatus table {
+  width: 100%;
+  border-collapse: collapse;
+  border-top: 1px solid #d1d1d1;
+  border-left: 1px solid #d1d1d1;
+  border-right: 1px solid #d1d1d1;
+  border-bottom: 1px solid #d1d1d1 !important;
+}

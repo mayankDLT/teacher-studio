@@ -1,5 +1,5 @@
 
-<h2><%=t('user.examinees')%></h2>
+<h2 style="margin-top:3vh";><%=t('user.examinees')%></h2>
   <%unless @category_id == 0 or @allYears.empty?%>	
     
 			<table border="0" cellspacing="0">
@@ -28,8 +28,10 @@
 			<%end%>
 			
 			</table>
-	<div class="n_s_left mt15">	<%= link_to t('reports.excel'), :action=>"generatePassfail", :category_id=>@category_id, :exam_id=>@examId, :passfail=>@passFail, :academicyear=>@academicYear, :examtype=>@examtype, :csv => 1%>	| 
-	    <%= link_to t('reports.pdf'), :action=>"generatePassfail", :category_id=>@category_id, :exam_id=>@examId, :passfail=>@passFail, :academicyear=>@academicYear, :examtype=>@examtype, :pdf => 1%>	
+	<div style="display:flex; width:100%; justify-content:center;margin-top:1vh;" class="n_s_left">	<%= link_to t('reports.excel'), {:action=>"generatePassfail", :category_id=>@category_id, :exam_id=>@examId, :passfail=>@passFail, :academicyear=>@academicYear, :examtype=>@examtype, :csv => 1},:class=>"green-button",:style=>"margin-right:3vw;"%>	   
+
+				
+	    <%= link_to t('reports.pdf'), {:action=>"generatePassfail", :category_id=>@category_id, :exam_id=>@examId, :passfail=>@passFail, :academicyear=>@academicYear, :examtype=>@examtype, :pdf => 1},:class=>"green-button"%>	
     </div>
 <%else%>
 <div class="formContainer">
