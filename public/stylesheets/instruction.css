@@ -1,0 +1,49 @@
+.content-aligner {
+  width: 97vw;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  background-color: #f7f7f7;
+  border-radius: 1rem;
+}
+.logoHolder {
+  width: 95vw;
+  height: 9vh;
+  margin: 0;
+  padding: 0;
+  float: left;
+  margin-left: -15px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.contentWrapper {
+  border-radius: 10px;
+  width: 122vw;
+  height: 78vh;
+  /* margin: 44px 0 0 0; */
+  padding: 0;
+  float: left;
+  background: #f7f7f7;
+  margin-left: 7.5px;
+  margin-right: 7.5px;
+  display: flex;
+  /* align-items: center; */
+  justify-content: center;
+  overflow: auto;
+}
+
+.imageRept {
+  float: left;
+  width: 40vw;
+  height: auto;
+  background: #fff;
+  margin: 0 0 0 10px;
+  overflow: hidden;
+}
+
+.imageRept img {
+  border: 0;
+  width: 100%;
+  height: 100%;
+}

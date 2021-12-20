@@ -22,7 +22,7 @@ window.onload = function () {
     const element = (document.querySelector('#subjects').className = 'active');
     return;
   }
-  if (url.includes('questions')) {
+  if (url.includes('questions') || url.includes('viewquestion')) {
     const element = (document.querySelector('#questions').className = 'active');
     return;
   }

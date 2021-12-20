@@ -2483,17 +2483,17 @@ select {
 #subject-controls {
   display: flex;
   justify-content: center;
-  margin-left: 2.5vw;
+  margin-left: -1vw;
 }
 #subject-controls2 {
   display: flex;
   justify-content: center;
-  margin-left: 2.5vw;
+  margin-left: -1.9vw;
   margin-top: 6vh;
 }
 
 .new_subject {
-  margin-left: 14vw;
+  margin-left: 1vw;
 }
 
 form span {

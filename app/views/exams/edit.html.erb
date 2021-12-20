@@ -43,7 +43,7 @@
 <tr>
 <td width="120px;"><%=t('exam.exam_date')%></td>
 <td>
-	<%= f.text_field :exam_date,:class=>"validate[required,custom[dateTime]] text-input", :id=>"datepicker", :style=>"border:#d1d1d1 1px solid; height:19px; width:200px;" %>
+	<%= f.text_field :exam_date,:class=>"validate[required,custom[dateTime]] text-input", :id=>"datepicker", :style=>"border:#d1d1d1 1px solid; height:19px; width:200px;",:autocomplete=>"off"%>
 </td></tr>
 
 
@@ -51,7 +51,7 @@
 <tr>
 <td width="120px;"><%=t('exam.total_time')%></td>
 <td>
-   <%= f.text_field :total_time,:class=>"validate[required,custom[setTime]] text-input", :id=>"total_time", :style=>"border:#d1d1d1 1px solid; height:19px; width:200px;" %>
+   <%= f.text_field :total_time,:class=>"validate[required,custom[setTime]] text-input", :id=>"total_time", :style=>"border:#d1d1d1 1px solid; height:19px; width:200px;",:autocomplete=>"off"%>
 </td>
 </tr> 
   
@@ -73,7 +73,7 @@
 <tr>
 <td width="120px;" style="vertical-align:top;"><%=t('exam.inst')%></td>
 <td>
-   <%= f.text_area :instruction,:class=>"validate[required,funcCall[checkHELLO]] text-input", :style=>"border:#d1d1d1 1px solid; height:87px; width:300px;    margin-left: 11vw;"  %>
+   <%= f.text_area :instruction,:class=>"validate[required,funcCall[checkHELLO]] text-input", :style=>"border:#d1d1d1 1px solid; height:87px; width:300px;    margin-left: 8vw;"  %>
 </td></tr>   
   
 <tr>

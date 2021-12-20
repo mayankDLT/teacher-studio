@@ -10,13 +10,13 @@
 			    <tr>
                 <td>
                 	<div style="float:left; padding:0px; margin:0 20px 0 0;">
-					<label style="float:left; padding-right:10px; width:115px;margin-left: 6vw;"><%=t('user.select_examinee')%>:</label>
-					<%= select_tag 'examineeType', options_for_select(@examineeTypes.to_a), :style=>"width:17vw; height:19px;margin-left: 16vw; border:#d1d1d1 1px solid;",:class=>"validate[required]" %>				
+					<label style="float:left; padding-right:10px; width:115px;margin-left: 1.2vw;"><%=t('user.select_examinee')%>:</label>
+					<%= select_tag 'examineeType', options_for_select(@examineeTypes.to_a), :style=>"width:17vw; height:19px;margin-left: 11vw; border:#d1d1d1 1px solid;",:class=>"validate[required]" %>				
 					</div>
 				</td>
                 </tr> 
             </table>
-			<%= submit_tag t('general.filter'), :id=>"filter", :class=>'btnBg',:style=>'margin-left: 16vw; margin-top:0;' %>
+			<%= submit_tag t('general.filter'), :id=>"filter", :class=>'btnBg',:style=>'margin-left: 11vw; margin-top:0;' %>
 </div><br><br><br>
 <%end%>
 
@@ -110,8 +110,21 @@ $("#question_filter").validationEngine();
   
   });
   
-  
-  
+  const filter=document.querySelector('#filter')
+  document.querySelector('#question_filter').addEventListener('submit',()=>{
+	
+	 
+				filter.disabled=true;
+				filter.style.opacity='0.5';
+ 
+
+  setTimeout(() => {
+	filter.style.opacity='1';
+		filter.disabled=false;
+	},1100 );
+		}
+	
+  )
 
 
 

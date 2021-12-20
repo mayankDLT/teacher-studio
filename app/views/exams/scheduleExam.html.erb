@@ -35,7 +35,7 @@
 			  <tr>
                 <td style="width:115px; text-align:left; padding-right:5px;" valign="top"><%=t('exam.exam_date')%></td>
                 <td style="width:115px;">
-		          <%= f.text_field :exam_date,:class=>"validate[required,custom[dateTime]] text-input", :id=>"datepicker", :style=>"border:#d1d1d1 1px solid; height:19px; width:200px; margin-bottom:8px;" %>
+		          <%= f.text_field :exam_date,:class=>"validate[required,custom[dateTime]] text-input", :id=>"datepicker", :style=>"border:#d1d1d1 1px solid; height:19px; width:200px; margin-bottom:8px;",:autocomplete=>"off" %>
 		        </td>
 				<td></td>
               </tr>
@@ -44,7 +44,7 @@
  			  <tr>
                 <td style="width:115px; text-align:left; padding-right:5px;" valign="top"><%=t('exam.total_time')%></td>
                 <td style="width:115px;">
-		          <%= f.text_field :total_time,:class=>"validate[required,custom[setTime]] text-input", :id=>"total_time", :style=>"border:#d1d1d1 1px solid; height:19px; width:200px; margin-bottom:8px;" %>
+		          <%= f.text_field :total_time,:class=>"validate[required,custom[setTime]] text-input", :id=>"total_time", :style=>"border:#d1d1d1 1px solid; height:19px; width:200px; margin-bottom:8px;",:autocomplete=>"off"%>
 		        </td>
 				<td></td>
               </tr>
