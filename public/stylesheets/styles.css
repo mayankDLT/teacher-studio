@@ -2629,6 +2629,7 @@ textarea {
 .virtualxLogo img {
   width: 13vw;
   height: 5.5vh;
+  filter: sepia(36%) hue-rotate(-152deg) saturate(500%);
 }
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .midCol h2 {

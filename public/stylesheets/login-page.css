@@ -65,6 +65,7 @@ body {
 }
 .logo img {
   width: 10.82vw !important;
+  filter: sepia(36%) hue-rotate(-152deg) saturate(500%);
 }
 
 #class_form {
