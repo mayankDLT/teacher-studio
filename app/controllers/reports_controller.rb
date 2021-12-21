@@ -1031,7 +1031,7 @@ class ReportsController < ApplicationController
       pdftable = Prawn::Document.new  
 
               img = "#{Rails.root}/public/images/virtualx_logo.jpg"
-              pdftable.image img, :at => [350,700], :width => 100
+              pdftable.image img, :at => [350,700], :width => 200,:height => 300
          pdftable.move_down(60)
              unless @course== nil  
               pdftable.text(t('org.class') + ": " + @course) 
@@ -1298,15 +1298,15 @@ class ReportsController < ApplicationController
       
       pdftable = Prawn::Document.new  
               img = "#{Rails.root}/public/images/virtualx_logo.jpg"
-              pdftable.image img, :at => [350,700], :width => 100
+              pdftable.image img, :at => [350,700], :width => 120,:height=>50
      pdftable.move_down(60)
              unless @course== nil  
-                pdftable.text(t('org.course') + ": " + @course) 
-                pdftable.text(t('org.dept') + ": " + @department)
-                pdftable.text(t('org.year') + ": " + @year + " year")
-                pdftable.text(t('org.semester') + ": " + @semester + " semester")
-                pdftable.text(t('exam.exam_type') + ": " + @examtype)
-                pdftable.text(t('general.acedemic_yr') + ": " + @academicyear)
+                pdftable.text(t('org.course') + ":  " + @course) 
+                pdftable.text(t('org.dept') + ":  " + @department)
+                pdftable.text(t('org.year') + ":  " + @year + " year")
+                pdftable.text(t('org.semester') + ":  " + @semester + " semester")
+                pdftable.text(t('exam.exam_type') + ":  " + @examtype)
+                pdftable.text(t('general.acedemic_yr') + ":  " + @academicyear)
              else
                 pdftable.text(t('org.course') + ": " + "") 
                 pdftable.text(t('org.dept') + ": " + "")
@@ -1319,7 +1319,7 @@ class ReportsController < ApplicationController
           pdftable.table([[t('user.examinee')] + 
          @examHeaders.map { |header| header.name } +
          [t('reports.grand_tot')]],
-         :column_widths => {0 => 50, 1 => 50, 2 => 50, 3=>50,4=>50,5=>50,6=>50,7=>50,8=>50,9=>50,10=>50,11=>50,12=>50,13=>50,14=>50,15=>50, }, :row_colors => ["d5d5d5"])
+         :column_widths => {0 => 70, 1 => 70, 2 => 70, 3=>70,4=>70,5=>70,6=>70,7=>70,8=>70,9=>70,10=>70,11=>70,12=>70,13=>70,14=>70,15=>70, }, :row_colors => ["d5d5d5"])
 
 
         @userIds.each do|user|
@@ -1372,7 +1372,7 @@ class ReportsController < ApplicationController
          pdftable.table([["#{user.tempexaminee}" == '1' ? "#{user.login}" : "#{user.username}"] + 
           eH.map{ |e|  @get.map { |subject,i| e==subject.name ? subject.dptReport(subject.categoryId,subject.userId,subject.name,subject.currentyear,subject.examtype) : 0 }.compact.inject(:+)}+          
          [@tot == nil ? 0 : @tot.to_f.round(2)]],
-         :column_widths => {0 => 50, 1 => 50, 2 => 50, 3=>50,4=>50,5=>50,6=>50,7=>50,8=>50,9=>50,10=>50,11=>50,12=>50,13=>50,14=>50,15=>50, }, :row_colors => ["ffffff"])
+         :column_widths => {0 => 70, 1 => 70, 2 => 70, 3=>70,4=>70,5=>70,6=>70,7=>70,8=>70,9=>70,10=>70,11=>70,12=>70,13=>70,14=>70,15=>70, }, :row_colors => ["ffffff"])
           
            @grandTotal.clear
         end

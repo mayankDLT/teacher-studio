@@ -1,9 +1,10 @@
 
-<%= stylesheet_link_tag "results-index.css"%>
+
 
 
 
 <%if current_user.role_id == Examinee%>
+<%= stylesheet_link_tag "results-index.css"%>
 
 <% form_tag resultIndex_path, :method=>"get", :id=>"class_form", :class=>"assign_question floatL w100pc mb15" do -%>
 

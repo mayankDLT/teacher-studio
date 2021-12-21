@@ -14,9 +14,10 @@
 <th><%=t('exam.start_time')%></th>
 
 <%if @setting == true%>
-<th><%=t('welcome.confirm')%>/<%=t('welcome.reject')%></th>
+<th>Status</th>
 <%else%>
-<th><%=t('attend_exam.attend')%></th>
+<th>Status</th>
+
 <%end%>
 <th></th>
 </tr>
@@ -59,16 +60,7 @@
 <td><%= "#{exam.exam_date.strftime('%I:%M %p')}"%></td>
 <%if @setting == true%>
 
-<td><%if "#{exam.is_confirmed}" == '1'%>
-    <%=t('general.confirmed')%>
-	<%elsif "#{exam.is_confirmed}" == '2'%>
-	<%=t('general.rejected')%>
-	<%else%>
-	<%= link_to t('welcome.confirm'), :action=>"confirm_exam", :controller=>"attend_exams", :categoryuser_id=>"#{exam.categoryuser_id}", :categoryexam_id=>"#{exam.categoryexam_id}" %>
-	| <%= link_to t('welcome.reject'), :action=>"reject_exam", :controller=>"attend_exams", :categoryuser_id=>"#{exam.categoryuser_id}", :categoryexam_id=>"#{exam.categoryexam_id}" %>
 
-	<%end%>
-</td>
 
 <%else%>
 <td>Confirmed</td>

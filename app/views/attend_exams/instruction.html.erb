@@ -23,8 +23,10 @@
 	$(document).ready(function() {
 		
 		$('#parentBtn').click(function(){
-
-   			parent.location.href = 'http://<%=@hostname%>/results/index';
+			const url = new URL(window.location.toString());
+			
+   			parent.location.href = url.protocol+'//'+url.host+'/results/index';
+			  
         });
 		
 });
