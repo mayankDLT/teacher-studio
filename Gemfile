@@ -1,6 +1,7 @@
 source 'http://rubygems.org'
 
 gem 'pdfkit','0.5.2'
+gem 'wkhtmltopdf-installer'
 #gem 'wkhtmltopdf'
 #gem 'htmlentities'
 #gem 'rake', '0.8.7'

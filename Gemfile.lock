@@ -117,6 +117,7 @@ GEM
     ttfunk (1.0.3)
     tzinfo (0.3.33)
     will_paginate (2.3.15)
+    wkhtmltopdf-installer (0.12.6.2)
 
 PLATFORMS
   ruby
@@ -139,3 +140,7 @@ DEPENDENCIES
   ruby-debug19
   truncate_html (= 0.5.5)
   will_paginate (= 2.3.15)
+  wkhtmltopdf-installer
+
+BUNDLED WITH
+   1.17.3
