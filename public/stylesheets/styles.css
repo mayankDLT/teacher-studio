@@ -239,13 +239,14 @@ input[type='text'] {
   line-height: 18px;
 }
 .loginForm .inwr {
-  width: 15vw;
+  width: 17vw;
   float: left;
   margin: 0px;
   border-radius: 5px;
   padding: 0;
   height: fit-content;
-
+  display: flex;
+  align-items: center;
   background: white;
 }
 .loginForm .inwr input {
@@ -2662,7 +2663,15 @@ textarea {
 .green-button-disabled:hover {
   cursor: not-allowed;
 }
-
+input[type='text'],
+input[type='password'],
+textarea,
+select {
+  outline: none;
+}
+input:-webkit-autofill {
+  -webkit-box-shadow: 0 0 0 30px white inset !important;
+}
 @media only screen and (min-width: 768px) and (max-width: 959px) {
   .midCol h2 {
     font-size: 1rem;

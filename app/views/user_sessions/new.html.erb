@@ -1,4 +1,5 @@
-<%= stylesheet_link_tag "font-awesome.min"%>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
 
 
 
@@ -14,12 +15,14 @@
         
        
 
+        <i class="fa fa-user" style="font-size:1.8vh;color:#f26f29;"></i> 
       </div>
     </div>
     <div class="block_col">
      
       <div class="inwr">
         <%= f.password_field :password, :class=>"validate[required,funcCall[checkHELLO]] text-input",:placeholder=>"Password"%>
+        <i class="fa fa-eye" id="show-password" style="font-size:2vh;color:#f26f29"></i>
       </div>
     </div>
     
@@ -34,5 +37,19 @@
 </div>
 
 <script type="text/javascript">
-
+const check=[]
+document.querySelector('#show-password').addEventListener('click',()=>{
+  if(check[0])
+    {
+      document.querySelector('#user_session_password').type='password'
+      document.querySelector('#show-password').className='fa fa-eye'
+      check.pop();
+    }
+  else{
+    check.push('1');
+    document.querySelector('#user_session_password').type='none'
+    document.querySelector('#show-password').className='fa fa-eye-slash'
+  }
+ 
+})
 </script>

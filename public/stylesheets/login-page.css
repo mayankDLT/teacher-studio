@@ -73,14 +73,14 @@ body {
 }
 .loginForm .inwr {
   margin-bottom: 0.5vh;
-  margin-left: 2vw;
+  margin-left: 0.8vw;
 }
 .green-button {
-  width: 15.8vw !important;
+  width: 16.8vw !important;
   height: 3.8vh;
   font-weight: normal !important;
   border-radius: 5px !important;
-  margin-left: -6.3vw;
+  margin-left: -7.4vw;
 }
 .green-button:hover {
   background: white !important;
@@ -108,4 +108,7 @@ body {
 .keyboard {
   width: 18px;
   height: 18px;
+}
+#show-password:hover {
+  cursor: pointer;
 }
